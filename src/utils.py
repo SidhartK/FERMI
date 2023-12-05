@@ -6,7 +6,7 @@ import pint
 import math
 from copy import deepcopy
 ureg = pint.UnitRegistry(system='mks', autoconvert_offset_to_baseunit=True)
-ureg.load_definitions('./src/units.txt')
+ureg.load_definitions('/Users/sidhartkrishnan/Documents/Programming/Projects/cs236/carafe/src/units.txt')
 
 def compile_fp(context, p):
     # import pdb; pdb.set_trace()
