@@ -1,0 +1,94 @@
+---------------------------------------------------------------------------------------------------------
+--------------------------------------------- FIRST MESSAGE ---------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+
+Question: How much space would be required to fit 1 individual of each species of plants and animals? (units: cm**3);
+Context:
+Correct Answer: 56053870000 cm**3
+Compiled Answer is: 8700000000000.0
+Summarized Problem is:  We want to compute the space required to fit one individual of each species of plants and animals.
+Program:
+```python
+# Q0: How much space would be required to fit 1 individual of each species of plants and animals?
+# R0: This is the main question we want to answer.
+# Q1: How many species of plants and animals are there?
+# R1: If we know the number of species of plants and animals, we can compute the space required by multiplying the number by the average space required for each species.
+# F1: There are approximately 8.7 million species of plants and animals.
+A1=8.7e+6 # (species)
+# Q2: What is the average space required for a plant or animal?
+# R2: If we know the average space required for a plant or animal, we can compute the space required by multiplying the number of species by the average space.
+# Q3: What is the average size of a plant or animal?
+# R3: We can approximate the average space required for a plant or animal by assuming it is a cube and then computing the volume of that cube.
+# Q4: What is the average height of a plant or animal?
+# R4: To compute the average size of a plant or animal, we need to know the height because we can cube that to get the volume.
+# F4: The average height of a plant or animal is 1 m. We must convert this into cm by multiplying by 100.
+A4=100 * 1e+0 # (cm)
+# F3: The average size of a plant or animal is approximated by cubing the average height.
+A3=A4 ** 3 # (cm**3)
+# F2: The average space required for a plant or animal is approximated by the average size.
+A2=A3 # (cm**3)
+# F0: The space required to fit 1 individual of each species of plants and animals is the number of species multiplied by the average space required for each species.
+A0=A1*A2 # (cm**3)
+```
+
+----------------------------------------------------------------------------------------------------------
+--------------------------------------------- SECOND MESSAGE ---------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+
+Question: How much space would be required to fit 1 individual of each species of plants and animals? (units: cm**3);
+Context: - An average person's annual consumption of food is 1996 pounds
+- The height is 1.73 m
+- It takes around 1 second to count a number
+- The circumference of the Earth is 1577756575 inches
+- The length of a nerd rope is 12 inches
+- The limit of a planet size is 10x that of jupiter.
+- There are 60 minutes in an hour.
+- The size of Jupiter is 1.4e+15 km cube.
+- There are 60 seconds in a minute.
+- There are 24 hours in a day.
+- Assuming the average volume of a single animal to be 7200 cc (90x40x2)
+- An average farm produces around 52000 pounds of food each year.
+- Around 360 sq. yards is required to build a house with a yard.
+- The average thickness of a sheet of paper is 0.00008 m
+- The average volume of a plant is 1570 cc (20cm height and 5cm radius)
+- The number of plant species in the world are 391000
+- There are 1000000 numbers in a million
+- The total human population is 7.2e+9
+- The number of animal species in the world are 7.7e+6
+- the average family size is 4
+Correct Answer: 56053870000 cm**3
+Compiled Answer is: 56053870000.0
+Summarized Problem is: REVISED
+Program:
+```python
+# Q0: How much space would be required to fit 1 individual of each species of plants and animals? (Same as original question Q0)
+# R0: This is the main question we want to answer. (Same as original reasoning R0)
+# Q1: How many species of plants and animals are there? (Same as original question Q1)
+# R1: If we know the number of species of plants and animals, we can compute the space required by multiplying the number by the average space required for each species. (Same as original reasoning R1)
+# Q2: How many species of plants are there? (Revised question based on new context)
+# R2: To compute the number of species of plants and animals, we need to know the number of species of plants and animals separately. (Revised reasoning based on new context)
+# F2: The number of plant species in the world are 391000. (Revised fact based on new context)
+A2=3.91e+5 # (species)
+# Q3: How many species of animals are there? (Revised question based on new context)
+# R3: To compute the number of species of plants and animals, we need to know the number of species of plants and animals separately. (Same as reasoning R2)
+# F3: The number of animal species in the world are 7.7e+6. (Revised fact based on new context)
+A3=7.7e+6 # (species)
+# F1: The number of species of plants and animals is the number of species of plants plus the number of species of animals. (Revised fact based on new context)
+A1=A2+A3 # (species)
+# Q4: What is the average space required for a plant or animal? (Same as original question Q2)
+# R4: If we know the average space required for a plant or animal, we can compute the space required by multiplying the number of species by the average space. (Same as original reasoning R2)
+# Q5: What is the average space required for a plant? (Revised question based on new context)
+# R5: If we know the average space required for a plant and the average space required for an animal, we can compute the average space required for a plant or animal by taking the weighted average of the two. (Revised reasoning based on new context)
+# F5: The average volume of a plant is 1570 cc. We must convert this into cm**3 by multiplying by 1. (Revised fact based on new context)
+A5=1.57e+3 # (cm**3)
+# Q6: What is the average space required for an animal? (Revised question based on new context)
+# R6: If we know the average space required for a plant and the average space required for an animal, we can compute the average space required for a plant or animal by taking the weighted average of the two. (Same as reasoning R5)
+# F6: Assuming the average volume of a single animal to be 7200 cc. We must convert this into cm**3 by multiplying by 1. (Revised fact based on new context)
+A6=7.2e+3 # (cm**3)
+# F4: The average space required for a plant or animal is the weighted average of the space required for a plant and the space required for an animal. (Revised fact based on new context)
+A4=(A2*A5 + A3*A6) / A1 # (cm**3)
+# F0: The space required to fit 1 individual of each species of plants and animals is the number of species multiplied by the average space required for each species. (Same as original fact F0)
+A0=A1*A4 # (cm**3)
+```

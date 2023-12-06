@@ -11,7 +11,7 @@ import torch
 # init hugging face
 from openai import OpenAI
 
-from expmt1_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
+from expmt2_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
 
 from unidecode import unidecode
 
@@ -21,7 +21,7 @@ import json
 load_dotenv()
 
 DATASET_PATH = "./data/verified_data/dataset.json"
-OUTPUT_STORE_PATH = "./results/expmt1/output_store.json"
+OUTPUT_STORE_PATH = "./results/expmt2/output_store.json"
 
 client = OpenAI(
     # This is the default and can be omitted

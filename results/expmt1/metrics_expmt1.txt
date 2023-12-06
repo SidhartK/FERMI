@@ -1,0 +1,2 @@
+Average Parsable Percentage:  {'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+Average Accuracy:  {'no-context': 0.5744357399840064, 'regular-context': 0.7637849135392183, 'distractor-context': 0.719080001491162}

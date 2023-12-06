@@ -1,0 +1,91 @@
+
+---------------------------------------------------------------------------------------------------------
+--------------------------------------------- FIRST MESSAGE ---------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+
+Question: How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water? (units: 3.20E+13);
+Context:
+Correct Answer: 3.20E+13
+Compiled Answer is: 8.098790268912682e+37
+Summarized Problem is:  We are adding golf balls to the ocean and they displace water such that all of the land on Earth gets submerged. We want to compute the number of golf balls that we need to add to the ocean.
+Program:
+```python
+# Q0: How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of water that will be added to the ocean?
+# R1: If we know the volume of water that will be added to the ocean, then we know how much water is needed to submerge all of the land on Earth and so we can compute the number of golf balls we need to add to the ocean.
+# Q2: What is the volume of land on Earth that is above sea level?
+# R2: The volume of water that will be added to the ocean is the same as the volume of land on Earth that is above sea level since all of the land on Earth gets submerged.
+# Q3: What fraction of the Earth's surface is land?
+# R3: To compute the volume of land on Earth that is above sea level, we need to know what fraction of the Earth's surface is land because we can multiply that by the surface area of the Earth and then multiply that by the average elevation of land to get the volume of land on Earth that is above sea level.
+# F3: One third of the Earth's surface is land.
+A3=1/3 # (dimensionless)
+# Q4: What is the surface area of the Earth?
+# R4: To compute the volume of land on Earth that is above sea level, we need to know the surface area of the Earth because we can multiply that by the fraction of the Earth's surface that is land and then multiply that by the average elevation of land to get the volume of land on Earth that is above sea level.
+# F4: The surface area of the Earth is 1.97e+8 mi**2.
+A4=1.97e+8 # (mi**2)
+# Q5: What is the average elevation of land?
+# R5: To compute the volume of land on Earth that is above sea level, we need to know the average elevation of land because we can multiply that by the surface area of Earth that is land to get the volume of land on Earth that is above sea level.
+# F5: The average elevation of land is 0.5 mi.
+A5=5e-1 # (mi)
+# F2: The volume of land on Earth that is above sea level is the fraction of the Earth's surface that is land multiplied by the surface area of the Earth multiplied by the average elevation of land.
+A2=A3*A4*A5 # (mi**3)
+# F1: The volume of water that will be added to the ocean is the same as the volume of land on Earth that is above sea level.
+A1=A2 # (mi**3)
+# Q6: What is the volume of a golf ball?
+# R6: To compute the number of golf balls we need to add to the ocean, we need to know the volume of a golf ball because we can divide the volume of water that will be added to the ocean by the volume of a golf ball to get the number of golf balls.
+# F6: The volume of a golf ball is 2.87 in**3. We must convert this into mi**3 by multiplying by (5.208e-11 ** 3).
+A6=(5.208e-11 ** 3) * 2.87e+0 # (mi**3)
+# F0: The number of golf balls we need to add to the ocean is the volume of water that will be added to the ocean divided by the volume of a golf ball.
+A0=A1/A6 # (golf balls)
+```
+
+----------------------------------------------------------------------------------------------------------
+--------------------------------------------- SECOND MESSAGE ---------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+
+Question: How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water? (units: 3.20E+13);
+Context: - A single nuke contains around 4e+15 J
+- Earth is to be moved 1% out of its orbit.
+- The gravitational constant of earth is 6.6e-11 m**3*kg**-1*s**-2
+- The volume of single SO bacterium is 2e-12 cc
+- The surface area of oceans is 361e+6 km**2
+- The average volume of a living thing in an ocean is 5e-3 km**3
+- The radius of earth is 6.3e+6 m
+- The average weight of normal person is 63 kg
+- The height of the water in ocean is 3.7 km
+- The volume of a golf ball is 4e-5 km**3
+- The volume of the oceans is 1.3e+9 km**3
+- The number of living things in an ocean is 1e+9
+- The weight of a megalodon is 66138 pounds.
+- Even Though dead bodies float, dead people weighing upwards of 125 kg sink in water.
+- The numerical coefficient to calculate the square of the radius is 2.
+- The towing capacity of a Model X is 6700 pounds
+- The original volume of the oceans is 1335700000 km**3
+- Around 4e+35 J is required to knock earth from its orbit.
+- The mass of earth is 6e+24 kg
+- The volume of ping pong ball is 33.5 cc
+Correct Answer: 3.20E+13
+Compiled Answer is: 15249999999999.998
+Summarized Problem is: REVISED
+Program:
+```python
+# Q0: How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water? (Same as original question Q0)
+# R0: This is the main question we want to answer. (Same as original reasoning R0)
+# Q1: What is the volume of water that will be added to the ocean? (Same as original question Q1)
+# R1: If we know the volume of water that will be added to the ocean, then we know how much water is needed to submerge all of the land on Earth and so we can compute the number of golf balls we need to add to the ocean. (Same as original reasoning R1)
+# Q2: What is the volume of land on Earth that is above sea level? (Same as original question Q2)
+# R2: The volume of water that will be added to the ocean is the same as the volume of land on Earth that is above sea level since all of the land on Earth gets submerged. (Same as original reasoning R2)
+# F2: The volume of land on Earth that is above sea level is the original volume of the oceans subtracted by the current volume of the oceans. (Revised fact based on new context)
+A2= 6.1e+8 # (km**3)
+# F1: The volume of water that will be added to the ocean is the volume of land on Earth that is above sea level. (Same as original fact F1)
+A1=A2 # (km**3)
+# Q3: What is the volume of a golf ball? (Same as original question Q6)
+# R3: To compute the number of golf balls we need to add to the ocean, we need to know the volume of a golf ball because we can divide the volume of water that will be added to the ocean by the volume of a golf ball to get the number of golf balls. (Same as original reasoning R6)
+# F3: The volume of a golf ball is 4e-5 km**3. (Revised fact based on new context)
+A3= 4e-5 # (km**3)
+# F0: The number of golf balls we need to add to the ocean is the volume of water that will be added to the ocean divided by the volume of a golf ball.
+A0=A1/A3 # (golf balls)
+```

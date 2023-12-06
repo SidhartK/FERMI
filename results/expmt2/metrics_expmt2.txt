@@ -1,0 +1,8 @@
+>>> print(accuracy)
+{'no-context': 0.58968278783824, 'regular-context': 0.7534799202832445, 'distractor-context': 0.7025611195718222}
+>>> print(parsable)
+{'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+
+
+Average Parsable Percentage:  {'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+Average Accuracy:  {'no-context': 0.5744357399840064, 'regular-context': 0.7637849135392183, 'distractor-context': 0.719080001491162}

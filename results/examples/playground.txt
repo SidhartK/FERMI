@@ -1,0 +1,204 @@
+
+
+16
+
+Question: How much would the human skeleton weigh if it was made of iron?;
+Context:
+Correct Answer: 60.8
+Compiled Answer is: 9259.824
+Summarized Problem is:  The human skeleton is made of iron. We want to compute the weight of this iron skeleton.
+Program:
+```python
+# Q0: How much would the human skeleton weigh if it was made of iron?
+# Q1: What is the volume of the human skeleton?
+A1=1.2e-1 # The volume of the human skeleton (m**3)
+# Q2: What is the density of iron?
+A2=7.874e+3 # The density of iron (kg/m**3)
+# Q3: What is the mass of the iron skeleton?
+A3=A1*A2 # The mass of the iron skeleton (kg)
+# Q4: What is the acceleration due to gravity?
+A4=9.8 # The acceleration due to gravity (m/s**2)
+A0=A3*A4 # The weight of the iron skeleton (N)
+```
+Question: How much would the human skeleton weigh if it was made of iron?;
+Context:
+Correct Answer: 60.8
+Compiled Answer is: 437.9646486486487
+Summarized Problem is:  The human skeleton is made of iron. We want to compute the weight of this iron skeleton.
+Program:
+```python
+# Q0: How much would the human skeleton weigh if it was made of iron?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of the human skeleton?
+# R1: If we know the volume of the human skeleton, we can compute the weight of the iron skeleton by multiplying the volume of the skeleton by the density of iron and the acceleration due to gravity.
+# Q2: What is the mass of the human skeleton?
+# R2: To compute the volume of the human skeleton, we need to know the mass of the skeleton because we can divide the mass of the skeleton by the density of bone to get the volume of the skeleton.
+# F2: The mass of the human skeleton is 15% of the total body mass.
+A2=0.15 # (dimensionless)
+# Q3: What is the total body mass of a human?
+# R3: To compute the mass of the human skeleton, we need to know the total body mass of a human because we can multiply that by the fraction of the total body mass that is the skeleton to get the mass of the skeleton.
+# F3: The average body mass of a human is 70 kg.
+A3=7.0e+1 # (kg)
+# F1: The mass of the human skeleton is the fraction of the total body mass that is the skeleton multiplied by the total body mass of a human.
+A1=A2*A3 # (kg)
+# Q4: What is the density of bone?
+# R4: To compute the volume of the human skeleton, we need to know the density of bone because we can divide the mass of the skeleton by the density of bone to get the volume of the skeleton.
+# F4: The density of bone is 1.85 g/cm**3. We must convert this into kg/m**3 by multiplying by 1e+3.
+A4=1e+3 * 1.85e+0 # (kg/m**3)
+# F0: The volume of the human skeleton is the mass of the skeleton divided by the density of bone.
+A0=A1/A4 # (m**3)
+# Q5: What is the density of iron?
+# R5: To compute the weight of the iron skeleton, we need to know the density of iron because we can multiply the volume of the skeleton by the density of iron and the acceleration due to gravity to get the weight of the iron skeleton.
+# F5: The density of iron is 7.874 g/cm**3. We must convert this into kg/m**3 by multiplying by 1e+3.
+A5=1e+3 * 7.874e+0 # (kg/m**3)
+# Q6: What is the acceleration due to gravity?
+# R6: To compute the weight of the iron skeleton, we need to know the acceleration due to gravity because we can multiply the volume of the skeleton by the density of iron and the acceleration due to gravity to get the weight of the iron skeleton.
+# F6: The acceleration due to gravity is 9.8 m/s**2.
+A6=9.8e+0 # (m/s**2)
+# F0: The weight of the iron skeleton is the volume of the skeleton multiplied by the density of iron and the acceleration due to gravity.
+A0=A0*A5*A6 # (N)
+```
+
+PROGRAM COMPARISON:
+# Q0: How much would the human skeleton weigh if it was made of iron?
+# Q1: What is the volume of the human skeleton?
+A1=1.2e-1 # The volume of the human skeleton (m**3)
+# Q2: What is the density of iron?
+A2=7.874e+3 # The density of iron (kg/m**3)
+# Q3: What is the mass of the iron skeleton?
+A3=A1*A2 # The mass of the iron skeleton (kg)
+# Q4: What is the acceleration due to gravity?
+A4=9.8 # The acceleration due to gravity (m/s**2)
+A0=A3*A4 # The weight of the iron skeleton (N)
+# Q0: How much would the human skeleton weigh if it was made of iron?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of the human skeleton?
+# R1: If we know the volume of the human skeleton, we can compute the weight of the iron skeleton by multiplying the volume of the skeleton by the density of iron and the acceleration due to gravity.
+# Q2: What is the mass of the human skeleton?
+# R2: To compute the volume of the human skeleton, we need to know the mass of the skeleton because we can divide the mass of the skeleton by the density of bone to get the volume of the skeleton.
+# F2: The mass of the human skeleton is 15% of the total body mass.
+A2=0.15 # (dimensionless)
+# Q3: What is the total body mass of a human?
+# R3: To compute the mass of the human skeleton, we need to know the total body mass of a human because we can multiply that by the fraction of the total body mass that is the skeleton to get the mass of the skeleton.
+# F3: The average body mass of a human is 70 kg.
+A3=7.0e+1 # (kg)
+# F1: The mass of the human skeleton is the fraction of the total body mass that is the skeleton multiplied by the total body mass of a human.
+A1=A2*A3 # (kg)
+# Q4: What is the density of bone?
+# R4: To compute the volume of the human skeleton, we need to know the density of bone because we can divide the mass of the skeleton by the density of bone to get the volume of the skeleton.
+# F4: The density of bone is 1.85 g/cm**3. We must convert this into kg/m**3 by multiplying by 1e+3.
+A4=1e+3 * 1.85e+0 # (kg/m**3)
+# F0: The volume of the human skeleton is the mass of the skeleton divided by the density of bone.
+A0=A1/A4 # (m**3)
+# Q5: What is the density of iron?
+# R5: To compute the weight of the iron skeleton, we need to know the density of iron because we can multiply the volume of the skeleton by the density of iron and the acceleration due to gravity to get the weight of the iron skeleton.
+# F5: The density of iron is 7.874 g/cm**3. We must convert this into kg/m**3 by multiplying by 1e+3.
+A5=1e+3 * 7.874e+0 # (kg/m**3)
+# Q6: What is the acceleration due to gravity?
+# R6: To compute the weight of the iron skeleton, we need to know the acceleration due to gravity because we can multiply the volume of the skeleton by the density of iron and the acceleration due to gravity to get the weight of the iron skeleton.
+# F6: The acceleration due to gravity is 9.8 m/s**2.
+A6=9.8e+0 # (m/s**2)
+# F0: The weight of the iron skeleton is the volume of the skeleton multiplied by the density of iron and the acceleration due to gravity.
+A0=A0*A5*A6 # (N)
+
+
+17
+
+Question: For a freshly mowed lawn, estimate the mass, g, of the grass above ground.;
+Context:
+Correct Answer: 6.0
+Compiled Answer is: 10000000.0
+Summarized Problem is:  We have a freshly mowed lawn and we want to estimate the mass of the grass that is above ground.
+Program:
+```python
+# Q0: For a freshly mowed lawn, estimate the mass, g, of the grass above ground.
+# Q1: What is the area of the lawn?
+A1=1e+3 # The area of the lawn (m**2)
+# Q2: What is the height of the grass above ground?
+A2=0.01 # The height of the grass above ground (m)
+# Q3: What is the volume of the grass above ground?
+A3=A1*A2 # The volume of the grass above ground (m**3)
+# Q4: What is the density of grass?
+A4=1e+3 # The density of grass (kg/m**3)
+# Q5: What is the mass of the grass above ground?
+A5=A3*A4 # The mass of the grass above ground (kg)
+A0=A5*1e+3 # The mass of the grass above ground (g)
+```
+Question: For a freshly mowed lawn, estimate the mass, g, of the grass above ground.;
+Context:
+Correct Answer: 6.0
+Compiled Answer is: 1179868.608
+Summarized Problem is:  We have a freshly mowed lawn and we want to compute the mass of the grass above ground.
+Program:
+```python
+# Q0: For a freshly mowed lawn, estimate the mass, g, of the grass above ground.
+# R0: This is the main question we want to answer.
+# Q1: What is the area of the lawn?
+# R1: To compute the mass of the grass above ground, we need to know the area of the lawn because we can multiply that by the mass of grass per unit area to get the mass of the grass.
+# Q2: What is the length of the lawn?
+# R2: To compute the area of the lawn, we need to know the length of the lawn because we can multiply that by the width of the lawn to get the area of the lawn.
+# F2: The length of a typical lawn is 50 ft. We must convert this into m by multiplying by 0.3048.
+A2=0.3048 * 5.0e+1 # (m)
+# Q3: What is the width of the lawn?
+# R3: To compute the area of the lawn, we need to know the width of the lawn because we can multiply that by the length of the lawn to get the area of the lawn.
+# F3: The width of a typical lawn is 50 ft. We must convert this into m by multiplying by 0.3048.
+A3=0.3048 * 5.0e+1 # (m)
+# F1: The area of the lawn is the length of the lawn multiplied by the width of the lawn.
+A1=A2*A3 # (m**2)
+# Q4: What is the mass of grass per unit area?
+# R4: To compute the mass of the grass above ground, we need to know the mass of grass per unit area because we can multiply that by the area of the lawn to get the mass of the grass.
+# Q5: What is the height of the grass?
+# R5: To compute the mass of grass per unit area, we need to know the height of the grass because we can multiply that by the density of grass to get the mass of grass per unit area.
+# F5: The height of freshly mowed grass is 2 in. We must convert this into m by multiplying by 0.0254.
+A5=0.0254 * 2.0e+0 # (m)
+# Q6: What is the density of grass?
+# R6: To compute the mass of grass per unit area, we need to know the density of grass because we can multiply that by the height of the grass to get the mass of grass per unit area.
+# F6: The density of grass is 0.1 g/cm**3. We must convert this into g/m**3 by multiplying by 1e+6.
+A6=1e+6 * 1.0e-1 # (g/m**3)
+# F4: The mass of grass per unit area is the height of the grass multiplied by the density of grass.
+A4=A5*A6 # (g/m**2)
+# F0: The mass of the grass above ground is the area of the lawn multiplied by the mass of grass per unit area.
+A0=A1*A4 # (g)
+```
+
+PROGRAM COMPARISON:
+# Q0: For a freshly mowed lawn, estimate the mass, g, of the grass above ground.
+# Q1: What is the area of the lawn?
+A1=1e+3 # The area of the lawn (m**2)
+# Q2: What is the height of the grass above ground?
+A2=0.01 # The height of the grass above ground (m)
+# Q3: What is the volume of the grass above ground?
+A3=A1*A2 # The volume of the grass above ground (m**3)
+# Q4: What is the density of grass?
+A4=1e+3 # The density of grass (kg/m**3)
+# Q5: What is the mass of the grass above ground?
+A5=A3*A4 # The mass of the grass above ground (kg)
+A0=A5*1e+3 # The mass of the grass above ground (g)
+# Q0: For a freshly mowed lawn, estimate the mass, g, of the grass above ground.
+# R0: This is the main question we want to answer.
+# Q1: What is the area of the lawn?
+# R1: To compute the mass of the grass above ground, we need to know the area of the lawn because we can multiply that by the mass of grass per unit area to get the mass of the grass.
+# Q2: What is the length of the lawn?
+# R2: To compute the area of the lawn, we need to know the length of the lawn because we can multiply that by the width of the lawn to get the area of the lawn.
+# F2: The length of a typical lawn is 50 ft. We must convert this into m by multiplying by 0.3048.
+A2=0.3048 * 5.0e+1 # (m)
+# Q3: What is the width of the lawn?
+# R3: To compute the area of the lawn, we need to know the width of the lawn because we can multiply that by the length of the lawn to get the area of the lawn.
+# F3: The width of a typical lawn is 50 ft. We must convert this into m by multiplying by 0.3048.
+A3=0.3048 * 5.0e+1 # (m)
+# F1: The area of the lawn is the length of the lawn multiplied by the width of the lawn.
+A1=A2*A3 # (m**2)
+# Q4: What is the mass of grass per unit area?
+# R4: To compute the mass of the grass above ground, we need to know the mass of grass per unit area because we can multiply that by the area of the lawn to get the mass of the grass.
+# Q5: What is the height of the grass?
+# R5: To compute the mass of grass per unit area, we need to know the height of the grass because we can multiply that by the density of grass to get the mass of grass per unit area.
+# F5: The height of freshly mowed grass is 2 in. We must convert this into m by multiplying by 0.0254.
+A5=0.0254 * 2.0e+0 # (m)
+# Q6: What is the density of grass?
+# R6: To compute the mass of grass per unit area, we need to know the density of grass because we can multiply that by the height of the grass to get the mass of grass per unit area.
+# F6: The density of grass is 0.1 g/cm**3. We must convert this into g/m**3 by multiplying by 1e+6.
+A6=1e+6 * 1.0e-1 # (g/m**3)
+# F4: The mass of grass per unit area is the height of the grass multiplied by the density of grass.
+A4=A5*A6 # (g/m**2)
+# F0: The mass of the grass above ground is the area of the lawn multiplied by the mass of grass per unit area.
+A0=A1*A4 # (g)
