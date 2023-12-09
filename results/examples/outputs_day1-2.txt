@@ -1,0 +1,899 @@
+Last login: Tue Dec  5 22:25:46 on ttys013
+(base) sidhartkrishnan@DNa1cac10 ~ % code Documents/Programming/Projects/cs236/carafe
+(base) sidhartkrishnan@DNa1cac10 ~ % cd Documents/Programming/Projects/cs236/carafe
+(base) sidhartkrishnan@DNa1cac10 carafe % source .venv/bin/activate
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py
+I think the answer is: 8.40e+06 tennis balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many tennis balls are sold each year in New York City?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of New York City?
+# R1: To compute the number of tennis balls sold each year in New York City, we need to know the population of New York City because we can multiply that by the number of tennis balls bought per person per year to get the number of tennis balls sold each year in New York City.
+# F1: The population of New York City is 8.4 million people.
+A1=8.4e+6 # (people)
+# Q2: What is the number of tennis balls bought per person per year in New York City?
+# R2: To compute the number of tennis balls sold each year in New York City, we need to know the number of tennis balls bought per person per year in New York City because we can multiply that by the population of New York City to get the number of tennis balls sold each year in New York City.
+# Q3: What fraction of people in New York City play tennis?
+# R3: To compute the number of tennis balls bought per person per year in New York City, we need to know what fraction of people in New York City play tennis because we can multiply that by the number of tennis balls bought per tennis player per year to get the number of tennis balls bought per person per year in New York City.
+# F3: 1% of people in New York City play tennis.
+A3=1/100 # (dimensionless)
+# Q4: What is the number of tennis balls bought per tennis player per year in New York City?
+# R4: To compute the number of tennis balls bought per person per year in New York City, we need to know the number of tennis balls bought per tennis player per year in New York City because we can multiply that by the fraction of people in New York City who play tennis to get the number of tennis balls bought per person per year in New York City.
+# F4: A tennis player in New York City buys 100 tennis balls per year.
+A4=1e+2 # (tennis balls)
+# F2: The number of tennis balls bought per person per year in New York City is the fraction of people in New York City who play tennis multiplied by the number of tennis balls bought per tennis player per year in New York City.
+A2=A3*A4 # (tennis balls)
+# F0: The number of tennis balls sold each year in New York City is the population of New York City multiplied by the number of tennis balls bought per person per year in New York City.
+A0=A1*A2 # (tennis balls)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py
+  File "/Users/sidhartkrishnan/Documents/Programming/Projects/cs236/carafe/src/demo.py", line 196
+    print("You asked the question: {} (units: {})".format(args.question, args.units)))
+                                                                                     ^
+SyntaxError: unmatched ')'
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py
+You asked the question: How many tennis balls are sold each year in New York City? (units: tennis balls)
+I think the answer is: 8.40e+06 tennis balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many tennis balls are sold each year in New York City?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of New York City?
+# R1: To compute the number of tennis balls sold each year in New York City, we need to know the population of New York City because we can multiply that by the number of tennis balls bought per person per year to get the number of tennis balls sold each year in New York City.
+# F1: The population of New York City is 8.4 million people.
+A1=8.4e+6 # (people)
+# Q2: What is the number of tennis balls bought per person per year in New York City?
+# R2: To compute the number of tennis balls sold each year in New York City, we need to know the number of tennis balls bought per person per year in New York City because we can multiply that by the population of New York City to get the number of tennis balls sold each year in New York City.
+# Q3: What fraction of people in New York City play tennis?
+# R3: To compute the number of tennis balls bought per person per year in New York City, we need to know what fraction of people in New York City play tennis because we can multiply that by the number of tennis balls bought per tennis player per year to get the number of tennis balls bought per person per year in New York City.
+# F3: 1% of people in New York City play tennis.
+A3=1/100 # (dimensionless)
+# Q4: What is the number of tennis balls bought per tennis player per year?
+# R4: To compute the number of tennis balls bought per person per year in New York City, we need to know the number of tennis balls bought per tennis player per year because we can multiply that by the fraction of people in New York City who play tennis to get the number of tennis balls bought per person per year in New York City.
+# F4: A tennis player buys 100 tennis balls per year.
+A4=1e+2 # (tennis balls)
+# F2: The number of tennis balls bought per person per year in New York City is the fraction of people in New York City who play tennis multiplied by the number of tennis balls bought per tennis player per year.
+A2=A3*A4 # (tennis balls)
+# F0: The number of tennis balls sold each year in New York City is the population of New York City multiplied by the number of tennis balls bought per person per year in New York City.
+A0=A1*A2 # (tennis balls)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "how many students can fit in a school gym?" --units "students"
+You asked the question: how many students can fit in a school gym? (units: students)
+I think the answer is: 3.90e+02 students
+
+
+Here is my reasoning:
+```python
+# Q0: How many students can fit in a school gym?
+# R0: This is the main question we want to answer.
+# Q1: What is the area of the gym?
+# R1: If we know the area of the gym and the area per student, we can compute the number of students that can fit in the gym by dividing the area of the gym by the area per student.
+# Q2: What is the length of the gym?
+# R2: To compute the area of the gym, we need to know the length of the gym because we can multiply that by the width of the gym to get the area of the gym.
+# F2: The length of a typical school gym is 84 ft. We must convert this into m by multiplying by 0.3048.
+A2=0.3048 * 8.4e+1 # (m)
+# Q3: What is the width of the gym?
+# R3: To compute the area of the gym, we need to know the width of the gym because we can multiply that by the length of the gym to get the area of the gym.
+# F3: The width of a typical school gym is 50 ft. We must convert this into m by multiplying by 0.3048.
+A3=0.3048 * 5.0e+1 # (m)
+# F1: The area of the gym is the length of the gym multiplied by the width of the gym.
+A1=A2*A3 # (m**2)
+# Q4: What is the area per student?
+# R4: If we know the area of the gym and the area per student, we can compute the number of students that can fit in the gym by dividing the area of the gym by the area per student.
+# F4: The area per student is 1 m**2.
+A4=1.0e+0 # (m**2)
+# F0: The number of students that can fit in the gym is the area of the gym divided by the area per student.
+A0=A1/A4 # (students)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "how many pizza shops in chicago" --units "shops"
+You asked the question: how many pizza shops in chicago (units: shops)
+I think the answer is: 2.70e+02 shops
+
+
+Here is my reasoning:
+```python
+# Q0: How many pizza shops are there in Chicago?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of Chicago?
+# R1: If we know the population of Chicago, we can estimate the number of pizza shops in Chicago by dividing the population of Chicago by the number of people per pizza shop.
+# F1: The population of Chicago is 2.7 million people.
+A1=2.7e+6 # (people)
+# Q2: How many people are there per pizza shop?
+# R2: If we know the number of people per pizza shop, we can estimate the number of pizza shops in Chicago by dividing the population of Chicago by the number of people per pizza shop.
+# F2: There are 10,000 people per pizza shop.
+A2=1e+4 # (people/shop)
+# F0: The number of pizza shops in Chicago is the population of Chicago divided by the number of people per pizza shop.
+A0=A1/A2 # (shops)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "How many refugees are there in Sri Lanka" --units "people"
+You asked the question: How many refugees are there in Sri Lanka (units: people)
+I think the answer is: 2.18e+04 people
+
+
+Here is my reasoning:
+```python
+# Q0: How many refugees are there in Sri Lanka?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of Sri Lanka?
+# R1: To compute the number of refugees in Sri Lanka, we need to know the population of Sri Lanka because we can multiply that by the fraction of the population that are refugees to get the number of refugees.
+# F1: The population of Sri Lanka is 21.8 million people.
+A1=21.8e+6 # (people)
+# Q2: What fraction of the population of Sri Lanka are refugees?
+# R2: To compute the number of refugees in Sri Lanka, we need to know the fraction of the population that are refugees because we can multiply that by the population of Sri Lanka to get the number of refugees.
+# F2: The fraction of the population of Sri Lanka that are refugees is 0.001.
+A2=1e-3 # (dimensionless)
+# F0: The number of refugees in Sri Lanka is the population of Sri Lanka multiplied by the fraction of the population that are refugees.
+A0=A1*A2 # (people)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "What is the average weight of a hundred chickens?" --units ""
+You asked the question: What is the average weight of a hundred chickens? (units: )
+I think the answer is: 5.50e+02
+
+
+Here is my reasoning:
+```python
+# Q0: What is the average weight of a hundred chickens?
+# R0: This is the main question we want to answer.
+# Q1: What is the average weight of a single chicken?
+# R1: To compute the average weight of a hundred chickens, we need to know the average weight of a single chicken because we can multiply that by 100 to get the average weight of a hundred chickens.
+# F1: The average weight of a single chicken is 5.5 lbs.
+A1=5.5e+0 # (lbs)
+# F0: The average weight of a hundred chickens is 100 times the average weight of a single chicken.
+A0=100*A1 # (lbs)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "How many jellybeans will fill the world volumetrically?" --units "jelly beans"
+You asked the question: How many jellybeans will fill the world volumetrically? (units: jelly beans)
+I think the answer is: 1.73e+27 jelly beans
+
+
+Here is my reasoning:
+```python
+# Q0: How many jellybeans will fill the world volumetrically?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of the world?
+# R1: To compute how many jellybeans will fill the world volumetrically, we need to know the volume of the world because we can divide the volume of the world by the volume of a jellybean to get the number of jellybeans that will fill the world volumetrically.
+# Q2: What is the radius of the world?
+# R2: To compute the volume of the world, we need to know the radius of the world because we can use the formula for the volume of a sphere to compute the volume of the world.
+# F2: The radius of the world is 6,371 km. We must convert this into cm by multiplying by 1e+5.
+A2=1e+5 * 6.371e+3 # (cm)
+# F1: The volume of the world is 4/3*pi*r**3 where r is the radius of the world.
+A1=(4/3)*np.pi*(A2 ** 3) # (cm**3)
+# Q3: What is the volume of a jellybean?
+# R3: To compute how many jellybeans will fill the world volumetrically, we need to know the volume of a jellybean because we can divide the volume of the world by the volume of a jellybean to get the number of jellybeans that will fill the world volumetrically.
+# F3: The volume of a jellybean is 0.625 cm**3.
+A3=6.25e-1 # (cm**3)
+# F0: The number of jellybeans that will fill the world volumetrically is the volume of the world divided by the volume of a jellybean.
+A0=A1/A3 # (jelly beans)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "how heavy would peter griffin + clifford the big red dog be" --units "lbs"
+You asked the question: how heavy would peter griffin + clifford the big red dog be (units: lbs)
+I think the answer is: 5.48e+02 lbs
+
+
+Here is my reasoning:
+```python
+# Q0: How heavy would Peter Griffin + Clifford the Big Red Dog be?
+# R0: This is the main question we want to answer.
+# Q1: What is the weight of Peter Griffin?
+# R1: To compute the combined weight of Peter Griffin and Clifford the Big Red Dog, we need to know the weight of Peter Griffin.
+# F1: Peter Griffin is a cartoon character and his weight is not officially stated, but we can estimate his weight based on his appearance and the average weight of an American male. The average weight of an American male is 197.9 lbs.
+A1=1.979e+2 # (lbs)
+# Q2: What is the weight of Clifford the Big Red Dog?
+# R2: To compute the combined weight of Peter Griffin and Clifford the Big Red Dog, we need to know the weight of Clifford the Big Red Dog.
+# F2: Clifford the Big Red Dog is a cartoon character and his weight is not officially stated, but we can estimate his weight based on his size relative to humans in the cartoon. Clifford is about 25 feet tall, which is about 5 times the height of an average male Labrador Retriever. The average weight of a male Labrador Retriever is 70 lbs, so we can estimate Clifford's weight to be 5 times that.
+A2=5*7.0e+1 # (lbs)
+# F0: The combined weight of Peter Griffin and Clifford the Big Red Dog is the sum of their weights.
+A0=A1+A2 # (lbs)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % cd ../
+(.venv) (base) sidhartkrishnan@DNa1cac10 cs236 % ls
+GPT2				carafe				fermi_env			hw2				langchain-selfask-wagents	vae
+__MACOSX			fermi				fermigpt			hw3				midterm
+(.venv) (base) sidhartkrishnan@DNa1cac10 cs236 % cd ../
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % ls
+Compose		Darts		Loral		Morph		Multigraph	cs236
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % mkdir DancingCells
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % cd DancingCells
+(.venv) (base) sidhartkrishnan@DNa1cac10 DancingCells % ls
+(.venv) (base) sidhartkrishnan@DNa1cac10 DancingCells %
+(.venv) (base) sidhartkrishnan@DNa1cac10 DancingCells % code .
+(.venv) (base) sidhartkrishnan@DNa1cac10 DancingCells % ls
+playground.ipynb
+(.venv) (base) sidhartkrishnan@DNa1cac10 DancingCells %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 DancingCells % cd ../
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % ls
+Compose		DancingCells	Darts		Loral		Morph		Multigraph	cs236
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % git clone https://github.com/ContestOrganizationManagementPlatform/CASSIE.git
+Cloning into 'CASSIE'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % ls
+CASSIE		Compose		DancingCells	Darts		Loral		Morph		Multigraph	cs236
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % cd Compose
+(.venv) (base) sidhartkrishnan@DNa1cac10 Compose % ls
+COMPOSE			package-lock.json
+(.venv) (base) sidhartkrishnan@DNa1cac10 Compose % ls
+COMPOSE			package-lock.json
+(.venv) (base) sidhartkrishnan@DNa1cac10 Compose % cd ../
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % ls
+CASSIE		Compose		DancingCells	Darts		Loral		Morph		Multigraph	cs236
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % mv Compose COMP
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % ls
+CASSIE		COMP		DancingCells	Darts		Loral		Morph		Multigraph	cs236
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % mv CASSIE COMP
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % mv COMP comp
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % cd comp
+(.venv) (base) sidhartkrishnan@DNa1cac10 comp % ls
+CASSIE			COMPOSE			package-lock.json
+(.venv) (base) sidhartkrishnan@DNa1cac10 comp % cd CAs
+cd: no such file or directory: CAs
+(.venv) (base) sidhartkrishnan@DNa1cac10 comp % cd CASSIE
+(.venv) (base) sidhartkrishnan@DNa1cac10 CASSIE % ls
+README.md
+(.venv) (base) sidhartkrishnan@DNa1cac10 CASSIE % mkdir src/
+(.venv) (base) sidhartkrishnan@DNa1cac10 CASSIE %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 CASSIE % ls
+README.md	src
+(.venv) (base) sidhartkrishnan@DNa1cac10 CASSIE % cd ../
+(.venv) (base) sidhartkrishnan@DNa1cac10 comp % ls
+CASSIE			COMPOSE			package-lock.json
+(.venv) (base) sidhartkrishnan@DNa1cac10 comp % cd ../
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % ls
+DancingCells	Darts		Loral		Morph		Multigraph	comp		cs236
+(.venv) (base) sidhartkrishnan@DNa1cac10 Projects % cd cs236/carafe
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % ls
+CODE_OF_CONDUCT.md	README.md		SUPPORT.md		docs			pyproject.toml		src
+LICENSE			SECURITY.md		data			plot.png		results			tests
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % deactivate
+(base) sidhartkrishnan@DNa1cac10 carafe % source .venv/bin/activate
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % ls
+CODE_OF_CONDUCT.md	README.md		SUPPORT.md		docs			pyproject.toml		src
+LICENSE			SECURITY.md		data			plot.png		results			tests
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py
+You asked the question: How many tennis balls are sold each year in New York City? (units: tennis balls)
+I think the answer is: 8.40e+06 tennis balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many tennis balls are sold each year in New York City?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of New York City?
+# R1: To compute the number of tennis balls sold each year in New York City, we need to know the population of New York City because we can multiply that by the number of tennis balls bought per person per year to get the number of tennis balls sold each year in New York City.
+# F1: The population of New York City is 8.4 million people.
+A1=8.4e+6 # (people)
+# Q2: What is the number of tennis balls bought per person per year in New York City?
+# R2: To compute the number of tennis balls sold each year in New York City, we need to know the number of tennis balls bought per person per year in New York City because we can multiply that by the population of New York City to get the number of tennis balls sold each year in New York City.
+# Q3: What fraction of people in New York City play tennis?
+# R3: To compute the number of tennis balls bought per person per year in New York City, we need to know what fraction of people in New York City play tennis because we can multiply that by the number of tennis balls bought per tennis player per year to get the number of tennis balls bought per person per year in New York City.
+# F3: 1% of people in New York City play tennis.
+A3=1/100 # (dimensionless)
+# Q4: What is the number of tennis balls bought per tennis player per year?
+# R4: To compute the number of tennis balls bought per person per year in New York City, we need to know the number of tennis balls bought per tennis player per year because we can multiply that by the fraction of people in New York City who play tennis to get the number of tennis balls bought per person per year in New York City.
+# F4: A tennis player buys 100 tennis balls per year.
+A4=1e+2 # (tennis balls)
+# F2: The number of tennis balls bought per person per year in New York City is the fraction of people in New York City who play tennis multiplied by the number of tennis balls bought per tennis player per year.
+A2=A3*A4 # (tennis balls)
+# F0: The number of tennis balls sold each year in New York City is the population of New York City multiplied by the number of tennis balls bought per person per year in New York City.
+A0=A1*A2 # (tennis balls)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "How much chalk is purchased in Princeton New Jersey annually" --units "pieces of chalk"
+You asked the question: How much chalk is purchased in Princeton New Jersey annually (units: pieces of chalk)
+I think the answer is: 3.00e+04 pieces of chalk
+
+
+Here is my reasoning:
+```python
+# Q0: How much chalk is purchased in Princeton New Jersey annually?
+# R0: This is the main question we want to answer.
+# Q1: How many people in Princeton, New Jersey purchase chalk annually?
+# R1: To compute the number of pieces of chalk purchased in Princeton, New Jersey annually, we need to know how many people in Princeton, New Jersey purchase chalk annually because we can multiply that by the number of pieces of chalk each person purchases annually to get the total number of pieces of chalk purchased annually.
+# Q2: What is the population of Princeton, New Jersey?
+# R2: To compute the number of people in Princeton, New Jersey who purchase chalk annually, we need to know the population of Princeton, New Jersey because we can multiply that by the fraction of people who purchase chalk annually to get the number of people who purchase chalk annually.
+# F2: The population of Princeton, New Jersey is 30,000.
+A2=3e+4 # (people)
+# Q3: What fraction of people purchase chalk annually?
+# R3: To compute the number of people in Princeton, New Jersey who purchase chalk annually, we need to know the fraction of people who purchase chalk annually because we can multiply that by the population of Princeton, New Jersey to get the number of people who purchase chalk annually.
+# F3: Let's assume that 10% of people purchase chalk annually.
+A3=1e-1 # (dimensionless)
+# F1: The number of people in Princeton, New Jersey who purchase chalk annually is the population of Princeton, New Jersey multiplied by the fraction of people who purchase chalk annually.
+A1=A2*A3 # (people)
+# Q4: How many pieces of chalk does each person purchase annually?
+# R4: To compute the number of pieces of chalk purchased in Princeton, New Jersey annually, we need to know how many pieces of chalk each person purchases annually because we can multiply that by the number of people who purchase chalk annually to get the total number of pieces of chalk purchased annually.
+# F4: Let's assume that each person purchases 10 pieces of chalk annually.
+A4=1e+1 # (pieces of chalk)
+# F0: The number of pieces of chalk purchased in Princeton, New Jersey annually is the number of people in Princeton, New Jersey who purchase chalk annually multiplied by the number of pieces of chalk each person purchases annually.
+A0=A1*A4 # (pieces of chalk)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "What is Euler's constant times a billion?" --units "dimensionless"
+You asked the question: What is Euler's constant times a billion? (units: dimensionless)
+I think the answer is: 2.72e+09 dimensionless
+
+
+Here is my reasoning:
+```python
+# Q0: What is Euler's constant times a billion?
+# R0: This is the main question we want to answer.
+# Q1: What is Euler's constant?
+# R1: To compute Euler's constant times a billion, we need to know Euler's constant.
+# F1: Euler's constant is approximately 2.71828.
+A1=2.71828 # (dimensionless)
+# Q2: What is a billion?
+# R2: To compute Euler's constant times a billion, we need to know what a billion is.
+# F2: A billion is 1e+9.
+A2=1e+9 # (dimensionless)
+# F0: Euler's constant times a billion is Euler's constant multiplied by a billion.
+A0=A1*A2 # (dimensionless)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "What is Euler's gamma constant times a billion?" --units "dimensionless"
+You asked the question: What is Euler's gamma constant times a billion? (units: dimensionless)
+I think the answer is: 5.77e+08 dimensionless
+
+
+Here is my reasoning:
+```python
+# Q0: What is Euler's gamma constant times a billion?
+# R0: This is the main question we want to answer.
+# Q1: What is Euler's gamma constant?
+# R1: To compute Euler's gamma constant times a billion, we need to know Euler's gamma constant.
+# F1: Euler's gamma constant is 0.57721566490153286060.
+A1=0.57721566490153286060 # (dimensionless)
+# F0: Euler's gamma constant times a billion is Euler's gamma constant multiplied by a billion.
+A0=A1*1e+9 # (dimensionless)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "How many golf balls fit inside a school bus" --units "golf balls"
+You asked the question: How many golf balls fit inside a school bus (units: golf balls)
+I think the answer is: 2.18e+06 golf balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many golf balls fit inside a school bus?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of a school bus?
+# R1: To compute how many golf balls can fit inside a school bus, we need to know the volume of the school bus because we can divide the volume of the school bus by the volume of a golf ball to get the number of golf balls that can fit inside the school bus.
+# Q2: What is the length of a school bus?
+# R2: To compute the volume of a school bus, we need to know the length of the school bus because we can multiply that by its width and height to get its volume.
+# F2: The length of a school bus is 45 ft. We must convert this into in by multiplying by 12.
+A2=12 * 4.5e+1 # (in)
+# Q3: What is the width of a school bus?
+# R3: To compute the volume of a school bus, we need to know the width of the school bus because we can multiply that by its length and height to get its volume.
+# F3: The width of a school bus is 8 ft. We must convert this into in by multiplying by 12.
+A3=12 * 8e+0 # (in)
+# Q4: What is the height of a school bus?
+# R4: To compute the volume of a school bus, we need to know the height of the school bus because we can multiply that by its length and width to get its volume.
+# F4: The height of a school bus is 9 ft. We must convert this into in by multiplying by 12.
+A4=12 * 9e+0 # (in)
+# F1: The volume of a school bus is its length multiplied by its width and height.
+A1=A2*A3*A4 # (in**3)
+# Q5: What is the volume of a golf ball?
+# R5: To compute how many golf balls can fit inside a school bus, we need to know the volume of a golf ball because we can divide the volume of the school bus by the volume of a golf ball to get the number of golf balls that can fit inside the school bus.
+# Q6: What is the radius of a golf ball?
+# R6: To compute the volume of a golf ball, we need to know the radius of the golf ball because we can multiply that by 4/3*pi*r**3 to get its volume.
+# F6: The radius of a golf ball is 0.85 in.
+A6=8.5e-1 # (in)
+# F5: The volume of a golf ball is 4/3*pi*r**3 where r is the radius of the golf ball.
+A5=(4/3)*np.pi*(A6 ** 3) # (in**3)
+# F0: The number of golf balls that can fit inside a school bus is the volume of the school bus divided by the volume of a golf ball.
+A0=A1/A5 # (golf balls)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py
+You asked the question: How many tennis balls are sold each year in New York City? (units: tennis balls)
+I think the answer is: 8.40e+06 tennis balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many tennis balls are sold each year in New York City?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of New York City?
+# R1: To compute the number of tennis balls sold each year in New York City, we need to know the population of New York City because we can multiply that by the number of tennis balls bought per person per year to get the number of tennis balls sold each year in New York City.
+# F1: The population of New York City is 8.4 million people.
+A1=8.4e+6 # (people)
+# Q2: What is the number of tennis balls bought per person per year in New York City?
+# R2: To compute the number of tennis balls sold each year in New York City, we need to know the number of tennis balls bought per person per year in New York City because we can multiply that by the population of New York City to get the number of tennis balls sold each year in New York City.
+# Q3: What fraction of people in New York City play tennis?
+# R3: To compute the number of tennis balls bought per person per year in New York City, we need to know what fraction of people in New York City play tennis because we can multiply that by the number of tennis balls bought per tennis player per year to get the number of tennis balls bought per person per year in New York City.
+# F3: 1% of people in New York City play tennis.
+A3=1/100 # (dimensionless)
+# Q4: What is the number of tennis balls bought per tennis player per year?
+# R4: To compute the number of tennis balls bought per person per year in New York City, we need to know the number of tennis balls bought per tennis player per year because we can multiply that by the fraction of people in New York City who play tennis to get the number of tennis balls bought per person per year in New York City.
+# F4: A tennis player buys 100 tennis balls per year.
+A4=1e+2 # (tennis balls)
+# F2: The number of tennis balls bought per person per year in New York City is the fraction of people in New York City who play tennis multiplied by the number of tennis balls bought per tennis player per year.
+A2=A3*A4 # (tennis balls)
+# F0: The number of tennis balls sold each year in New York City is the population of New York City multiplied by the number of tennis balls bought per person per year in New York City.
+A0=A1*A2 # (tennis balls)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "How much chalk is purchased in Princeton New Jersey annually" --units "pieces of chalk"
+You asked the question: How much chalk is purchased in Princeton New Jersey annually (units: pieces of chalk)
+I think the answer is: 3.00e+04 pieces of chalk
+
+
+Here is my reasoning:
+```python
+# Q0: How much chalk is purchased in Princeton New Jersey annually?
+# R0: This is the main question we want to answer.
+# Q1: How many people in Princeton, New Jersey purchase chalk annually?
+# R1: To compute the number of pieces of chalk purchased in Princeton, New Jersey annually, we need to know how many people in Princeton, New Jersey purchase chalk annually because we can multiply that by the number of pieces of chalk each person purchases annually to get the total number of pieces of chalk purchased annually.
+# Q2: What is the population of Princeton, New Jersey?
+# R2: To compute the number of people in Princeton, New Jersey who purchase chalk annually, we need to know the population of Princeton, New Jersey because we can multiply that by the fraction of people who purchase chalk annually to get the number of people who purchase chalk annually.
+# F2: The population of Princeton, New Jersey is 30,000.
+A2=3e+4 # (people)
+# Q3: What fraction of people purchase chalk annually?
+# R3: To compute the number of people in Princeton, New Jersey who purchase chalk annually, we need to know the fraction of people who purchase chalk annually because we can multiply that by the population of Princeton, New Jersey to get the number of people who purchase chalk annually.
+# F3: Let's assume that 10% of people purchase chalk annually.
+A3=1e-1 # (dimensionless)
+# F1: The number of people in Princeton, New Jersey who purchase chalk annually is the population of Princeton, New Jersey multiplied by the fraction of people who purchase chalk annually.
+A1=A2*A3 # (people)
+# Q4: How many pieces of chalk does each person purchase annually?
+# R4: To compute the number of pieces of chalk purchased in Princeton, New Jersey annually, we need to know how many pieces of chalk each person purchases annually because we can multiply that by the number of people who purchase chalk annually to get the total number of pieces of chalk purchased annually.
+# F4: Let's assume that each person purchases 10 pieces of chalk annually.
+A4=1e+1 # (pieces of chalk)
+# F0: The number of pieces of chalk purchased in Princeton, New Jersey annually is the number of people in Princeton, New Jersey who purchase chalk annually multiplied by the number of pieces of chalk each person purchases annually.
+A0=A1*A4 # (pieces of chalk)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe %
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "What is Euler's constant times a billion?" --units "dimensionless"
+You asked the question: What is Euler's constant times a billion? (units: dimensionless)
+I think the answer is: 2.72e+09 dimensionless
+
+
+Here is my reasoning:
+```python
+# Q0: What is Euler's constant times a billion?
+# R0: This is the main question we want to answer.
+# Q1: What is Euler's constant?
+# R1: To compute Euler's constant times a billion, we need to know Euler's constant.
+# F1: Euler's constant is approximately 2.71828.
+A1=2.71828 # (dimensionless)
+# Q2: What is a billion?
+# R2: To compute Euler's constant times a billion, we need to know what a billion is.
+# F2: A billion is 1e+9.
+A2=1e+9 # (dimensionless)
+# F0: Euler's constant times a billion is Euler's constant multiplied by a billion.
+A0=A1*A2 # (dimensionless)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "What is Euler's gamma constant times a billion?" --units "dimensionless"
+You asked the question: What is Euler's gamma constant times a billion? (units: dimensionless)
+I think the answer is: 5.77e+08 dimensionless
+
+
+Here is my reasoning:
+```python
+# Q0: What is Euler's gamma constant times a billion?
+# R0: This is the main question we want to answer.
+# Q1: What is Euler's gamma constant?
+# R1: To compute Euler's gamma constant times a billion, we need to know Euler's gamma constant.
+# F1: Euler's gamma constant is 0.57721566490153286060.
+A1=0.57721566490153286060 # (dimensionless)
+# F0: Euler's gamma constant times a billion is Euler's gamma constant multiplied by a billion.
+A0=A1*1e+9 # (dimensionless)
+```
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "How many golf balls fit inside a school bus" --units "golf balls"
+You asked the question: How many golf balls fit inside a school bus (units: golf balls)
+I think the answer is: 2.18e+06 golf balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many golf balls fit inside a school bus?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of a school bus?
+# R1: To compute how many golf balls can fit inside a school bus, we need to know the volume of the school bus because we can divide the volume of the school bus by the volume of a golf ball to get the number of golf balls that can fit inside the school bus.
+# Q2: What is the length of a school bus?
+# R2: To compute the volume of a school bus, we need to know the length of the school bus because we can multiply that by its width and height to get its volume.
+# F2: The length of a school bus is 45 ft. We must convert this into in by multiplying by 12.
+A2=12 * 4.5e+1 # (in)
+# Q3: What is the width of a school bus?
+# R3: To compute the volume of a school bus, we need to know the width of the school bus because we can multiply that by its length and height to get its volume.
+# F3: The width of a school bus is 8 ft. We must convert this into in by multiplying by 12.
+A3=12 * 8e+0 # (in)
+# Q4: What is the height of a school bus?
+# R4: To compute the volume of a school bus, we need to know the height of the school bus because we can multiply that by its length and width to get its volume.
+# F4: The height of a school bus is 9 ft. We must convert this into in by multiplying by 12.
+A4=12 * 9e+0 # (in)
+# F1: The volume of a school bus is its length multiplied by its width and height.
+A1=A2*A3*A4 # (in**3)
+# Q5: What is the volume of a golf ball?
+# R5: To compute how many golf balls can fit inside a school bus, we need to know the volume of a golf ball because we can divide the volume of the school bus by the volume of a golf ball to get the number of golf balls that can fit inside the school bus.
+# Q6: What is the radius of a golf ball?
+# R6: To compute the volume of a golf ball, we need to know the radius of the golf ball because we can multiply that by 4/3*pi*r**3 to get its volume.
+# F6: The radius of a golf ball is 0.85 in.
+A6=8.5e-1 # (in)
+# F5: The volume of a golf ball is 4/3*pi*r**3 where r is the radius of the golf ball.
+A5=(4/3)*np.pi*(A6 ** 3) # (in**3)
+# F0: The number of golf balls that can fit inside a school bus is the volume of the school bus divided by the volume of a golf ball.
+A0=A1/A5 # (golf balls)
+```
+
+(.venv) (base) sidhartkrishnan@DNa1cac10 carafe % python src/demo.py --question "how many macbook pros stacked on top on one another would fill an amazon warehouse" --units ""
+You asked the question: how many macbook pros stacked on top on one another would fill an amazon warehouse (units: )
+I think the answer is: 2.40e+07
+
+
+Here is my reasoning:
+```python
+# Q0: How many MacBook Pros stacked on top on one another would fill an Amazon warehouse?
+# R0: This is the main question we want to answer.
+# Q1: What is the volume of a MacBook Pro?
+# R1: To compute the number of MacBook Pros needed to fill an Amazon warehouse, we need to know the volume of a MacBook Pro because we can divide the volume of the warehouse by the volume of a MacBook Pro to get the number of MacBook Pros needed.
+# Q2: What is the thickness of a MacBook Pro?
+# R2: To compute the volume of a MacBook Pro, we need to know the thickness of a MacBook Pro because we can multiply that by its length and width to get its volume.
+# F2: The thickness of a MacBook Pro is 0.63 inches. We must convert this into feet by dividing by 12.
+A2=0.63/12 # (ft)
+# Q3: What is the length of a MacBook Pro?
+# R3: To compute the volume of a MacBook Pro, we need to know the length of a MacBook Pro because we can multiply that by its width and thickness to get its volume.
+# F3: The length of a MacBook Pro is 8.94 inches. We must convert this into feet by dividing by 12.
+A3=8.94/12 # (ft)
+# Q4: What is the width of a MacBook Pro?
+# R4: To compute the volume of a MacBook Pro, we need to know the width of a MacBook Pro because we can multiply that by its length and thickness to get its volume.
+# F4: The width of a MacBook Pro is 12.78 inches. We must convert this into feet by dividing by 12.
+A4=12.78/12 # (ft)
+# F1: The volume of a MacBook Pro is its length multiplied by its width multiplied by its thickness.
+A1=A2*A3*A4 # (ft**3)
+# Q5: What is the volume of an Amazon warehouse?
+# R5: To compute the number of MacBook Pros needed to fill an Amazon warehouse, we need to know the volume of the warehouse because we can divide the volume of the warehouse by the volume of a MacBook Pro to get the number of MacBook Pros needed.
+# F5: The volume of an Amazon warehouse is 1 million ft**3.
+A5=1e+6 # (ft**3)
+# F0: The number of MacBook Pros needed to fill an Amazon warehouse is the volume of the warehouse divided by the volume of a MacBook Pro.
+A0=A5/A1 # (dimensionless)
+```
+
