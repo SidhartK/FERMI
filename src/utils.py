@@ -136,13 +136,31 @@ def accuracy_metric(y, y_hat):
     if y == 0 and y_hat == 0:
         return 1
     elif y == 0 or y_hat == 0:
-        return max(0, 1-np.abs(np.log10(np.abs(y - y_hat))))
-    # elif y/y_hat == 0:
-    #     return 0
+        log_diff = np.abs(np.log10(1e-10 if y_hat == 0 else y_hat) - np.log10(1e-10 if y == 0 else y))
+        percentage_diff = log_diff/(np.abs(np.log10(1e-10 if y == 0 else y)) + 1e-10)
+        return 1 - min(percentage_diff/2.0, 1.0)
+
     try:
-        return max(0, 3-np.abs(np.log10(y/y_hat)))/3
+        log_diff = np.abs(np.log10(y_hat) - np.log10(y))
+        percentage_diff = log_diff/(np.abs(np.log10(y)) + 1e-10)
+        return 1 - min(percentage_diff/2.0, 1.0)
     except:
         return 0
+
+    # if y is None or y_hat is None:
+    #     return 0
+    # if y < 0 or y_hat < 0:
+    #     return 0
+    # if y == 0 and y_hat == 0:
+    #     return 1
+    # elif y == 0 or y_hat == 0:
+    #     return max(0, 1-np.abs(np.log10(np.abs(y - y_hat))))
+    # # elif y/y_hat == 0:
+    # #     return 0
+    # try:
+    #     return max(0, 3-np.abs(np.log10(y/y_hat)))/3
+    # except:
+    #     return 0
 
 def convert_units(answer):
     if type(answer) == str:

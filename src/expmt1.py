@@ -11,7 +11,7 @@ import torch
 # init hugging face
 from openai import OpenAI
 
-from expmt1_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
+from prompts.expmt1_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
 
 from unidecode import unidecode
 
@@ -108,7 +108,7 @@ class SamplePredictor:
         messages.append({"role": "user", "content": QUERY_PROMPT.format(question=question, units=units)})
 
         if verbose:
-            print(f"\n{'-' * 105}\n{'-' * 45} FIRST MESSAGE {'-' * 45}\n{'-' * 105}\n\n")
+            print(f"\n{'-' * 105}\n{'-' * 45} NO CONTEXT MESSAGE {'-' * 45}\n{'-' * 105}\n\n")
 
         preds = self.chat(messages)
 
@@ -118,7 +118,7 @@ class SamplePredictor:
 
         if context is not None:
             if verbose:
-                print(f"\n{'-' * 106}\n{'-' * 45} SECOND MESSAGE {'-' * 45}\n{'-' * 106}\n\n")
+                print(f"\n{'-' * 106}\n{'-' * 45} PERFECT CONTEXT MESSAGE {'-' * 45}\n{'-' * 106}\n\n")
             messages.append({"role": "assistant", "content": ASSISTANT_FIRST_RESP_PROMPT.format(summary=noctxt_pred.get("summary", ""), program=noctxt_pred.get("program", ""))})
             messages.append({"role": "user", "content": CONTEXT_PROMPT.format(context="- " + "\n- ".join(context))})
             preds = self.chat(messages)
@@ -126,7 +126,7 @@ class SamplePredictor:
 
         if distractor_context is not None:
             if verbose:
-                print(f"\n{'-' * 106}\n{'-' * 45} SECOND MESSAGE {'-' * 45}\n{'-' * 106}\n\n")
+                print(f"\n{'-' * 106}\n{'-' * 45} DISTRACTOR MESSAGE {'-' * 45}\n{'-' * 106}\n\n")
             messages.append({"role": "assistant", "content": ASSISTANT_FIRST_RESP_PROMPT.format(summary=noctxt_pred.get("summary", ""), program=noctxt_pred.get("program", ""))})
             messages.append({"role": "user", "content": CONTEXT_PROMPT.format(context="- " + "\n- ".join(distractor_context))})
             preds = self.chat(messages)

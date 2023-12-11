@@ -11,7 +11,7 @@ import torch
 # init hugging face
 from openai import OpenAI
 
-from expmt2_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
+from prompts.expmt2_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
 
 from unidecode import unidecode
 

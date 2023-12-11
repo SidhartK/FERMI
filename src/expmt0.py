@@ -9,94 +9,34 @@ import numpy as np
 import torch
 
 # init hugging face
-from langchain.llms.openai import OpenAI
-from langchain.prompts import PromptTemplate, FewShotPromptTemplate
-from langchain.chains import LLMChain, LLMMathChain
+from openai import OpenAI
 
-from utils import compile_fp, convert_units, accuracy_metric
+from prompts.expmt0_prompts import QUERY_PROMPT, ASSISTANT_RESP_PROMPT, SYSTEM_PROMPT_STRING
+
+from unidecode import unidecode
+
+from utils import accuracy_metric, compile_fp, convert_units
 import json
 
 load_dotenv()
 
-INPUT_PROMPT = PromptTemplate(
-                        input_variables=["context", "question"],
-                        template="""{context}=QUESTION:={question}"""
-                    )
+FEWSHOT_DATASET_PATH = "./data/verified_data/dataset-val.json"
+DATASET_PATH = "./data/verified_data/dataset-test.json"
+OUTPUT_STORE_PATH = "./results/expmt0/output_store.json"
 
-OUTPUT_PROMPT = PromptTemplate(
-                        input_variables=["answer", "question"],
-                        template="""{answer}={program}"""
-                    )
-
-EXAMPLE_PROMPT = PromptTemplate.from_template(
-                        """Input: {input}\n\n{output}"""
-                    )
-
-SYSTEM_PROMPT_STRING = """
-You are a helpful assistant tasked with answering estimation questions using provided information.
-You are provided with contextual information which contains facts that is relevant to answering the estimation question.
-Please provide your answer in the format shown below.
-"""
-
-FEW_SHOT_PROMPT_STRING = """
-Input: CONTEXT:=F1: The volume of the penny is 0.93 in**3=QUESTION:=If I were to take an English penny, melt it down, then somehow stretch it out into a perfect hollow sphere 1 atom thick, how large would this sphere be?
-
-8.4e-2 in**3=PROGRAM:=```python\n# Q0: If I were to take an English penny, melt it down, then somehow stretch it out into a perfect hollow sphere 1 atom thick, how large would this sphere be?\n# Q1: What is the volume of a single penny?\nA1=0.93 # volume of a single penny (in**3)\n# Q2: What is the surface area of a hollow sphere 1 atom thick which is constructed from a melted penny?\nA2=0.93 # surface area of a hollow 1 atom thick sphere constructed from a melted penny (in**2)\nA0=(4/3)*np.pi*(A2/(4*np.pi))**(3/2) # volume of a hollow 1 atom thick sphere constructed from a melted penny (in**3)```
-
-Input: CONTEXT:=F1: It takes around 5 seconds to pluck a single strand of hair.=F2: The entire human body has 5e+6 hair follicles.=QUESTION:=How long would it take to pluck each hair out of your body one at a time?
-
-2.5e+7 s=PROGRAM:=```python\n# Q0: How long would it take to pluck each hair out of your body one at a time?\n# Q1: How long does it take to pluck a single strand of hair?\nA1=5 # time to pluck single strand of hair (s)\n# Q2: How many hairs do we have on our body?\nA2=5e+6 # number of hairs on body (hairs)\nA0=A1*A2 # time to pluck all hairs on body (s)```
-
-Input: CONTEXT:=F1: The volume of the lecture hall is 24000 metre cube=F2: The volume of a single air molecule is 3e-24 cubic meter=QUESTION:=How many air molecules are in this lecture hall?
-
-8.00E+27=PROGRAM:=```python\n# Q0: How many air molecules are in this lecture hall?\n# Q1: What is the volume of the lecture hall?\nA1=24000 # volume of the lecture hall (m**3)\n# Q2: What is the volume of a single air molecule?\nA2=3e-24 # volume of single air molecule (m**3)\nA0=A1/A2 # number of air molecules in lecture hall (molecules)```
-
-Input: CONTEXT:=F1: The average american lifespan is 78 years.=F2: Cancer cuts down the average lifespan of a person by 5 years.=QUESTION:=A cure for all cancers would increase the average American lifespan by how many years?
-
-83=PROGRAM:=```python\n# Q0: A cure for all cancers would increase the average American lifespan by how many years?\n# Q1: What is the average american lifespan?\nA1=78 # average american lifespan (years)\n# Q2: Cancer cuts down the average lifespan by how many years?\nA2=5 # amount cancer reduces average lifespan by (years)\nA0=A1+A2 # average lifespan with cancer (years)```
-
-Input: CONTEXT:=F1: The mass of a queen size mattress is 140 pounds=F2: The mass of the sun is 4.3e+30 pounds.=F3: The ratio of mass of Betelgeuse to mass of sun is 18=QUESTION:=What is the number of queen-size mattresses it would take to fill the star Betelgeuse which has 18 times the mass of the Sun?
-
-5.53E+29=PROGRAM:=```python\n# Q0: What is the number of queen-size mattresses it would take to fill the star Betelgeuse which has 18 times the mass of the Sun?\n# Q1: What is the mass of a queen size mattress?\nA1=140 # mass of queen size mattress (pounds)\n# Q2: What is the mass of Betelgeuse?\n# Q3: What is the mass of the sun?\nA3=4.3e+30 # mass of the sun (pounds)\n# Q4: What is the ratio of the mass of Betelgeuse to the mass of the sun?\nA4=18 # ratio of mass of Betelgeuse to mass of the sun (dimensionless)\nA2=A3*A4 # mass of Betelgeuse (pounds)\nA0=A2/A1 # number of queen size mattresses it would take to fill Betelgeuse (mattresses)```
-"""
-
-COMBINED_PROMPT = PromptTemplate(
-    template=f"{SYSTEM_PROMPT_STRING}\n\n{FEW_SHOT_PROMPT_STRING}\n\n{INPUT_PROMPT.template}",
-    input_variables=INPUT_PROMPT.input_variables,
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
-def gen_prompt(example_dataset, k):
-    examples = [
-        {
-            "input": INPUT_PROMPT.format(context=ex['context'], question=ex['question']),
-            "output": OUTPUT_PROMPT.format(answer=ex['answer'], program=ex['program']),
-        }
-        for ex in example_dataset[:k]
-    ]
-    prompt = FewShotPromptTemplate(
-        examples=examples,
-        example_prompt=EXAMPLE_PROMPT,
-        suffix=INPUT_PROMPT.template,
-        input_variables=INPUT_PROMPT.input_variables,
-    )
-
-    return prompt
-
-
 class SamplePredictor:
-    def __init__(self, temperature=0, prompt=COMBINED_PROMPT):
-
-        self.prompt = prompt
-        llm = OpenAI(
-                temperature=temperature,
-                openai_api_key=os.getenv("OPENAI_API_KEY")
-            )
-
-        self.llm_chain = LLMChain(prompt=self.prompt, llm=llm)
+    def __init__(self, few_shot_prompts, model_name="gpt-4", temperature=0):
+        self.model_name = model_name
+        self.temperature = temperature
+        self.few_shot_prompts = few_shot_prompts
 
     @staticmethod
     def split_context_program(split):
-
         program = []
         context = []
         for segment in split[1:]:
@@ -110,123 +50,195 @@ class SamplePredictor:
         answer = split[0]
         return answer, program, context
 
-    def predict(self, dataset, N, include_context=True, verbose=False):
-        direct_acc = 0
-        compiled_acc = 0
-        parsable = 0
-        shuffled_idxs = np.arange(len(dataset))
-        np.random.shuffle(shuffled_idxs)
-        print("Shuffled Indices w/ fixed seed: ", shuffled_idxs[:10])
-        predictions = []
+    def chat(self, messages):
+        chat_completion = client.chat.completions.create(
+            messages=messages,
+            model=self.model_name,
+            temperature=self.temperature,
+        )
+        return chat_completion.choices[0].message.content
+
+    def print_metadata(self, metadata):
+        print(f"Question: {metadata['question']} (units: {metadata['units']}); \nContext: {metadata['context']}\nCorrect Answer: {metadata['answer']}")
+        print(f"Prediction is: {metadata['prediction']} \nProgram ({'valid' if metadata['program_valid'] else 'invalid'}):\n{metadata['program']}")
+        if not metadata['program_valid']:
+            print(f"LLM Output: {metadata['llm_output']}")
+
+    def eval(self, question, units, preds, answer, context=None, num_tokens=None, verbose=True):
+        metadata = {
+            "question": question,
+            "units": units,
+            "answer": answer,
+            "context": "- " + "\n- ".join(context) if context is not None else "",
+            "llm_output": preds,
+            'prediction': 0.0,
+            'program': '',
+            'program_valid': False,
+        }
+        accuracy = 0.0
+        try:
+            answer, program, context = self.split_context_program(preds.split("="))
+            compiled_answer = compile_fp(context, program)
+            compiled_out, compiled_units = convert_units(compiled_answer['P'])
+            metadata = {
+                **metadata,
+                "prediction": compiled_out,
+                "program": context + "=" + program,
+                "program_valid": True
+            }
+            accuracy = accuracy_metric(answer, compiled_out)
+        except:
+            verbose = True
+
+        if verbose:
+            self.print_metadata(metadata)
+
+        return accuracy, int(metadata["program_valid"]), metadata
+
+
+    def parse_output(self, raw_output):
+        return {
+            "accuracy": raw_output[0],
+            "parsable": raw_output[1],
+            "metadata": raw_output[2],
+        }
+
+    def ask(self, question, units, answer, context=None, distractor_context=None, verbose=True):
+
+        messages = [{"role": "system", "content": SYSTEM_PROMPT_STRING}]
+        for few_shot_prompt in self.few_shot_prompts:
+            user_question = few_shot_prompt.split("User:")[1].split("Assistant:")[0].strip('\n')
+            messages.append({"role": "user", "content": user_question})
+            assistant_response = "\n" + few_shot_prompt.split("Assistant:")[1].split("User:")[0].strip('\n')
+            messages.append({"role": "assistant", "content": assistant_response})
+        messages.append({"role": "user", "content": QUERY_PROMPT.format(question=question, units=units, context="")})
+
+        if verbose:
+            print(f"\n{'-' * 110}\n{'-' * 45} NO CONTEXT MESSAGE {'-' * 45}\n{'-' * 110}\n\n")
+
+        # preds = self.chat(messages)
+
+        # no_ctxt_raw_output = self.eval(question, units, preds, answer, verbose=verbose)
+        no_ctxt_raw_output = (0, 0, {})
+        reg_ctxt_raw_output, dstr_ctxt_raw_output = (0, 0, {}), (0, 0, {})
+
+        if context is not None:
+            if verbose:
+                print(f"\n{'-' * 115}\n{'-' * 45} PERFECT CONTEXT MESSAGE {'-' * 45}\n{'-' * 115}\n\n")
+            messages[-1]["content"] = QUERY_PROMPT.format(question=question, units=units, context="- " + "\n- ".join(context))
+
+            preds = self.chat(messages)
+            reg_ctxt_raw_output = self.eval(question, units, preds, answer, context=context, verbose=verbose)
+
+        # if distractor_context is not None:
+        #     if verbose:
+        #         print(f"\n{'-' * 118}\n{'-' * 45} DISTRACTOR CONTEXT MESSAGE {'-' * 45}\n{'-' * 118}\n\n")
+        #     messages[-1]["content"] = QUERY_PROMPT.format(question=question, units=units, context="- " + "\n- ".join(distractor_context))
+        #     preds = self.chat(messages)
+        #     dstr_ctxt_raw_output = self.eval(question, units, preds, answer, context=distractor_context, verbose=verbose)
+
+        return (self.parse_output(raw_output) for raw_output in (no_ctxt_raw_output, reg_ctxt_raw_output, dstr_ctxt_raw_output))
+
+
+    def run(self, dataset, N=None, output_store_path=None, verbose=False):
+        N = N if N is not None else len(dataset)
+
+        output_store = []
+
         for i in tqdm(range(N)):
-            entry = dataset[shuffled_idxs[i]]
-            preds = self.llm_chain.run(context=entry["context"] if include_context else "CONTEXT:=", question=entry['question'])
-            # preds = self.llm_chain.run(INPUT_PROMPT.format(context=entry['context'], question=entry['question']))
+            entry = dataset[i]
 
-            try:
-                answer = preds.split('=')[0]
-                program = preds[preds.find("```python")+len("```python"):preds.rfind("```")]
-                context = entry['context']
-
-                loc = {}
-                exec(program, globals(), loc)
-                compiled_out = loc["A0"]
-                compiled_units = program.split()[-1].replace('(', '').replace(')', '')
-
-                prediction = {
-                        "question": entry['question'],
-                        "correct_answer": entry['answer'],
-                        "direct_answer": answer,
-                        "context": '; '.join(context.split('=')[1:]),
-                        "program": program,
-                        "raw_outputs": preds,
-                        "compiled_answer": compiled_out,
-                        "compiled_units": compiled_units
-                    }
-
-                # answer, program, context = self.split_context_program(preds.split("="))
-                # compiled_answer = compile_fp(entry['context'], program)
-                # compiled_out, compiled_units = convert_units(compiled_answer['P'])
-
-                # prediction = {
-                #         "question": entry['question'],
-                #         "correct_answer": entry['answer'],
-                #         "direct_answer": answer,
-                #         "context": '; '.join(context.split('=')[1:]),
-                #         "program": '; '.join(program.split('=')),
-                #         "raw_outputs": preds,
-                #         "compiled_answer": compiled_out,
-                #         "compiled_units": compiled_units
-                #     }
-
-                direct_acc += accuracy_metric(entry['answer'], answer)
-                compiled_acc += accuracy_metric(entry['answer'], compiled_out)
-                parsable += 1
-            except:
-                prediction = {"question": entry['question'], "correct_answer": entry['answer'], "raw_outputs": preds}
-
-            predictions.append(prediction)
+            question = entry["question"]
+            units = entry["units"]
+            answer = entry["answer"]
+            context = entry["context"].split('=')[1:]
+            distractor_context = entry["distractor_context"].split('=')[1:]
 
             if verbose:
-                print("Question: {}; \nCorrect Answer: {}".format(prediction["question"], prediction["correct_answer"]))
+                print("About to go into ask")
+            noctxt, regctxt, dstrctxt = self.ask(question, units, answer, context, distractor_context, verbose=verbose)
 
-                if len(prediction) > 3:
-                    print("Direct Answer is: {}\nCompiled Answer is: {} ({})\nSupporting Facts are: {}\nProgram:\n{}".format(prediction['direct_answer'], prediction['compiled_answer'], prediction['compiled_units'], prediction['context'], prediction['program']))
-                else:
-                    print("Unable to parse output; Outputting Raw Output:\n{}".format(prediction["raw_outputs"]))
-        return direct_acc/N, compiled_acc/N, parsable/N, predictions
+            output_store.append({
+                "no-context": noctxt,
+                "regular-context": regctxt,
+                "distractor-context": dstrctxt,
+            })
+
+            if output_store_path is not None:
+                with open(output_store_path, 'w') as f:
+                    json.dump(output_store, f)
+
+        accuracy = {
+            "no-context": 0,
+            "regular-context": 0,
+            "distractor-context": 0,
+        }
+        parsable = {
+            "no-context": 0,
+            "regular-context": 0,
+            "distractor-context": 0,
+        }
+
+        for output in output_store:
+            for key in output:
+                accuracy[key] += output[key]["accuracy"]
+                parsable[key] += output[key]["parsable"]
+
+        return {k: v/N for k, v in accuracy.items()}, {k: v/N for k, v in parsable.items()}, output_store
+
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--seed', type=int, default=100, help='Random seed')
-    parser.add_argument('--no_context', action='store_true', help='Include context in the prompt')
-    parser.add_argument('-D', action='store_true', help='Whether to use the distractor setting')
-    parser.add_argument('--example_dataset', type=str, default="")
-    parser.add_argument('--dataset', type=str, default="")
+    parser.add_argument('--model', type=str, default="gpt-4", help="OpenAI model to use")
+    parser.add_argument('--temp', type=float, default=0.0, help="Temperature for sampling")
+    parser.add_argument('--fewshot_dataset', type=str, default=FEWSHOT_DATASET_PATH, help="Path to the few-shot dataset")
+    parser.add_argument('--dataset', type=str, default=DATASET_PATH, help="Path to the dataset")
+    parser.add_argument('--output_store', type=str, default=OUTPUT_STORE_PATH, help="Path to the output store")
     parser.add_argument('-k', type=int, default=5, help="Number of examples in the few-shot prompt")
     parser.add_argument('-N', type=int, default=-1, help="Number of test points")
-    parser.add_argument('--temp', type=float, default=0.0, help="Temperature for sampling")
-    parser.add_argument('--verbose', action='store_true', help='Whether to print out the questions and answers')
+    parser.add_argument('--save_each', action="store_true", default=True, help="Path to the output store")
+    parser.add_argument('--verbose', action='store_true', help='Should the model be verbose?')
+
     args = parser.parse_args()
     np.random.seed(args.seed)
 
-    if args.dataset == "":
-        if (args.D):
-            example_dataset = "./data/realFP/distractor_setting/train_distractor_realfp.json"
-            dataset = "./data/realFP/distractor_setting/test_distractor_realfp.json"
-        else:
-            example_dataset = "./data/realFP/train_realfp.json"
-            dataset = "./data/realFP/test_realfp.json"
-    else:
-        example_dataset = args.example_dataset
-        dataset = args.dataset
+    with open(args.fewshot_dataset, 'r') as f:
+        fewshot_dataset = json.load(f)
 
-    if (example_dataset[-5:] == '.json'):
-        with open(example_dataset, 'rb') as f:
-            example_dataset = json.load(f)
+    few_shot_prompts = []
+    for i in range(args.k):
+        entry = fewshot_dataset[i]
+        question = entry["question"]
+        units = entry["units"]
+        answer = entry["answer"]
+        context = entry["context"].split('=')[1:]
+        # if args.k == 5:
+        #     if i == 3:
+        #         context = []
+        #     elif i == 4:
+        #         context = entry["distractor_context"].split('=')[1:]
 
-        prompt = gen_prompt(example_dataset, args.k)
+        context = "- " + "\n- ".join(context) if len(context) > 0 else ""
 
-    if (dataset[-5:] == '.json'):
-        with open(dataset, 'rb') as f:
-            dataset = json.load(f)
+        few_shot_prompts.append(f"User:{QUERY_PROMPT.format(question=question, units=units, context=context)}\nAssistant:{ASSISTANT_RESP_PROMPT.format(answer=entry['answer'], context=entry['context'], program=entry['program'])}")
 
+    with open(args.dataset, 'r') as f:
+        dataset = json.load(f)
 
-    predictor = SamplePredictor(temperature=args.temp)
+    predictor = SamplePredictor(few_shot_prompts=few_shot_prompts, model_name=args.model, temperature=args.temp)
 
+    acc, pars, output_store = predictor.run(
+                                        dataset,
+                                        N=args.N if args.N > 0 else None,
+                                        output_store_path=args.output_store,
+                                        verbose=args.verbose
+                                    )
 
+    print("Average Parsable Percentage: ", pars)
+    print("Average Accuracy: ", acc)
 
-    # print("Answering: {}".format(question))
-    print("Evaluating on: {}".format(args.dataset))
-
-    dir_acc, comp_acc, pars, _ = predictor.predict(dataset, args.N if args.N > 0 else len(dataset), include_context=(not args.no_context), verbose=args.verbose)
-
-    print("Average Direct Accuracy: {}, Average Compiled Accuracy: {}, Parsable Percentage: {}".format(dir_acc, comp_acc, pars))
-
-    # if len(prediction) > 1:
-    #     print("Direct Answer is: {}\nCompiled Answer is: {} ({})\nSupporting Facts are: {}\nProgram: {}".format(prediction['direct_answer'], prediction['compiled_answer'], prediction['compiled_units'], prediction['context'], prediction['program']))
-    # else:
-    #     print("Unable to parse output; Outputting Raw Output:\n{}".format(prediction))
+    with open(args.output_store, 'w') as f:
+        json.dump(output_store, f)

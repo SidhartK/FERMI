@@ -1,0 +1,5 @@
+
+
+k = 5
+Average Parsable Percentage:  {'no-context': 0.0, 'regular-context': 0.66, 'distractor-context': 0.0}
+Average Accuracy:  {'no-context': 0.0, 'regular-context': 0.5062294100975159, 'distractor-context': 0.0}

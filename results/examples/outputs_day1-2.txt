@@ -897,3 +897,209 @@ A5=1e+6 # (ft**3)
 A0=A5/A1 # (dimensionless)
 ```
 
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py
+You asked the question: How many tennis balls are sold each year in New York City? (units: tennis balls)
+
+I think the answer is: 8.40e+06 tennis balls
+
+
+Here is my reasoning:
+```python
+# Q0: How many tennis balls are sold each year in New York City?
+# R0: This is the main question we want to answer.
+# Q1: What is the population of New York City?
+# R1: To compute the number of tennis balls sold each year in New York City, we need to know the population of New York City because we can multiply that by the number of tennis balls bought per person per year to get the number of tennis balls sold each year in New York City.
+# F1: The population of New York City is 8.4 million people.
+A1=8.4e+6 # (people)
+# Q2: What is the number of tennis balls bought per person per year in New York City?
+# R2: To compute the number of tennis balls sold each year in New York City, we need to know the number of tennis balls bought per person per year in New York City because we can multiply that by the population of New York City to get the number of tennis balls sold each year in New York City.
+# Q3: What fraction of people in New York City play tennis?
+# R3: To compute the number of tennis balls bought per person per year in New York City, we need to know what fraction of people in New York City play tennis because we can multiply that by the number of tennis balls bought per tennis player per year to get the number of tennis balls bought per person per year in New York City.
+# F3: 1% of people in New York City play tennis.
+A3=1/100 # (dimensionless)
+# Q4: What is the number of tennis balls bought per tennis player per year in New York City?
+# R4: To compute the number of tennis balls bought per person per year in New York City, we need to know the number of tennis balls bought per tennis player per year in New York City because we can multiply that by the fraction of people in New York City who play tennis to get the number of tennis balls bought per person per year in New York City.
+# F4: A tennis player in New York City buys 100 tennis balls per year.
+A4=1e+2 # (tennis balls)
+# F2: The number of tennis balls bought per person per year in New York City is the fraction of people in New York City who play tennis multiplied by the number of tennis balls bought per tennis player per year in New York City.
+A2=A3*A4 # (tennis balls)
+# F0: The number of tennis balls sold each year in New York City is the population of New York City multiplied by the number of tennis balls bought per person per year in New York City.
+A0=A1*A2 # (tennis balls)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe %
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "How many hours do I need to study for to win first place in Stanford Math Tournament?" --units "hours"
+You asked the question: How many hours do I need to study for to win first place in Stanford Math Tournament? (units: hours)
+I think the answer is: 1.00e+03 hours
+
+
+Here is my reasoning:
+```python
+# Q0: How many hours do I need to study for to win first place in Stanford Math Tournament?
+# R0: This is the main question we want to answer.
+# Q1: How many hours does the average first place winner study for the Stanford Math Tournament?
+# R1: The number of hours needed to study to win first place in the Stanford Math Tournament is likely close to the number of hours that the average first place winner studies for the tournament.
+# F1: The average first place winner studies for 1000 hours for the Stanford Math Tournament.
+A1=1e+3 # (hours)
+# F0: The number of hours needed to study to win first place in the Stanford Math Tournament is approximated by the number of hours that the average first place winner studies for the tournament.
+A0=A1 # (hours)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "How many hours do I need to practice gymnastics to win a gold medal at the Olympics?" --units "hours"
+You asked the question: How many hours do I need to practice gymnastics to win a gold medal at the Olympics? (units: hours)
+I think the answer is: 1.46e+04 hours
+
+
+Here is my reasoning:
+```python
+# Q0: How many hours do I need to practice gymnastics to win a gold medal at the Olympics?
+# R0: This is the main question we want to answer.
+# Q1: How many years of practice does it take to win a gold medal at the Olympics?
+# R1: If we know the number of years of practice it takes to win a gold medal at the Olympics, we can compute the number of hours of practice it takes by multiplying the number of years by the number of hours of practice per year.
+# F1: It takes 10 years of practice to win a gold medal at the Olympics.
+A1=1.0e+1 # (years)
+# Q2: How many hours of practice per year does it take to win a gold medal at the Olympics?
+# R2: If we know the number of hours of practice per year it takes to win a gold medal at the Olympics, we can compute the number of hours of practice it takes by multiplying the number of years of practice by the number of hours of practice per year.
+# Q3: How many hours of practice per day does it take to win a gold medal at the Olympics?
+# R3: If we know the number of hours of practice per day it takes to win a gold medal at the Olympics, we can compute the number of hours of practice per year by multiplying the number of hours of practice per day by the number of days per year.
+# F3: It takes 4 hours of practice per day to win a gold medal at the Olympics.
+A3=4.0e+0 # (hours/day)
+# Q4: How many days per year does it take to win a gold medal at the Olympics?
+# R4: If we know the number of days per year it takes to win a gold medal at the Olympics, we can compute the number of hours of practice per year by multiplying the number of hours of practice per day by the number of days per year.
+# F4: It takes 365 days of practice per year to win a gold medal at the Olympics.
+A4=3.65e+2 # (days/year)
+# F2: The number of hours of practice per year is the number of hours of practice per day multiplied by the number of days per year.
+A2=A3*A4 # (hours/year)
+# F0: The number of hours of practice it takes to win a gold medal at the Olympics is the number of years of practice multiplied by the number of hours of practice per year.
+A0=A1*A2 # (hours)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "What percentage of the sun's light hits Earth?" --units "dimensionless"
+You asked the question: What percentage of the sun's light hits Earth? (units: dimensionless)
+I think the answer is: 4.57e-08 dimensionless
+
+
+Here is my reasoning:
+```python
+# Q0: What percentage of the sun's light hits Earth?
+# R0: This is the main question we want to answer.
+# Q1: What is the total amount of light that the sun emits?
+# R1: To compute the percentage of the sun's light that hits Earth, we need to know the total amount of light that the sun emits because we can divide the amount of light that hits Earth by the total amount of light that the sun emits to get the percentage of the sun's light that hits Earth.
+# F1: The total amount of light that the sun emits is 3.8e+26 W.
+A1=3.8e+26 # (W)
+# Q2: What is the amount of light that hits Earth?
+# R2: To compute the percentage of the sun's light that hits Earth, we need to know the amount of light that hits Earth because we can divide the amount of light that hits Earth by the total amount of light that the sun emits to get the percentage of the sun's light that hits Earth.
+# Q3: What is the intensity of the sun's light at Earth?
+# R3: To compute the amount of light that hits Earth, we need to know the intensity of the sun's light at Earth because we can multiply the intensity of the sun's light at Earth by the cross-sectional area of Earth to get the amount of light that hits Earth.
+# F3: The intensity of the sun's light at Earth is 1361 W/m**2.
+A3=1361 # (W/m**2)
+# Q4: What is the cross-sectional area of Earth?
+# R4: To compute the amount of light that hits Earth, we need to know the cross-sectional area of Earth because we can multiply the intensity of the sun's light at Earth by the cross-sectional area of Earth to get the amount of light that hits Earth.
+# Q5: What is the radius of Earth?
+# R5: To compute the cross-sectional area of Earth, we need to know the radius of Earth because we can square the radius of Earth and multiply by pi to get the cross-sectional area of Earth.
+# F5: The radius of Earth is 6.371e+6 m.
+A5=6.371e+6 # (m)
+# F4: The cross-sectional area of Earth is pi*r**2 where r is the radius of Earth.
+A4=np.pi*(A5 ** 2) # (m**2)
+# F2: The amount of light that hits Earth is the intensity of the sun's light at Earth multiplied by the cross-sectional area of Earth.
+A2=A3*A4 # (W)
+# F0: The percentage of the sun's light that hits Earth is the amount of light that hits Earth divided by the total amount of light that the sun emits multiplied by 100.
+A0=(A2/A1)*100 # (dimensionless)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "How many years of experience do I need to work as a Software engineer?" --units "years"
+
+You asked the question: How many years of experience do I need to work as a Software engineer? (units: years)
+I think the answer is: 2.00e+00 years
+
+
+Here is my reasoning:
+```python
+# Q0: How many years of experience do I need to work as a Software engineer?
+# R0: This is the main question we want to answer.
+# Q1: What is the minimum number of years of experience required to work as a Software Engineer?
+# R1: The minimum number of years of experience required to work as a Software Engineer is the number of years of experience that we are trying to compute.
+# F1: The minimum number of years of experience required to work as a Software Engineer is typically 2 years.
+A1=2e+0 # (years)
+# F0: The number of years of experience required to work as a Software Engineer is the minimum number of years of experience required to work as a Software Engineer.
+A0=A1 # (years)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "How much time will pass until the Sun becomes a white dwarf?" --units "years"
+You asked the question: How much time will pass until the Sun becomes a white dwarf? (units: years)
+I think the answer is: 5.40e+09 years
+
+
+Here is my reasoning:
+```python
+# Q0: How much time will pass until the Sun becomes a white dwarf?
+# R0: This is the main question we want to answer.
+# Q1: What is the total lifespan of the Sun?
+# R1: To compute the time until the Sun becomes a white dwarf, we need to know the total lifespan of the Sun because the Sun will become a white dwarf at the end of its lifespan.
+# F1: The total lifespan of the Sun is 10 billion years.
+A1=1e+10 # (years)
+# Q2: How old is the Sun?
+# R2: To compute the time until the Sun becomes a white dwarf, we need to know how old the Sun is because we can subtract the age of the Sun from its total lifespan to get the time until the Sun becomes a white dwarf.
+# F2: The Sun is 4.6 billion years old.
+A2=4.6e+9 # (years)
+# F0: The time until the Sun becomes a white dwarf is the total lifespan of the Sun minus the age of the Sun.
+A0=A1-A2 # (years)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "How many tons of dynamite would it take to trigger a volcanic explosion that blocks out the sun for the next decade?" --units "tons"
+You asked the question: How many tons of dynamite would it take to trigger a volcanic explosion that blocks out the sun for the next decade? (units: tons)
+I think the answer is: 3.35e+08 tons
+
+
+Here is my reasoning:
+```python
+# Q0: How many tons of dynamite would it take to trigger a volcanic explosion that blocks out the sun for the next decade?
+# R0: This is the main question we want to answer.
+# Q1: What is the energy required to trigger a volcanic explosion that blocks out the sun for the next decade?
+# R1: If we know the energy required to trigger a volcanic explosion that blocks out the sun for the next decade, we can compute the amount of dynamite needed by dividing the energy required by the energy released by a ton of dynamite.
+# Q2: What is the energy released by the volcanic explosion that caused the Year Without a Summer?
+# R2: The volcanic explosion that caused the Year Without a Summer is a good approximation for a volcanic explosion that blocks out the sun for the next decade because it blocked out the sun for a year.
+# F2: The energy released by the volcanic explosion that caused the Year Without a Summer is 1.4e+17 J.
+A2=1.4e+17 # (J)
+# Q3: How many years does the volcanic explosion need to block out the sun for?
+# R3: To compute the energy required to trigger a volcanic explosion that blocks out the sun for the next decade, we need to know how many years the volcanic explosion needs to block out the sun for because we can multiply that by the energy released by the volcanic explosion that caused the Year Without a Summer to get the energy required.
+# F3: The volcanic explosion needs to block out the sun for 10 years.
+A3=1.0e+1 # (years)
+# F1: The energy required to trigger a volcanic explosion that blocks out the sun for the next decade is the energy released by the volcanic explosion that caused the Year Without a Summer multiplied by the number of years the volcanic explosion needs to block out the sun for.
+A1=A2*A3 # (J)
+# Q4: What is the energy released by a ton of dynamite?
+# R4: To compute the amount of dynamite needed, we need to know the energy released by a ton of dynamite because we can divide the energy required by the energy released by a ton of dynamite to get the amount of dynamite needed.
+# F4: The energy released by a ton of dynamite is 4.18e+9 J.
+A4=4.18e+9 # (J/ton)
+# F0: The amount of dynamite needed is the energy required divided by the energy released by a ton of dynamite.
+A0=A1/A4 # (tons)
+```
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py "How many tons of dynamite would it take to destroy the moon?" --units "tons"
+usage: demo.py [-h] [--seed SEED] [--model MODEL] [--temp TEMP] [--question QUESTION] [--units UNITS] [--verbose]
+demo.py: error: unrecognized arguments: How many tons of dynamite would it take to destroy the moon?
+(.venv) (base) sidhartkrishnan@DN51qg3r carafe % python src/demo.py --question "How many tons of dynamite would it take to destroy the moon?" --units "tons"
+You asked the question: How many tons of dynamite would it take to destroy the moon? (units: tons)
+I think the answer is: 1.10e+16 tons
+
+
+Here is my reasoning:
+```python
+# Q0: How many tons of dynamite would it take to destroy the moon?
+# R0: This is the main question we want to answer.
+# Q1: What is the energy required to destroy the moon?
+# R1: If we know the energy required to destroy the moon, we can compute the amount of dynamite needed by dividing the energy required to destroy the moon by the energy released by one ton of dynamite.
+# Q2: What is the gravitational binding energy of the moon?
+# R2: The energy required to destroy the moon is the same as the gravitational binding energy of the moon since that is the energy required to overcome the gravitational forces holding the moon together.
+# Q3: What is the mass of the moon?
+# R3: To compute the gravitational binding energy of the moon, we need to know the mass of the moon because the gravitational binding energy of the moon is proportional to the mass of the moon.
+# F3: The mass of the moon is 7.35e+22 kg. We must convert this into tons by multiplying by 0.00110231.
+A3=0.00110231 * 7.35e+22 # (tons)
+# Q4: What is the radius of the moon?
+# R4: To compute the gravitational binding energy of the moon, we need to know the radius of the moon because the gravitational binding energy of the moon is inversely proportional to the radius of the moon.
+# F4: The radius of the moon is 1.737 km. We must convert this into miles by multiplying by 0.621371. We must then convert this further into feet by multiplying by 5280.
+A4=0.621371 * 5280 * 1.737e+0 # (ft)
+# F2: The gravitational binding energy of the moon is 3/5*G*M**2/R where G is the gravitational constant, M is the mass of the moon, and R is the radius of the moon.
+A2=(3/5)*(6.674e-11)*(A3 ** 2)/A4 # (J)
+# F1: The energy required to destroy the moon is the same as the gravitational binding energy of the moon.
+A1=A2 # (J)
+# Q5: What is the energy released by one ton of dynamite?
+# R5: To compute the amount of dynamite needed to destroy the moon, we need to know the energy released by one ton of dynamite because we can divide the energy required to destroy the moon by the energy released by one ton of dynamite to get the amount of dynamite needed.
+# F5: One ton of dynamite releases 4.18e+9 J of energy.
+A5=4.18e+9 # (J)
+# F0: The amount of dynamite needed to destroy the moon is the energy required to destroy the moon divided by the energy released by one ton of dynamite.
+A0=A1/A5 # (tons)
+```

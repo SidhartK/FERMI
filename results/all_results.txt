@@ -1,0 +1,15 @@
+Expmt 1
+Average Parsable Percentage:  {'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+Average Accuracy:  {'no-context': 0.5744357399840064, 'regular-context': 0.7637849135392183, 'distractor-context': 0.719080001491162}
+
+Expmt 2
+Average Parsable Percentage: {'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+Average Accuracy: {'no-context': 0.58968278783824, 'regular-context': 0.7534799202832445, 'distractor-context': 0.7025611195718222}
+
+Expmt 3
+Run 1 -
+Average Parsable Percentage:  {'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+Average Accuracy:  {'no-context': 0.6237787821367897, 'regular-context': 0.8991837779906066, 'distractor-context': 0.886850161323537}
+Run 2 -
+Average Parsable Percentage:  {'no-context': 1.0, 'regular-context': 1.0, 'distractor-context': 1.0}
+Average Accuracy:  {'no-context': 0.7321043798108515, 'regular-context': 0.8991837779906066, 'distractor-context': 0.8987700515951893}
