@@ -20,8 +20,8 @@ import json
 
 load_dotenv()
 
-DATASET_PATH = "./data/verified_data/dataset.json"
-OUTPUT_STORE_PATH = "./results/expmt3/output_store.json"
+DATASET_PATH = "./data/verified_data/dataset-test.json"
+OUTPUT_STORE_PATH = "./results/final_results/expmt3.0/output_store.json"
 
 client = OpenAI(
     # This is the default and can be omitted
@@ -41,14 +41,25 @@ class SamplePredictor:
         )
         return chat_completion.choices[0].message.content
 
-    def eval(self, question, units, preds, answer, context=None, num_tokens=None, verbose=True):
-        prediction = {
+    def print_metadata(self, metadata):
+        print(f"Question: {metadata['question']} (units: {metadata['units']}); \nContext: {metadata['context']}\nCorrect Answer: {metadata['answer']}")
+        print(f"Prediction is: {metadata['prediction']} \nSummarized Problem is: {metadata['summary']}\nProgram ({'valid' if metadata['program_valid'] else 'invalid'}):\n```python\n{metadata['program']}\n```")
+        if not metadata['program_valid']:
+            print(f"LLM Output: {metadata['llm_output']}")
+
+    def eval(self, question, units, preds, answer, context=None, verbose=True):
+        metadata = {
             "question": question,
             "units": units,
-            "correct_answer": answer,
-            "raw_outputs": preds,
+            "answer": answer,
             "context": "- " + "\n- ".join(context) if context is not None else "",
+            "llm_output": preds,
+            'prediction': 0.0,
+            'summary': '',
+            'program': '',
+            'program_valid': False,
         }
+        accuracy = 0.0
 
         try:
             summary = preds.split("SUMMARY:=")[-1].split("PROGRAM:=")[0].strip('\n')
@@ -61,29 +72,22 @@ class SamplePredictor:
             exec(program, globals(), loc)
             compiled_out = loc["A0"]
 
-            prediction = {
-                    "summary": summary,
-                    "program": program,
-                    "compiled_answer": compiled_out,
-                    **prediction,
-                }
+            metadata = {
+                **metadata,
+                "prediction": compiled_out,
+                "summary": summary,
+                "program": program,
+                "program_valid": True
+            }
 
-            compiled_acc = accuracy_metric(answer, compiled_out)
-            parsable = 1
+            accuracy = accuracy_metric(answer, compiled_out)
+
         except:
-            compiled_acc = 0
-            parsable = 0
             verbose = True
         if verbose:
-            print("Question: {}; \nContext: {}\nCorrect Answer: {}".format(prediction["question"], prediction["context"], prediction["correct_answer"]))
-            if num_tokens is not None:
-                print("Number of Tokens in Response: ", num_tokens)
+            self.print_metadata(metadata)
 
-            if "compiled_answer" in prediction:
-                print("Compiled Answer is: {} \nSummarized Problem is: {}\nProgram:\n```python\n{}\n```".format(prediction['compiled_answer'], prediction['summary'], prediction['program']))
-            else:
-                print("Unable to parse output; Outputting Raw Output:\n{}".format(prediction["raw_outputs"]))
-        return compiled_acc, parsable, prediction
+        return accuracy, int(metadata["program_valid"]), metadata
 
 
     def parse_output(self, raw_output):
@@ -133,17 +137,21 @@ class SamplePredictor:
         N = N if N is not None else len(dataset)
 
         output_store = []
+        noctxt_accuracy, regctxt_accuracy, dstrctxt_accuracy = 0.0, 0.0, 0.0
 
-        for i in tqdm(range(N)):
+        iterator = tqdm(range(N), desc="Running Experiment 3")
+        for i in iterator:
             entry = dataset[i]
 
             question = entry["question"]
             units = entry["units"]
             answer = entry["answer"]
             context = entry["context"].split('=')[1:]
-            distract_context = entry["distract_context"].split('=')[1:]
+            distractor_context = entry["distractor_context"].split('=')[1:]
 
-            noctxt, regctxt, dstrctxt = self.ask(question, units, answer, context, distract_context, verbose=verbose)
+            if verbose:
+                print("About to go into ask")
+            noctxt, regctxt, dstrctxt = self.ask(question, units, answer, context, distractor_context, verbose=verbose)
 
             output_store.append({
                 "no-context": noctxt,
@@ -154,6 +162,13 @@ class SamplePredictor:
             if output_store_path is not None:
                 with open(output_store_path, 'w') as f:
                     json.dump(output_store, f)
+
+            noctxt_accuracy += noctxt["accuracy"]
+            regctxt_accuracy += regctxt["accuracy"]
+            dstrctxt_accuracy += dstrctxt["accuracy"]
+
+            iterator.set_postfix({"NoCtxtAcc": noctxt_accuracy/(i+1), "PerfCtxtAcc": regctxt_accuracy/(i+1), "DstrCtxtAcc": dstrctxt_accuracy/(i+1)})
+
 
         accuracy = {
             "no-context": 0,

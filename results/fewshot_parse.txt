@@ -1,5 +1,22 @@
+k = 1
+Average Parsable Percentage:  {'no-context': 0.0, 'regular-context': 0.3, 'distractor-context': 0.0}
+Average Accuracy:  {'no-context': 0.0, 'regular-context': 0.21325138665703885, 'distractor-context': 0.0}
 
+k = 2
+
+
+k = 3
+Average Parsable Percentage:  {'no-context': 0.0, 'regular-context': 0.56, 'distractor-context': 0.0}
+Average Accuracy:  {'no-context': 0.0, 'regular-context': 0.41039953147283875, 'distractor-context': 0.0}
 
 k = 5
 Average Parsable Percentage:  {'no-context': 0.0, 'regular-context': 0.66, 'distractor-context': 0.0}
 Average Accuracy:  {'no-context': 0.0, 'regular-context': 0.5062294100975159, 'distractor-context': 0.0}
+
+k = 10
+Average Parsable Percentage:  {'no-context': 0.0, 'regular-context': 0.64, 'distractor-context': 0.0}
+Average Accuracy:  {'no-context': 0.0, 'regular-context': 0.4724207527525223, 'distractor-context': 0.0}
+
+k = 15
+Average Parsable Percentage:  {'no-context': 0.0, 'regular-context': 0.62, 'distractor-context': 0.0}
+Average Accuracy:  {'no-context': 0.0, 'regular-context': 0.4448216857601638, 'distractor-context': 0.0}

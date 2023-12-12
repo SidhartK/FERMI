@@ -13,7 +13,7 @@
                 "units": "kg",
                 "answer": 60.0,
                 "context": "- F1: The average human weight is 60 kg.",
-                "llm_output": "60.0=CONTEXT:=F1: The average human weight is 60 kg.=PROGRAM:=Q1: What is the average human weight in kg?=A1: 60 kg=Q1 -> A1 | F1=P: A1",
+                "llm_output": "60.0=CONTEXT:=F1: The average human weight is 60 kg.=PROGRAM:=Q1: What is the average human weight?=A1: 60 kg=Q1 -> A1 | F1=P: A1",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -39,9 +39,9 @@
                 "units": "students",
                 "answer": 210000000.0,
                 "context": "- F1: There are around 300000 educational institutions in all of North America.\n- F2: On an average, there are 700 students in each of the educational institutions.",
-                "llm_output": "210000000.0=CONTEXT:=F1: There are around 300000 educational institutions in all of North America.=F2: On an average, there are 700 students in each of the educational institutions.=PROGRAM:=Q1: How many educational institutions are there in North America?=Q2: What is the average number of students in each institution?=A1: 300000=A2: 700=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n210000000.0=CONTEXT:=F1: There are around 300000 educational institutions in all of North America.=F2: On an average, there are 700 students in each of the educational institutions.=PROGRAM:=Q1: How many educational institutions are there in North America?=Q2: What is the average number of students in each institution?=A1: 300000=A2: 700=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 210000000,
-                "program": "CONTEXT:=F1: There are around 300000 educational institutions in all of North America.=F2: On an average, there are 700 students in each of the educational institutions.=PROGRAM:=Q1: How many educational institutions are there in North America?=Q2: What is the average number of students in each institution?=A1: 300000=A2: 700=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: There are around 300000 educational institutions in all of North America.=F2: On an average, there are 700 students in each of the educational institutions.=PROGRAM:=Q1: How many educational institutions are there in North America?=Q2: What is the average number of students in each institution?=A1: 300000=A2: 700=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -65,9 +65,9 @@
                 "units": "MB",
                 "answer": 2152000.0,
                 "context": "- F1: The total number of articles on arXiv are 2152000 (estimate)\n- F2: The average size of an article on arXiv is 1 MB",
-                "llm_output": "2152000.0=CONTEXT:=F1: The total number of articles on arXiv are 2152000 (estimate)=F2: The average size of an article on arXiv is 1 MB=PROGRAM:=Q1: What is the total number of articles on arXiv?=Q2: What is the average size of an article on arXiv?=A1: 2152000=A2: 1 MB=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "2152000.0=CONTEXT:=F1: The total number of articles on arXiv are 2152000 (estimate)=F2: The average size of an article on arXiv is 1 MB=PROGRAM:=Q1: What is the total number of articles on arXiv?=Q2: What is the average size of an article on arXiv?=A1: 2152000=A2: 1 MB=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 17216000000000.0,
-                "program": "CONTEXT:=F1: The total number of articles on arXiv are 2152000 (estimate)=F2: The average size of an article on arXiv is 1 MB=PROGRAM:=Q1: What is the total number of articles on arXiv?=Q2: What is the average size of an article on arXiv?=A1: 2152000=A2: 1 MB=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: The total number of articles on arXiv are 2152000 (estimate)=F2: The average size of an article on arXiv is 1 MB=PROGRAM:=Q1: What is the total number of articles on arXiv?=Q2: What is the average size of an article on arXiv?=A1: 2152000=A2: 1 MB=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -91,7 +91,7 @@
                 "units": "m**3",
                 "answer": 0.009,
                 "context": "- F1: The total volume of polar ice sheets is 3.33e+6 mi**3\n- F2: The average capacity of a dam is 8.3 mi**3\n- F3: There are 3700 new dams in the world being constructed.",
-                "llm_output": "3.066e+4 m**3=CONTEXT:=F2: The average capacity of a dam is 8.3 mi**3=F3: There are 3700 new dams in the world being constructed.=PROGRAM:=Q1: What is the average capacity of a dam in m**3?=Q2: How many new dams are being constructed?=A1: 3.46e+10 m**3=A2: 3700=Q1 -> A1 | F2=Q2 -> A2 | F3=P: Mul (A1, A2)",
+                "llm_output": "\n3.07e+7=CONTEXT:=F1: The total volume of polar ice sheets is 3.33e+6 mi**3.=F2: The average capacity of a dam is 8.3 mi**3.=F3: There are 3700 new dams in the world being constructed.=PROGRAM:=Q1: What is the average capacity of a dam?=Q2: How many new dams are being constructed?=Q3: What is the total capacity of new dams?=A1: 8.3 mi**3=A2: 3700=A3: Mul (Q1, Q2)=Q1 -> A1 | F2=Q2 -> A2 | F3=P: A3",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -110,17 +110,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.7051962490738293,
+            "parsable": 1,
             "metadata": {
                 "question": "If 100% of the energy of all lightning strikes around the world could be harnessed and used, what percentage of the world's power could be supplied by lightning strikes?",
                 "units": "dimensionless",
                 "answer": 8.1e-09,
                 "context": "- F1: The total energy generated by lightning in a year is 4.7e+18 J\n- F2: The total energy consumption in the world annually is 575e+24 J",
-                "llm_output": "0.00000817391304347826=CONTEXT:=F1: The total energy generated by lightning in a year is 4.7e+18 J=F2: The total energy consumption in the world annually is 575e+24 J=PROGRAM:=Q1: What is the total energy generated by lightning in a year?=Q2: What is the total energy consumption in the world annually?=A1: 4.7e+18 J=A2: 575e+24 J=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n8.17e-6=CONTEXT:=F1: The total energy generated by lightning in a year is 4.7e+18 J=F2: The total energy consumption in the world annually is 575e+24 J=PROGRAM:=Q1: What is the total energy generated by lightning in a year?=Q2: What is the total energy consumption in the world annually?=A1: 4.7e+18 J=A2: 575e+24 J=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 8.17391304347826e-09,
+                "program": "CONTEXT:=F1: The total energy generated by lightning in a year is 4.7e+18 J=F2: The total energy consumption in the world annually is 575e+24 J=PROGRAM:=Q1: What is the total energy generated by lightning in a year?=Q2: What is the total energy consumption in the world annually?=A1: 4.7e+18 J=A2: 575e+24 J=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -136,17 +136,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.8685000044575528,
+            "parsable": 1,
             "metadata": {
                 "question": "If a planet was 5 times the size of the Earth with 1.5 times the radius, what would the surface gravity be?",
                 "units": "m*s**-2",
                 "answer": 22.2,
                 "context": "- F1: The current surface gravity is 10 m/s**2\n- F2: The new mass is 5x the old mass\n- F3: The new radius is 1.5x the old radius.\n- F4: The multiplicative factor to get the sqaure of the radius is 2\n- F5: The multiplicative factor to get the inverse of the radius is 1",
-                "llm_output": "10.0 m*s**-2=CONTEXT:=F1: The current surface gravity is 10 m/s**2=F2: The new mass is 5x the old mass=F3: The new radius is 1.5x the old radius.=PROGRAM:=Q1: What is the current surface gravity?=Q2: What is the new mass?=Q3: What is the new radius?=A1: 10 m*s**-2=A2: 5=A3: 1.5=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (A1, Div (A2, Pow (A3, 2)))",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n4.44=CONTEXT:=F1: The current surface gravity is 10 m/s**2=F2: The new mass is 5x the old mass=F3: The new radius is 1.5x the old radius.=F4: The multiplicative factor to get the sqaure of the radius is 2=F5: The multiplicative factor to get the inverse of the radius is 1=PROGRAM:=Q1: What is the current surface gravity?=Q2: What is the new mass?=Q3: What is the new radius?=Q4: What is the multiplicative factor to get the square of the radius?=Q5: What is the multiplicative factor to get the inverse of the radius?=A1: 10 m/s**2=A2: 5=A3: 1.5=A4: 2=A5: 1=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> A5 | F5=P: Mul (Q1, Div (Q2, Pow (Q3, Q4)))",
+                "prediction": 3.0,
+                "program": "CONTEXT:=F1: The current surface gravity is 10 m/s**2=F2: The new mass is 5x the old mass=F3: The new radius is 1.5x the old radius.=F4: The multiplicative factor to get the sqaure of the radius is 2=F5: The multiplicative factor to get the inverse of the radius is 1=PROGRAM:=Q1: What is the current surface gravity?=Q2: What is the new mass?=Q3: What is the new radius?=Q4: What is the multiplicative factor to get the square of the radius?=Q5: What is the multiplicative factor to get the inverse of the radius?=A1: 10 m/s**2=A2: 5=A3: 1.5=A4: 2=A5: 1=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> A5 | F5=P: Mul (Q1, Div (Q2, Pow (Q3, Q4)))",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -169,7 +169,7 @@
                 "units": "cm",
                 "answer": 0.0001,
                 "context": "- F1: The average distance between pigment particles in paint film is 10e-5 m [assumption]",
-                "llm_output": "1.0e-3=CONTEXT:=F1: The average distance between pigment particles in paint film is 10e-5 m [assumption]=PROGRAM:=Q1: What is the average distance between pigment particles in paint film in m?=A1: 1.0e-5 m=Q1 -> A1 | F1=P: A1",
+                "llm_output": "\n1.0e-3=CONTEXT:=F1: The average distance between pigment particles in paint film is 10e-5 m [assumption]=PROGRAM:=Q1: What is the average distance between pigment particles in paint film in m?=A1: 10e-5 m=Q1 -> A1 | F1=P: A1",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -188,17 +188,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.9967096866765753,
-            "parsable": 1,
+            "accuracy": 0.0,
+            "parsable": 0,
             "metadata": {
                 "question": "How much land would be needed if each family had a house and a yard?",
                 "units": "yd**2",
                 "answer": 648000000000.0,
                 "context": "- F1: Around 360 sq. yards is required to build a house with a yard.\n- F2: The total human population is 7.2e+9\n- F3: the average family size is 4",
-                "llm_output": "6.48e+11=CONTEXT:=F1: Around 360 sq. yards is required to build a house with a yard.=F2: The total human population is 7.2e+9=F3: the average family size is 4=PROGRAM:=Q1: What is the total number of families?=Q2: How much land is required for each family?=A1: 1.8e+9=A2: 360 yd**2=Q1 -> A1 | F2, F3=Q2 -> A2 | F1=P: Mul (Q1, Q2)",
-                "prediction": 541810529280.0,
-                "program": "CONTEXT:=F1: Around 360 sq. yards is required to build a house with a yard.=F2: The total human population is 7.2e+9=F3: the average family size is 4=PROGRAM:=Q1: What is the total number of families?=Q2: How much land is required for each family?=A1: 1.8e+9=A2: 360 yd**2=Q1 -> A1 | F2, F3=Q2 -> A2 | F1=P: Mul (Q1, Q2)",
-                "program_valid": true
+                "llm_output": "\n6.48e+11=CONTEXT:=F1: Around 360 sq. yards is required to build a house with a yard.=F2: The total human population is 7.2e+9=F3: the average family size is 4=PROGRAM:=Q1: What is the area required to build a house with a yard?=Q2: What is the total human population?=Q3: What is the average family size?=Q4: How many families are there in the world?=A1: 360 yd**2=A2: 7.2e+9=A3: 4=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Div (Q2, Q3)=P: Mul (Q1, Q4)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false
             }
         },
         "distractor-context": {
@@ -221,7 +221,7 @@
                 "units": "star/ly**3",
                 "answer": 14204545.0,
                 "context": "- F1: The density of sun in stars per cubic light year is 0.004 stars ly**-3\n- F2: The density of the milky way is 5e+12 kg*m**-3\n- F3: The density of the sun is 1408 kg*m**-3",
-                "llm_output": "0.004=CONTEXT:=F1: The density of sun in stars per cubic light year is 0.004 stars ly**-3=PROGRAM:=Q1: What is the density of the sun in stars per cubic light year?=A1: 0.004 star/ly**3=Q1 -> A1 | F1=P: A1",
+                "llm_output": "\n0.004=CONTEXT:=F1: The density of sun in stars per cubic light year is 0.004 stars ly**-3=PROGRAM:=Q1: What is the density of sun in stars per cubic light year?=A1: 0.004 stars/ly**3=Q1 -> A1 | F1=P: A1",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -247,9 +247,9 @@
                 "units": "drops",
                 "answer": 1300000000000.0,
                 "context": "- F1: The volume of the swimming pool is 2500 cubic metre\n- F2: The volume of a single water drop is 18e-10 cubic metre",
-                "llm_output": "1.39e+16=CONTEXT:=F1: The volume of the swimming pool is 2500 cubic metre.=F2: The volume of a single water drop is 18e-10 cubic metre.=PROGRAM:=Q1: What is the volume of the swimming pool in cubic metre?=Q2: What is the volume of a single water drop in cubic metre?=A1: 2500 m**3=A2: 18e-10 m**3=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "llm_output": "\n1.39e+16=CONTEXT:=F1: The volume of the swimming pool is 2500 cubic metre.=F2: The volume of a single water drop is 18e-10 cubic metre=PROGRAM:=Q1: What is the volume of the swimming pool?=Q2: What is the volume of a single water drop?=A1: 2500 m**3=A2: 18e-10 m**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
                 "prediction": 1388888888888.889,
-                "program": "CONTEXT:=F1: The volume of the swimming pool is 2500 cubic metre.=F2: The volume of a single water drop is 18e-10 cubic metre.=PROGRAM:=Q1: What is the volume of the swimming pool in cubic metre?=Q2: What is the volume of a single water drop in cubic metre?=A1: 2500 m**3=A2: 18e-10 m**3=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "program": "CONTEXT:=F1: The volume of the swimming pool is 2500 cubic metre.=F2: The volume of a single water drop is 18e-10 cubic metre=PROGRAM:=Q1: What is the volume of the swimming pool?=Q2: What is the volume of a single water drop?=A1: 2500 m**3=A2: 18e-10 m**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -273,7 +273,7 @@
                 "units": "km",
                 "answer": 21196.0,
                 "context": "- F1: The man-made structure visible to naked eye from Earth to moon is The Great Wall of China whose size is 21196 km",
-                "llm_output": "21196.0=CONTEXT:=F1: The man-made structure visible to naked eye from Earth to moon is The Great Wall of China whose size is 21196 km=PROGRAM:=Q1: What is the size of the largest man-made structure visible to the naked eye from the Earth to the Moon?=A1: 21196 km=Q1 -> A1 | F1=P: A1",
+                "llm_output": "21196.0=CONTEXT:=F1: The man-made structure visible to naked eye from Earth to moon is The Great Wall of China whose size is 21196 km=PROGRAM:=Q1: What is the size of the largest man-made structure visible to the naked eye from Earth to the Moon?=A1: 21196 km=Q1 -> A1 | F1=P: A1",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -299,9 +299,9 @@
                 "units": "bacteria",
                 "answer": 16000000000000.0,
                 "context": "- F1: The volume of ping pong ball is 33.5 cc\n- F2: The volume of single SO bacterium is 2e-12 cc",
-                "llm_output": "1.675e+13=CONTEXT:=F1: The volume of ping pong ball is 33.5 cc=F2: The volume of single SO bacterium is 2e-12 cc=PROGRAM:=Q1: What is the volume of a ping pong ball in cc?=Q2: What is the volume of a single SO bacterium in cc?=A1: 33.5 cm**3=A2: 2e-12 cm**3=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "llm_output": "\n1.675e+13=CONTEXT:=F1: The volume of ping pong ball is 33.5 cc=F2: The volume of single SO bacterium is 2e-12 cc=PROGRAM:=Q1: What is the volume of a ping pong ball?=Q2: What is the volume of a single SO bacterium?=A1: 33.5 cc=A2: 2e-12 cc=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
                 "prediction": 16750000000000.0,
-                "program": "CONTEXT:=F1: The volume of ping pong ball is 33.5 cc=F2: The volume of single SO bacterium is 2e-12 cc=PROGRAM:=Q1: What is the volume of a ping pong ball in cc?=Q2: What is the volume of a single SO bacterium in cc?=A1: 33.5 cm**3=A2: 2e-12 cm**3=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "program": "CONTEXT:=F1: The volume of ping pong ball is 33.5 cc=F2: The volume of single SO bacterium is 2e-12 cc=PROGRAM:=Q1: What is the volume of a ping pong ball?=Q2: What is the volume of a single SO bacterium?=A1: 33.5 cc=A2: 2e-12 cc=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -325,7 +325,7 @@
                 "units": "m**3",
                 "answer": 1000.0,
                 "context": "- F1: ISS though looks like a small star, is visible from the earth with naked eye and its size is 1000 m**3",
-                "llm_output": "1000.0=CONTEXT:=F1: ISS though looks like a small star, is visible from the earth with naked eye and its size is 1000 m**3=PROGRAM:=Q1: What is the size of the ISS, which is visible from the earth with the naked eye?=A1: 1000 m**3=Q1 -> A1 | F1=P: A1",
+                "llm_output": "\n1000.0=CONTEXT:=F1: ISS though looks like a small star, is visible from the earth with naked eye and its size is 1000 m**3=PROGRAM:=Q1: What is the size of an object in geostationary orbit that is visible from earth with the naked eye?=A1: 1000 m**3=Q1 -> A1 | F1=P: A1",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -344,17 +344,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.5937666124647831,
+            "parsable": 1,
             "metadata": {
                 "question": "What is the weight of a typical building?",
                 "units": "kg",
                 "answer": 1040.0,
                 "context": "- F1: The average surface area of a single brick is 0.014 metre square.\n- F2: The perimeter of an average house is 4.13 metre squared\n- F3: The ceiling height on an average house is 2.4 metres\n- F4: The mass of a single brick is 1.47 kg",
-                "llm_output": "1000000.0 kg=CONTEXT:=F4: The mass of a single brick is 1.47 kg=PROGRAM:=Q1: What is the mass of a single brick?=A1: 1.47 kg=Q1 -> A1 | F4=P: Mul (A1, 680000)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n1.6e6=CONTEXT:=F1: The average surface area of a single brick is 0.014 metre square.=F2: The perimeter of an average house is 4.13 metre squared=F3: The ceiling height on an average house is 2.4 metres=F4: The mass of a single brick is 1.47 kg=PROGRAM:=Q1: What is the surface area of a single brick?=Q2: What is the perimeter of an average house?=Q3: What is the ceiling height of an average house?=Q4: What is the mass of a single brick?=Q5: How many bricks are used in an average house?=A1: 0.014 m**2=A2: 4.13 m**2=A3: 2.4 m=A4: 1.47 kg=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> Div (Mul (Q2, Q3), Q1)=P: Mul (Q4, Q5)",
+                "prediction": 14.57064,
+                "program": "CONTEXT:=F1: The average surface area of a single brick is 0.014 metre square.=F2: The perimeter of an average house is 4.13 metre squared=F3: The ceiling height on an average house is 2.4 metres=F4: The mass of a single brick is 1.47 kg=PROGRAM:=Q1: What is the surface area of a single brick?=Q2: What is the perimeter of an average house?=Q3: What is the ceiling height of an average house?=Q4: What is the mass of a single brick?=Q5: How many bricks are used in an average house?=A1: 0.014 m**2=A2: 4.13 m**2=A3: 2.4 m=A4: 1.47 kg=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> Div (Mul (Q2, Q3), Q1)=P: Mul (Q4, Q5)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -370,17 +370,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 1.0,
+            "parsable": 1,
             "metadata": {
                 "question": "How many snowflakes would it take to completely cover a driveway?",
                 "units": "snowflakes",
                 "answer": 100000.0,
                 "context": "- F1: The average surface area of a driveway is 800 sq. ft\n- F2: The average surface area of a snowflake is 0.008 sq ft.",
-                "llm_output": "100000.0=CONTEXT:=F1: The average surface area of a driveway is 800 sq. ft=F2: The average surface area of a snowflake is 0.008 sq ft.=PROGRAM:=Q1: What is the total surface area of the driveway in sq. ft?=Q2: What is the surface area of a single snowflake in sq. ft?=A1: 800 sq. ft=A2: 0.008 sq. ft=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n100000.0=CONTEXT:=F1: The average surface area of a driveway is 800 sq. ft=F2: The average surface area of a snowflake is 0.008 sq ft.=PROGRAM:=Q1: What is the surface area of a driveway?=Q2: What is the surface area of a snowflake?=A1: 800 sq ft=A2: 0.008 sq ft=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 100000.0,
+                "program": "CONTEXT:=F1: The average surface area of a driveway is 800 sq. ft=F2: The average surface area of a snowflake is 0.008 sq ft.=PROGRAM:=Q1: What is the surface area of a driveway?=Q2: What is the surface area of a snowflake?=A1: 800 sq ft=A2: 0.008 sq ft=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -403,7 +403,7 @@
                 "units": "km",
                 "answer": 0.013,
                 "context": "- F1: The height of the water in ocean is 3.7 km\n- F2: The surface area of oceans is 361e+6 km**2\n- F3: The original volume of the oceans is 1335700000 km**3\n- F4: The number of living things in an ocean is 1e+9\n- F5: The average volume of a living thing in an ocean is 5e-3 km**3",
-                "llm_output": "0.0037=CONTEXT:=F2: The surface area of oceans is 361e+6 km**2=F3: The original volume of the oceans is 1335700000 km**3=F4: The number of living things in an ocean is 1e+9=F5: The average volume of a living thing in an ocean is 5e-3 km**3=PROGRAM:=Q1: What is the total volume of living things in the ocean?=Q2: What is the surface area of the oceans?=A1: 5e+6 km**3=A2: 361e+6 km**2=Q1 -> A1 | Mul(F4, F5)=Q2 -> A2 | F2=P: Div (A1, A2)",
+                "llm_output": "\n0.0037=CONTEXT:=F2: The surface area of oceans is 361e+6 km**2=F4: The number of living things in an ocean is 1e+9=F5: The average volume of a living thing in an ocean is 5e-3 km**3=PROGRAM:=Q1: What is the total volume of living things in the ocean?=Q2: What is the surface area of the oceans?=A1: 5e+6 km**3=A2: 361e+6 km**2=Q1 -> Mul (F4, F5)=Q2 -> A2 | F2=P: Div (Q1, Q2)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -422,17 +422,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.9882761279348733,
-            "parsable": 1,
+            "accuracy": 0.0,
+            "parsable": 0,
             "metadata": {
                 "question": "What is the total area of all currently existing spiderwebs in the world?",
                 "units": "m**2",
                 "answer": 1.1e+18,
                 "context": "- F1: The total number of spiders in the world is 1.4e+17.\n- F2: An average spider makes a total of 30 webs per year.\n- F3: The average area of a single spider web is 0.28 metre square.",
-                "llm_output": "1.176e+19 m**2=CONTEXT:=F1: The total number of spiders in the world is 1.4e+17.=F2: An average spider makes a total of 30 webs per year.=F3: The average area of a single spider web is 0.28 metre square.=PROGRAM:=Q1: What is the total number of spiders in the world?=Q2: How many webs does an average spider make in a year?=Q3: What is the average area of a single spider web?=A1: 1.4e+17=A2: 30=A3: 0.28 m**2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Mul (Q1, Q2), Q3)",
-                "prediction": 4.2e+18,
-                "program": "CONTEXT:=F1: The total number of spiders in the world is 1.4e+17.=F2: An average spider makes a total of 30 webs per year.=F3: The average area of a single spider web is 0.28 metre square.=PROGRAM:=Q1: What is the total number of spiders in the world?=Q2: How many webs does an average spider make in a year?=Q3: What is the average area of a single spider web?=A1: 1.4e+17=A2: 30=A3: 0.28 m**2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Mul (Q1, Q2), Q3)",
-                "program_valid": true
+                "llm_output": "1.176e+19=CONTEXT:=F1: The total number of spiders in the world is 1.4e+17.=F2: An average spider makes a total of 30 webs per year.=F3: The average area of a single spider web is 0.28 metre square.=PROGRAM:=Q1: What is the total number of spiders in the world?=Q2: How many webs does an average spider make in a year?=Q3: What is the average area of a single spider web?=Q4: What is the total area of all the webs made by a single spider in a year?=Q5: What is the total area of all the webs made by all the spiders in the world?=A1: 1.4e+17=A2: 30=A3: 0.28 m**2=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> A3 | F3=Q4 -> Mul (Q2, Q3)=Q5 -> Mul (Q1, Q4)=P: Q5",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false
             }
         },
         "distractor-context": {
@@ -455,7 +455,7 @@
                 "units": "kg",
                 "answer": 61200000000.0,
                 "context": "- F1: The density of air in the atmosphere is 1.2 kg/cubic metre\n- F2: The total volume of the atmosphere is 51000000000 metre cube",
-                "llm_output": "6.12e+10 kg=CONTEXT:=F1: The density of air in the atmosphere is 1.2 kg/cubic metre=F2: The total volume of the atmosphere is 51000000000 metre cube=PROGRAM:=Q1: What is the density of air in the atmosphere in kg/cubic metre?=Q2: What is the total volume of the atmosphere in cubic metre?=A1: 1.2 kg/m**3=A2: 5.1e+10 m**3=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (A1, A2)",
+                "llm_output": "61200000000.0=CONTEXT:=F1: The density of air in the atmosphere is 1.2 kg/cubic metre.=F2: The total volume of the atmosphere is 51000000000 metre cube=PROGRAM:=Q1: What is the density of air in the atmosphere?=Q2: What is the total volume of the atmosphere?=A1: 1.2 kg/cubic metre=A2: 51000000000 metre cube=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -474,17 +474,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 1.0,
+            "parsable": 1,
             "metadata": {
                 "question": "How many leaves are there in the world?",
                 "units": "leaves",
                 "answer": 1.5e+17,
                 "context": "- F1: The total number of trees in the world are 3e+12\n- F2: The average number of leaves on a single tree are 50000",
-                "llm_output": "1.5e+17=CONTEXT:=F1: The total number of trees in the world are 3e+12=F2: The average number of leaves on a single tree are 50000=PROGRAM:=Q1: What is the total number of trees in the world?=Q2: What is the average number of leaves on a single tree?=A1: 3e+12 trees=A2: 50000 leaves=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n1.5e+17=CONTEXT:=F1: The total number of trees in the world are 3e+12=F2: The average number of leaves on a single tree are 50000=PROGRAM:=Q1: What is the total number of trees in the world?=Q2: What is the average number of leaves on a single tree?=A1: 3e+12=A2: 50000=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 1.5e+17,
+                "program": "CONTEXT:=F1: The total number of trees in the world are 3e+12=F2: The average number of leaves on a single tree are 50000=PROGRAM:=Q1: What is the total number of trees in the world?=Q2: What is the average number of leaves on a single tree?=A1: 3e+12=A2: 50000=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -500,17 +500,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 1.0,
+            "parsable": 1,
             "metadata": {
                 "question": "What is the CO2 emissions from the creation of GPT-3, the deep net of unprecedented size that can write Javascript and finish your GoT fan fiction?",
                 "units": "kg",
                 "answer": 85000.0,
                 "context": "- F1: The energy used in creating the GPT model is 190000 kWh.\n- F2: The CO2 generated by 1kWh of energy is 0.5 kg/kWh",
-                "llm_output": "95000.0=CONTEXT:=F1: The energy used in creating the GPT model is 190000 kWh.=F2: The CO2 generated by 1kWh of energy is 0.5 kg/kWh=PROGRAM:=Q1: What is the total energy used in creating the GPT model in kWh?=Q2: What is the CO2 emission per kWh of energy used?=A1: 190000 kWh=A2: 0.5 kg/kWh=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "95000.0=CONTEXT:=F1: The energy used in creating the GPT model is 190000 kWh.=F2: The CO2 generated by 1kWh of energy is 0.5 kg/kWh=PROGRAM:=Q1: What is the energy used in creating the GPT model?=Q2: What is the CO2 generated by 1kWh of energy?=A1: 190000 kWh=A2: 0.5 kg/kWh=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 95000.0,
+                "program": "CONTEXT:=F1: The energy used in creating the GPT model is 190000 kWh.=F2: The CO2 generated by 1kWh of energy is 0.5 kg/kWh=PROGRAM:=Q1: What is the energy used in creating the GPT model?=Q2: What is the CO2 generated by 1kWh of energy?=A1: 190000 kWh=A2: 0.5 kg/kWh=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -533,7 +533,7 @@
                 "units": "songs",
                 "answer": 255000.0,
                 "context": "- F1: A total of 150e+6 songs have been released till now.\n- F2: Around 0.17% of songs contain the term baby?",
-                "llm_output": "255000.0=CONTEXT:=F1: A total of 150e+6 songs have been released till now.=F2: Around 0.17% of songs contain the term baby?=PROGRAM:=Q1: How many songs have been released till now?=Q2: What percent of songs contain the term \"baby\"?=A1: 150e+6 songs=A2: 0.0017=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n255000.0=CONTEXT:=F1: A total of 150e+6 songs have been released till now.=F2: Around 0.17% of songs contain the term baby?=PROGRAM:=Q1: How many songs have been released till now?=Q2: What percent of songs contain the term baby?=A1: 150e+6 songs=A2: 0.0017=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -559,7 +559,7 @@
                 "units": "cm**3",
                 "answer": 6464315.0,
                 "context": "- F1: The old volume of humans is 62000 cc\n- F2: The mass of an average human is 62 kg\n- F3: The density of the human body if it has to be lighter than air is 0.95e-5 kg/cc (density of air is 1e-5 kg/cc)",
-                "llm_output": "6.52e8 cm**3=CONTEXT:=F1: The old volume of humans is 62000 cc=F2: The mass of an average human is 62 kg=F3: The density of the human body if it has to be lighter than air is 0.95e-5 kg/cc (density of air is 1e-5 kg/cc)=PROGRAM:=Q1: What is the mass of the human in kg?=Q2: What is the density of the human body if it has to be lighter than air in kg/cc?=A1: 62 kg=A2: 0.95e-5 kg/cc=Q1 -> A1 | F2=Q2 -> A2 | F3=P: Div (A1, A2)",
+                "llm_output": "6.52e6=CONTEXT:=F1: The old volume of humans is 62000 cc=F2: The mass of an average human is 62 kg=F3: The density of the human body if it has to be lighter than air is 0.95e-5 kg/cc=PROGRAM:=Q1: What is the mass of an average human?=Q2: What is the density of the human body if it has to be lighter than air?=Q3: What is the new volume of the human body?=A1: 62 kg=A2: 0.95e-5 kg/cc=Q1 -> A1 | F2=Q2 -> A2 | F3=Q3 -> Div (Q1, Q2)=P: Q3",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -585,9 +585,9 @@
                 "units": "professors",
                 "answer": 500000.0,
                 "context": "- F1: There are 25000 universities in the world roughly.\n- F2: The average number of tenured professors in a university is 20",
-                "llm_output": "500000.0=CONTEXT:=F1: There are 25000 universities in the world roughly.=F2: The average number of tenured professors in a university is 20=PROGRAM:=Q1: How many universities are there in the world?=Q2: What is the average number of tenured professors in a university?=A1: 25000=A2: 20=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n500000.0=CONTEXT:=F1: There are 25000 universities in the world roughly.=F2: The average number of tenured professors in a university is 20=PROGRAM:=Q1: How many universities are there in the world?=Q2: What is the average number of tenured professors in a university?=A1: 25000=A2: 20=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 500000,
-                "program": "CONTEXT:=F1: There are 25000 universities in the world roughly.=F2: The average number of tenured professors in a university is 20=PROGRAM:=Q1: How many universities are there in the world?=Q2: What is the average number of tenured professors in a university?=A1: 25000=A2: 20=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: There are 25000 universities in the world roughly.=F2: The average number of tenured professors in a university is 20=PROGRAM:=Q1: How many universities are there in the world?=Q2: What is the average number of tenured professors in a university?=A1: 25000=A2: 20=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -611,7 +611,7 @@
                 "units": "cm**3",
                 "answer": 90978261.0,
                 "context": "- F1: The size of an iPhone 6 is 600 cc\n- F2: The size of ENIAC is 209250 sq.in\n- F3: The size of processor in iPhone 6 is 0.138 sq. in",
-                "llm_output": "9.1e+7 cm**3=CONTEXT:=F1: The size of an iPhone 6 is 600 cc=F2: The size of ENIAC is 209250 sq.in=F3: The size of processor in iPhone 6 is 0.138 sq. in=PROGRAM:=Q1: What is the size of an iPhone 6 in cc?=Q2: What is the size of ENIAC in sq.in?=Q3: What is the size of the processor in iPhone 6 in sq.in?=A1: 600 cm**3=A2: 209250 sq.in=A3: 0.138 sq.in=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (A1, Div (A2, A3))",
+                "llm_output": "\n9.09e+08=CONTEXT:=F1: The size of an iPhone 6 is 600 cc=F2: The size of ENIAC is 209250 sq.in=F3: The size of processor in iPhone 6 is 0.138 sq. in=PROGRAM:=Q1: What is the size of an iPhone 6?=Q2: What is the size of ENIAC?=Q3: What is the size of the processor in iPhone 6?=Q4: What is the ratio of the size of ENIAC to the size of the processor in iPhone 6?=A1: 600 cm**3=A2: 209250 sq.in=A3: 0.138 sq.in=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Div (Q2, Q3)=Q1 -> A1 | F1=P: Mul (Q1, Q4)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -630,17 +630,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.9640659401722846,
+            "parsable": 1,
             "metadata": {
                 "question": "How much food has an average 30 year old American eaten?",
                 "units": "lb",
                 "answer": 59880.0,
                 "context": "- F1: An average American eats around 1996 pounds of food each year.\n- F2: The person mentioned has been eating food for the past 30 years.",
-                "llm_output": "59880.0=CONTEXT:=F1: An average American eats around 1996 pounds of food each year.=F2: The person mentioned has been eating food for the past 30 years.=PROGRAM:=Q1: How much food does an average American eat in a year?=Q2: For how many years has the person been eating?=A1: 1996 lb=A2: 30 years=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "59880.0=CONTEXT:=F1: An average American eats around 1996 pounds of food each year.=F2: The person mentioned has been eating food for the past 30 years.=PROGRAM:=Q1: How much food does an average American eat each year?=Q2: For how many years has the person been eating?=A1: 1996 lb=A2: 30=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 27161.111115600004,
+                "program": "CONTEXT:=F1: An average American eats around 1996 pounds of food each year.=F2: The person mentioned has been eating food for the past 30 years.=PROGRAM:=Q1: How much food does an average American eat each year?=Q2: For how many years has the person been eating?=A1: 1996 lb=A2: 30=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -656,16 +656,16 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.9998650976276411,
+            "accuracy": 0.9999997438491977,
             "parsable": 1,
             "metadata": {
                 "question": "How many pizza boxes would we need to cover the classroom floor?",
                 "units": "boxes",
                 "answer": 820.0,
                 "context": "- F1: The surface area of an average classroom is 960 sq ft\n- F2: The surface area of a pizza box is 1.17 sq ft",
-                "llm_output": "822.0=CONTEXT:=F1: The surface area of an average classroom is 960 sq ft=F2: The surface area of a pizza box is 1.17 sq ft=PROGRAM:=Q1: What is the total surface area of the classroom in sq ft?=Q2: What is the surface area of a pizza box in sq ft?=A1: 960 sq ft=A2: 1.17 sq ft=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "llm_output": "\n820.51=CONTEXT:=F1: The surface area of an average classroom is 960 sq ft=F2: The surface area of a pizza box is 1.17 sq ft=PROGRAM:=Q1: What is the surface area of the classroom?=Q2: What is the surface area of a pizza box?=A1: 960 sq ft=A2: 1.17 sq ft=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
                 "prediction": 820.5128205128206,
-                "program": "CONTEXT:=F1: The surface area of an average classroom is 960 sq ft=F2: The surface area of a pizza box is 1.17 sq ft=PROGRAM:=Q1: What is the total surface area of the classroom in sq ft?=Q2: What is the surface area of a pizza box in sq ft?=A1: 960 sq ft=A2: 1.17 sq ft=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "program": "CONTEXT:=F1: The surface area of an average classroom is 960 sq ft=F2: The surface area of a pizza box is 1.17 sq ft=PROGRAM:=Q1: What is the surface area of the classroom?=Q2: What is the surface area of a pizza box?=A1: 960 sq ft=A2: 1.17 sq ft=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -689,7 +689,7 @@
                 "units": "J",
                 "answer": 330000000000.0,
                 "context": "- F1: The rate at which the continent is drifting apart is 1e-5 km/year\n- F2: The density of the continent is 5.5e+12 kg/km**3\n- F3: The surface area of the continent is 24.7e+6 km**2\n- F4: The thickness of the continent is 50 km\n- F6: The square of the velocity is velocity times velocity.\n- F7: The numerical coefficient in half of the mass is 2.",
-                "llm_output": "INITIAL GUESS:=\n1e+18 J\nCONTEXT:=\nF1: The rate at which the continent is drifting apart is 1e-5 km/year\nF2: The density of the continent is 5.5e+12 kg/km**3\nF3: The surface area of the continent is 24.7e+6 km**2\nF4: The thickness of the continent is 50 km\nF6: The square of the velocity is velocity times velocity.\nF7: The numerical coefficient in half of the mass is 2.\nPROGRAM:=\nQ1: What is the velocity of the continent in km/year?\nQ2: What is the mass of the continent in kg?\nQ3: What is the square of the velocity in (km/year)^2?\nQ4: What is half of the mass in kg?\nA1: 1e-5 km/year\nA2: 6.785e+21 kg\nA3: 1e-10 (km/year)^2\nA4: 3.3925e+21 kg\nQ1 -> A1 | F1\nQ2 -> A2 | F2, F3, F4\nQ3 -> A3 | F6, A1\nQ4 -> A4 | F7, A2\nP: Mul (A4, A3)",
+                "llm_output": "\n1.69e+21=CONTEXT:=F1: The rate at which the continent is drifting apart is 1e-5 km/year.=F2: The density of the continent is 5.5e+12 kg/km**3=F3: The surface area of the continent is 24.7e+6 km**2=F4: The thickness of the continent is 50 km=F6: The square of the velocity is velocity times velocity.=F7: The numerical coefficient in half of the mass is 2.=PROGRAM:=Q1: What is the velocity of the continent?=Q2: What is the density of the continent?=Q3: What is the surface area of the continent?=Q4: What is the thickness of the continent?=Q5: What is the mass of the continent?=Q6: What is the square of the velocity?=Q7: What is the numerical coefficient in half of the mass?=A1: 1e-5 km/year=A2: 5.5e+12 kg/km**3=A3: 24.7e+6 km**2=A4: 50 km=A5: Mul (Q2, Q3, Q4)=A6: Pow (Q1, 2)=A7: 2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> A5 | F2, F3, F4=Q6 -> A6 | F1, F6=Q7 -> A7 | F7=P: Div (Mul (Q5, Q6), Q7)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -741,9 +741,9 @@
                 "units": "people",
                 "answer": 1000000.0,
                 "context": "- F1: Around 0.5 of the total people buy the panels for subsidy benefits.\n- F2: Around 2e+6 people go solar each year.",
-                "llm_output": "1.0e+6=CONTEXT:=F1: Around 0.5 of the total people buy the panels for subsidy benefits.=F2: Around 2e+6 people go solar each year.=PROGRAM:=Q1: What is the total number of people who go solar each year?=Q2: What fraction of people buy the panels for subsidy benefits?=A1: 2.0e+6 people=A2: 0.5=Q1 -> A1 | F2=Q2 -> A2 | F1=P: Mul (Q1, Q2)",
+                "llm_output": "\n1.0e+6=CONTEXT:=F1: Around 0.5 of the total people buy the panels for subsidy benefits.=F2: Around 2e+6 people go solar each year.=PROGRAM:=Q1: What fraction of people buy solar panels for subsidy benefits?=Q2: How many people go solar each year?=A1: 0.5=A2: 2.0e+6=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 1000000.0,
-                "program": "CONTEXT:=F1: Around 0.5 of the total people buy the panels for subsidy benefits.=F2: Around 2e+6 people go solar each year.=PROGRAM:=Q1: What is the total number of people who go solar each year?=Q2: What fraction of people buy the panels for subsidy benefits?=A1: 2.0e+6 people=A2: 0.5=Q1 -> A1 | F2=Q2 -> A2 | F1=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: Around 0.5 of the total people buy the panels for subsidy benefits.=F2: Around 2e+6 people go solar each year.=PROGRAM:=Q1: What fraction of people buy solar panels for subsidy benefits?=Q2: How many people go solar each year?=A1: 0.5=A2: 2.0e+6=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -760,16 +760,16 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.3484206600488985,
+            "accuracy": 0.6891896843773939,
             "parsable": 1,
             "metadata": {
                 "question": "How many gallons of gasoline does a car use in its lifetime?",
                 "units": "gal",
                 "answer": 7872.0,
                 "context": "- F1: The average lifetime of a car is 12 years.\n- F2: The annual fuel consumption of a car is 656 gallons per year.",
-                "llm_output": "7872.0=CONTEXT:=F1: The average lifetime of a car is 12 years.=F2: The annual fuel consumption of a car is 656 gallons per year.=PROGRAM:=Q1: What is the average lifetime of a car in years?=Q2: What is the annual fuel consumption of a car in gallons?=A1: 12 years=A2: 656 gal=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
-                "prediction": 940377397.920978,
-                "program": "CONTEXT:=F1: The average lifetime of a car is 12 years.=F2: The annual fuel consumption of a car is 656 gallons per year.=PROGRAM:=Q1: What is the average lifetime of a car in years?=Q2: What is the annual fuel consumption of a car in gallons?=A1: 12 years=A2: 656 gal=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n7872.0=CONTEXT:=F1: The average lifetime of a car is 12 years.=F2: The annual fuel consumption of a car is 656 gallons per year.=PROGRAM:=Q1: What is the average lifetime of a car?=Q2: What is the annual fuel consumption of a car?=A1: 12 years=A2: 656 gal/year=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 29.798761563647993,
+                "program": "CONTEXT:=F1: The average lifetime of a car is 12 years.=F2: The annual fuel consumption of a car is 656 gallons per year.=PROGRAM:=Q1: What is the average lifetime of a car?=Q2: What is the annual fuel consumption of a car?=A1: 12 years=A2: 656 gal/year=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -793,9 +793,9 @@
                 "units": "ants",
                 "answer": 1200000000000000.0,
                 "context": "- F1: There are around 12000 species of ants.\n- F2: There are roughly 10e+8 ants per species.",
-                "llm_output": "1.2e+12 ants=CONTEXT:=F1: There are around 12000 species of ants.=F2: There are roughly 10e+8 ants per species.=PROGRAM:=Q1: How many species of ants are there?=Q2: How many ants are there per species?=A1: 12000=A2: 10e+8=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n1.2e+12=CONTEXT:=F1: There are around 12000 species of ants.=F2: There are roughly 10e+8 ants per species.=PROGRAM:=Q1: How many species of ants are there?=Q2: How many ants are there per species?=A1: 12000=A2: 10e+8=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 12000000000000.0,
-                "program": "CONTEXT:=F1: There are around 12000 species of ants.=F2: There are roughly 10e+8 ants per species.=PROGRAM:=Q1: How many species of ants are there?=Q2: How many ants are there per species?=A1: 12000=A2: 10e+8=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: There are around 12000 species of ants.=F2: There are roughly 10e+8 ants per species.=PROGRAM:=Q1: How many species of ants are there?=Q2: How many ants are there per species?=A1: 12000=A2: 10e+8=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -819,9 +819,9 @@
                 "units": "books",
                 "answer": 15480.0,
                 "context": "- F1: The average number of students in a school is 516.\n- F2: The number of books read by a child annually is 30.",
-                "llm_output": "15480.0=CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: What is the number of books read by a child annually?=A1: 516=A2: 30=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "15480.0=CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: How many books does a child read annually?=A1: 516=A2: 30=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 15480,
-                "program": "CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: What is the number of books read by a child annually?=A1: 516=A2: 30=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: How many books does a child read annually?=A1: 516=A2: 30=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -845,7 +845,7 @@
                 "units": "years",
                 "answer": 8.77,
                 "context": "- F1: The distance between Earth and Moon is 384400 km\n- F2: The average speed at which a person drives a car is 30 kmph.\n- F3: A typical year consists of 8760 hours.",
-                "llm_output": "INITIAL GUESS:=\n10.0 years\nCONTEXT:=\n- F1: The distance between Earth and Moon is 384400 km\n- F3: A typical year consists of 8760 hours.\nPROGRAM:=\n- Q1: What is the distance to the moon in km?\n- Q2: What is the average speed of a person walking in km/h?\n- Q3: How many hours are there in a year?\n- A1: 3.844e5 km\n- A2: 5.0 km/h\n- A3: 8760 hours\n- Q1 -> A1 | F1\n- Q3 -> A3 | F3\n- P: Div(Q1, Q2) -> A4: hours\n- P: Div(A4, Q3) -> A5: years\n- A5: 8.8 years",
+                "llm_output": "\n14.6=CONTEXT:=F1: The distance between Earth and Moon is 384400 km.=F2: The average speed at which a person drives a car is 30 kmph.=F3: A typical year consists of 8760 hours.=PROGRAM:=Q1: What is the distance between Earth and Moon?=Q2: What is the average speed at which a person drives a car?=Q3: How many hours are there in a year?=Q4: How many hours would it take to walk to the moon?=Q5: How many years would it take to walk to the moon?=A1: 384400 km=A2: 30 kmph=A3: 8760 hours=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Div (Q1, Q2)=Q5 -> Div (Q4, Q3)=P: Q5",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -864,17 +864,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.9997190216418126,
+            "parsable": 1,
             "metadata": {
                 "question": "Out of all songs ever recorded, what percentage of songs are in the time signature 4/4?",
                 "units": "dimensionless",
                 "answer": 34.0,
                 "context": "- F1: Roughly 33e+6 songs have the timestamp 4/4. (estimate)\n- F2: A total of 97e+6 songs have been recorded till now.",
-                "llm_output": "0.34=CONTEXT:=F1: Roughly 33e+6 songs have the timestamp 4/4. (estimate)=F2: A total of 97e+6 songs have been recorded till now.=PROGRAM:=Q1: How many songs have the time signature 4/4?=Q2: How many total songs have been recorded?=A1: 33e+6=A2: 97e+6=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n0.34=CONTEXT:=F1: Roughly 33e+6 songs have the timestamp 4/4. (estimate)=F2: A total of 97e+6 songs have been recorded till now.=PROGRAM:=Q1: How many songs have the timestamp 4/4?=Q2: How many songs have been recorded till now?=A1: 33e+6=A2: 97e+6=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 0.3402061855670103,
+                "program": "CONTEXT:=F1: Roughly 33e+6 songs have the timestamp 4/4. (estimate)=F2: A total of 97e+6 songs have been recorded till now.=PROGRAM:=Q1: How many songs have the timestamp 4/4?=Q2: How many songs have been recorded till now?=A1: 33e+6=A2: 97e+6=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -897,7 +897,7 @@
                 "units": "USD",
                 "answer": 36.0,
                 "context": "- F1: The average meal cost in the US is 12 USD.\n- F2: An average human takes around 3 meals a day.",
-                "llm_output": "36.0=CONTEXT:=F1: The average meal cost in the US is 12 USD.=F2: An average human takes around 3 meals a day.=PROGRAM:=Q1: What is the cost of one meal in USD?=Q2: How many meals does an average person eat in a day?=A1: 12 USD=A2: 3=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n36.0=CONTEXT:=F1: The average meal cost in the US is 12 USD.=F2: An average human takes around 3 meals a day.=PROGRAM:=Q1: What is the cost of an average meal?=Q2: How many meals does an average human take in a day?=A1: 12 USD=A2: 3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -923,7 +923,7 @@
                 "units": "min",
                 "answer": 6.5e-30,
                 "context": "- F1: The rate at which it reproduces is 2 offspring per reproduction.\n- F2: There are 24 hours in a day.\n- F3: There are 60 minutes in an hour.\n- F4: The bacteria reproduces for every 10 minutes.\n- F5: The total consumption of onion in the US per year is 7.2e+9 pounds\n- F6: Each eNSO eats 0.00005 pounds in a minute",
-                "llm_output": "INITIAL GUESS:=\n1.0e+6 min\nCONTEXT:=\nF1: The rate at which it reproduces is 2 offspring per reproduction.\nF4: The bacteria reproduces for every 10 minutes.\nF5: The total consumption of onion in the US per year is 7.2e+9 pounds\nF6: Each eNSO eats 0.00005 pounds in a minute\nPROGRAM:=\nQ1: How many offspring does each eNSO produce per reproduction?\nQ2: How often does each eNSO reproduce?\nQ3: How much onion does each eNSO consume per minute?\nQ4: What is the total consumption of onion in the US per year?\nA1: 2\nA2: 10 min\nA3: 0.00005 pounds/min\nA4: 7.2e+9 pounds\nQ1 -> A1 | F1\nQ2 -> A2 | F4\nQ3 -> A3 | F6\nQ4 -> A4 | F5\nP: Div (A4, Mul (A1, A3))",
+                "llm_output": "INITIAL GUESS:=\n1.0e+12 min=CONTEXT:=F1: The rate at which it reproduces is 2 offspring per reproduction.=F2: There are 24 hours in a day.=F3: There are 60 minutes in an hour.=F4: The bacteria reproduces for every 10 minutes.=F5: The total consumption of onion in the US per year is 7.2e+9 pounds=F6: Each eNSO eats 0.00005 pounds in a minute=PROGRAM:=Q1: How many offspring does each eNSO produce per reproduction?=Q2: How many minutes are there in a day?=Q3: How often does the bacteria reproduce?=Q4: What is the total consumption of onion in the US per year?=Q5: How much does each eNSO eat in a minute?=A1: 2=A2: 1440 min=A3: 10 min=A4: 7.2e+9 pounds=A5: 0.00005 pounds=Q1 -> A1 | F1=Q2 -> Mul (F2, F3)=Q3 -> A3 | F4=Q4 -> A4 | F5=Q5 -> A5 | F6=P: Div (Q4, Mul (Q5, Pow (Add (1, Div (Q2, Q3)), Div (Q2, Q3))))",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -949,7 +949,7 @@
                 "units": "pizzas",
                 "answer": 2089200000.0,
                 "context": "- F1: An average person in the US eats around 6 pizzas per year.\n- F2: The population of the US is 348200000",
-                "llm_output": "2092800000.0=CONTEXT:=F1: An average person in the US eats around 6 pizzas per year.=F2: The population of the US is 348200000=PROGRAM:=Q1: How many pizzas does an average person in the US eat per year?=Q2: What is the population of the US?=A1: 6 pizzas=A2: 348200000=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "\n2089200000.0=CONTEXT:=F1: An average person in the US eats around 6 pizzas per year.=F2: The population of the US is 348200000=PROGRAM:=Q1: How many pizzas does an average person in the US eat per year?=Q2: What is the population of the US?=A1: 6 pizzas=A2: 348200000=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -975,7 +975,7 @@
                 "units": "cars",
                 "answer": 4263.0,
                 "context": "- F1: The average surface area of a road is 255830\n- F2: The average surface area of the car is 60 sq. feet",
-                "llm_output": "10.0=CONTEXT:=F1: The average surface area of a road is 255830 sq. feet.=F2: The average surface area of the car is 60 sq. feet.=PROGRAM:=Q1: What is the total surface area of the road in sq. feet?=Q2: What is the surface area of a car in sq. feet?=A1: 255830 sq. feet=A2: 60 sq. feet=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (Q1, Q2)",
+                "llm_output": "\n4263.83=CONTEXT:=F1: The average surface area of a road is 255830=F2: The average surface area of the car is 60 sq. feet=PROGRAM:=Q1: What is the average surface area of a road?=Q2: What is the average surface area of a car?=Q3: How many cars can fit on the road at once?=A1: 255830 sq. feet=A2: 60 sq. feet=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> Div (Q1, Q2)=P: Q3",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -994,17 +994,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 1.0,
+            "parsable": 1,
             "metadata": {
                 "question": "How many people would COVID-19 kill if it were 1918?",
                 "units": "people",
                 "answer": 820000.0,
                 "context": "- F1: The population of mankind in 1918 is 1.8e+9\n- F2: The total human population currently is 7.2e+9\n- F3: The total deaths caused due to covid till now are 3.3e+6",
-                "llm_output": "1.65e+8=CONTEXT:=F1: The population of mankind in 1918 is 1.8e+9=F2: The total human population currently is 7.2e+9=F3: The total deaths caused due to covid till now are 3.3e+6=PROGRAM:=Q1: What is the current population?=Q2: What is the population in 1918?=Q3: What is the total deaths caused due to covid till now?=A1: 7.2e+9=A2: 1.8e+9=A3: 3.3e+6=Q1 -> A1 | F2=Q2 -> A2 | F1=Q3 -> A3 | F3=P: Mul (A3, Div (A2, A1))",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n8.25e+5=CONTEXT:=F1: The population of mankind in 1918 is 1.8e+9=F2: The total human population currently is 7.2e+9=F3: The total deaths caused due to covid till now are 3.3e+6=PROGRAM:=Q1: What is the population of mankind in 1918?=Q2: What is the total human population currently?=Q3: What are the total deaths caused due to covid till now?=Q4: What is the death rate of covid?=A1: 1.8e+9 people=A2: 7.2e+9 people=A3: 3.3e+6 people=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Div (Q3, Q2)=P: Mul (Q1, Q4)",
+                "prediction": 825000.0,
+                "program": "CONTEXT:=F1: The population of mankind in 1918 is 1.8e+9=F2: The total human population currently is 7.2e+9=F3: The total deaths caused due to covid till now are 3.3e+6=PROGRAM:=Q1: What is the population of mankind in 1918?=Q2: What is the total human population currently?=Q3: What are the total deaths caused due to covid till now?=Q4: What is the death rate of covid?=A1: 1.8e+9 people=A2: 7.2e+9 people=A3: 3.3e+6 people=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Div (Q3, Q2)=P: Mul (Q1, Q4)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -1020,17 +1020,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.42505032072449267,
+            "parsable": 1,
             "metadata": {
                 "question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter hole bored through. Estimate the mass, g, of one cylinder.",
                 "units": "g",
                 "answer": 0.047,
                 "context": "- F1: The density of cereal ingredient is 0.14 g/cc\n- F2: The exterior diameter is 1 cm\n- F3: The interior diameter is 0.4 cm\n- F4: The height of the cheerio is 0.4 cm\n- F5: The volume of the cylinder is the product of diameter square and height.\n- F6: What is the relation between exterior diamter and it square is 2.\n- F7: What is the relation between interior diamter and it square is 2.",
-                "llm_output": "0.1 g=CONTEXT:=F1: The density of cereal ingredient is 0.14 g/cc=F2: The exterior diameter is 1 cm=F3: The interior diameter is 0.4 cm=F4: The height of the cheerio is 0.4 cm=PROGRAM:=Q1: What is the volume of the exterior cylinder?=Q2: What is the volume of the interior cylinder?=Q3: What is the volume of the cereal?=Q4: What is the mass of the cereal?=A1: 0.314 cm**3=A2: 0.050 cm**3=A3: 0.264 cm**3=A4: 0.037 g=Q1 -> A1 | F2, F4=Q2 -> A2 | F3, F4=Q3 -> A3 | A1, A2=P: Mul (A3, F1) -> A4 | F1",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "0.0314=CONTEXT:=F1: The density of cereal ingredient is 0.14 g/cc=F2: The exterior diameter is 1 cm=F3: The interior diameter is 0.4 cm=F4: The height of the cheerio is 0.4 cm=F5: The volume of the cylinder is the product of diameter square and height.=F6: What is the relation between exterior diamter and it square is 2.=F7: What is the relation between interior diamter and it square is 2.=PROGRAM:=Q1: What is the density of the cereal ingredient?=Q2: What is the exterior diameter of the cheerio?=Q3: What is the interior diameter of the cheerio?=Q4: What is the height of the cheerio?=Q5: What is the volume of the exterior cylinder?=Q6: What is the volume of the interior cylinder?=Q7: What is the volume of the cheerio?=A1: 0.14 g/cc=A2: 1 cm=A3: 0.4 cm=A4: 0.4 cm=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> Mul (Pow (Q2, 2), Q4)=Q6 -> Mul (Pow (Q3, 2), Q4)=Q7 -> Sub (Q5, Q6)=Q1 -> A1 | F1=P: Mul (Q1, Q7)",
+                "prediction": 1.6799999999999997,
+                "program": "CONTEXT:=F1: The density of cereal ingredient is 0.14 g/cc=F2: The exterior diameter is 1 cm=F3: The interior diameter is 0.4 cm=F4: The height of the cheerio is 0.4 cm=F5: The volume of the cylinder is the product of diameter square and height.=F6: What is the relation between exterior diamter and it square is 2.=F7: What is the relation between interior diamter and it square is 2.=PROGRAM:=Q1: What is the density of the cereal ingredient?=Q2: What is the exterior diameter of the cheerio?=Q3: What is the interior diameter of the cheerio?=Q4: What is the height of the cheerio?=Q5: What is the volume of the exterior cylinder?=Q6: What is the volume of the interior cylinder?=Q7: What is the volume of the cheerio?=A1: 0.14 g/cc=A2: 1 cm=A3: 0.4 cm=A4: 0.4 cm=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> Mul (Pow (Q2, 2), Q4)=Q6 -> Mul (Pow (Q3, 2), Q4)=Q7 -> Sub (Q5, Q6)=Q1 -> A1 | F1=P: Mul (Q1, Q7)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -1053,9 +1053,9 @@
                 "units": "kg",
                 "answer": 0.1,
                 "context": "- F1: 1e-9 kg of nuclear material is required to power a bomb with an impact of 1 Wh.\n- F2: The average power consumed by an american home is 1e+7 Wh\n- F3: The number of houses given are 10.",
-                "llm_output": "1.0e-1 kg=CONTEXT:=F1: 1e-9 kg of nuclear material is required to power a bomb with an impact of 1 Wh.=F2: The average power consumed by an american home is 1e+7 Wh=F3: The number of houses given are 10.=PROGRAM:=Q1: How much power does one home consume?=Q2: How many homes are there?=Q3: How much nuclear material is required to power 1 Wh?=A1: 1e+7 Wh=A2: 10=A3: 1e-9 kg=Q1 -> A1 | F2=Q2 -> A2 | F3=Q3 -> A3 | F1=P: Mul (Mul (Q1, Q2), Q3)",
+                "llm_output": "\n0.1=CONTEXT:=F1: 1e-9 kg of nuclear material is required to power a bomb with an impact of 1 Wh.=F2: The average power consumed by an american home is 1e+7 Wh=F3: The number of houses given are 10.=PROGRAM:=Q1: How much nuclear material is required to power a bomb with an impact of 1 Wh?=Q2: What is the average power consumed by an american home?=Q3: How many houses are given?=A1: 1e-9 kg=A2: 1e+7 Wh=A3: 10=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> A3 | F3=P: Mul (Q1, Mul (Q2, Q3))",
                 "prediction": 360000000000.0,
-                "program": "CONTEXT:=F1: 1e-9 kg of nuclear material is required to power a bomb with an impact of 1 Wh.=F2: The average power consumed by an american home is 1e+7 Wh=F3: The number of houses given are 10.=PROGRAM:=Q1: How much power does one home consume?=Q2: How many homes are there?=Q3: How much nuclear material is required to power 1 Wh?=A1: 1e+7 Wh=A2: 10=A3: 1e-9 kg=Q1 -> A1 | F2=Q2 -> A2 | F3=Q3 -> A3 | F1=P: Mul (Mul (Q1, Q2), Q3)",
+                "program": "CONTEXT:=F1: 1e-9 kg of nuclear material is required to power a bomb with an impact of 1 Wh.=F2: The average power consumed by an american home is 1e+7 Wh=F3: The number of houses given are 10.=PROGRAM:=Q1: How much nuclear material is required to power a bomb with an impact of 1 Wh?=Q2: What is the average power consumed by an american home?=Q3: How many houses are given?=A1: 1e-9 kg=A2: 1e+7 Wh=A3: 10=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> A3 | F3=P: Mul (Q1, Mul (Q2, Q3))",
                 "program_valid": true
             }
         },
@@ -1079,9 +1079,9 @@
                 "units": "years",
                 "answer": 8000.0,
                 "context": "- F1: The current year is 2021.\n- F2: The last genetically computable human goes all the way back to the one's life during Harappa and MohenjodarO, the first human civilisation [assumption] which was 6000 BC",
-                "llm_output": "8021.0=CONTEXT:=F1: The current year is 2021.=F2: The last genetically computable human goes all the way back to the one's life during Harappa and MohenjodarO, the first human civilisation [assumption] which was 6000 BC=PROGRAM:=Q1: What is the current year?=Q2: What is the year of the last genetically compatible human?=A1: 2021 years=A2: -6000 years=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Sub (Q1, Q2)",
+                "llm_output": "\n8021.0=CONTEXT:=F1: The current year is 2021.=F2: The last genetically computable human goes all the way back to the one's life during Harappa and MohenjodarO, the first human civilisation [assumption] which was 6000 BC=PROGRAM:=Q1: What is the current year?=Q2: When was the last genetically compatible human alive?=A1: 2021 years=A2: 6000 years=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Add (Q1, Q2)",
                 "prediction": 253123509600.0,
-                "program": "CONTEXT:=F1: The current year is 2021.=F2: The last genetically computable human goes all the way back to the one's life during Harappa and MohenjodarO, the first human civilisation [assumption] which was 6000 BC=PROGRAM:=Q1: What is the current year?=Q2: What is the year of the last genetically compatible human?=A1: 2021 years=A2: -6000 years=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Sub (Q1, Q2)",
+                "program": "CONTEXT:=F1: The current year is 2021.=F2: The last genetically computable human goes all the way back to the one's life during Harappa and MohenjodarO, the first human civilisation [assumption] which was 6000 BC=PROGRAM:=Q1: What is the current year?=Q2: When was the last genetically compatible human alive?=A1: 2021 years=A2: 6000 years=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Add (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -1098,17 +1098,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.7073600283487397,
+            "parsable": 1,
             "metadata": {
                 "question": "how fast would you have to be moving to make it from one side of the Earth to the other in 0.3 seconds?",
                 "units": "km*s**-1",
                 "answer": 66791.0,
                 "context": "- F1: The circumference of Earth is 40075 km\n- F2: The time in which the distance has to be covered is 0.3 sec",
-                "llm_output": "133583.333 km*s**-1=CONTEXT:=F1: The circumference of Earth is 40075 km=F2: The time in which the distance has to be covered is 0.3 sec=PROGRAM:=Q1: What is the circumference of the Earth in km?=Q2: What is the time in which the distance has to be covered?=A1: 40075 km=A2: 0.3 s=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Div (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "133583.333=CONTEXT:=F1: The circumference of Earth is 40075 km=F2: The time in which the distance has to be covered is 0.3 sec=PROGRAM:=Q1: What is the circumference of the Earth?=Q2: What is the time in which the distance has to be covered?=A1: 40075 km=A2: 0.3 s=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 133583333.33333334,
+                "program": "CONTEXT:=F1: The circumference of Earth is 40075 km=F2: The time in which the distance has to be covered is 0.3 sec=PROGRAM:=Q1: What is the circumference of the Earth?=Q2: What is the time in which the distance has to be covered?=A1: 40075 km=A2: 0.3 s=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -1131,9 +1131,9 @@
                 "units": "min",
                 "answer": 240.0,
                 "context": "- F1: There are 60 minutes in an hour.\n- F2: An average student plays video games for a total of 4 hours per day.",
-                "llm_output": "240.0=CONTEXT:=F1: There are 60 minutes in an hour.=F2: An average student plays video games for a total of 4 hours per day.=PROGRAM:=Q1: How many minutes are there in an hour?=Q2: How many hours does an average student play video games per day?=A1: 60 min=A2: 4 hours=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "llm_output": "240.0=CONTEXT:=F1: There are 60 minutes in an hour.=F2: An average student plays video games for a total of 4 hours per day.=PROGRAM:=Q1: How many minutes are there in an hour?=Q2: How many hours does an average student play video games per day?=A1: 60 min=A2: 4 hours=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "prediction": 51840000,
-                "program": "CONTEXT:=F1: There are 60 minutes in an hour.=F2: An average student plays video games for a total of 4 hours per day.=PROGRAM:=Q1: How many minutes are there in an hour?=Q2: How many hours does an average student play video games per day?=A1: 60 min=A2: 4 hours=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (Q1, Q2)",
+                "program": "CONTEXT:=F1: There are 60 minutes in an hour.=F2: An average student plays video games for a total of 4 hours per day.=PROGRAM:=Q1: How many minutes are there in an hour?=Q2: How many hours does an average student play video games per day?=A1: 60 min=A2: 4 hours=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
                 "program_valid": true
             }
         },
@@ -1157,7 +1157,7 @@
                 "units": "barrels",
                 "answer": 98800000000000.0,
                 "context": "- F1: We have been extracting oil for 1647 years.\n- F2: Average oil production each year is 95e+9 barrels\n- F3: Average oil consumption each year is 35e+9 barrels",
-                "llm_output": "60e+9=CONTEXT:=F1: We have been extracting oil for 1647 years.=F2: Average oil production each year is 95e+9 barrels=F3: Average oil consumption each year is 35e+9 barrels=PROGRAM:=Q1: How many years have we been extracting oil?=Q2: What is the average oil production each year?=Q3: What is the average oil consumption each year?=A1: 1647 years=A2: 95e+9 barrels=A3: 35e+9 barrels=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Sub (Mul (A1, A2), Mul (A1, A3))",
+                "llm_output": "\n2.12e+12=CONTEXT:=F1: We have been extracting oil for 1647 years.=F2: Average oil production each year is 95e+9 barrels=F3: Average oil consumption each year is 35e+9 barrels=PROGRAM:=Q1: How long have we been extracting oil?=Q2: What is the average oil production each year?=Q3: What is the average oil consumption each year?=Q4: What is the net oil production each year?=Q5: How much oil is left in the world?=A1: 1647 years=A2: 95e+9 barrels=A3: 35e+9 barrels=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Sub (Q2, Q3)=Q1 -> A1 | F1=Q5 -> Mul (Q1, Q4)=P: Q5",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -1176,17 +1176,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.734751695313152,
+            "parsable": 1,
             "metadata": {
                 "question": "How much oil, gas and coal have humans consumed up till now?",
                 "units": "BTUs",
                 "answer": 6.8e+19,
                 "context": "- F1: On an average, humans use 485e+15 BTU every year.\n- F2: The non renewable resources have been in usage for 141 years now.",
-                "llm_output": "6.8e+19 BTUs=CONTEXT:=F1: On an average, humans use 485e+15 BTU every year.=F2: The non renewable resources have been in usage for 141 years now.=PROGRAM:=Q1: What is the average annual consumption of non-renewable resources in BTUs?=Q2: For how many years have non-renewable resources been in use?=A1: 485e+15 BTUs=A2: 141 years=Q1 -> A1 | F1=Q2 -> A2 | F2=P: Mul (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n68385e+15=CONTEXT:=F1: On an average, humans use 485e+15 BTU every year.=F2: The non renewable resources have been in usage for 141 years now.=PROGRAM:=Q1: What is the average annual consumption of oil, gas and coal?=Q2: For how many years have these resources been in use?=A1: 485e+15 BTU=A2: 141 years=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 2.2768809839026562e+30,
+                "program": "CONTEXT:=F1: On an average, humans use 485e+15 BTU every year.=F2: The non renewable resources have been in usage for 141 years now.=PROGRAM:=Q1: What is the average annual consumption of oil, gas and coal?=Q2: For how many years have these resources been in use?=A1: 485e+15 BTU=A2: 141 years=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -1209,7 +1209,7 @@
                 "units": "USD",
                 "answer": 6600.0,
                 "context": "- F1: There are 12 months in a year.\n- F2: The average monthly expenditure of a US consumer on food in grocery stores is 550 USD",
-                "llm_output": "0.0=CONTEXT:=F1: There are 12 months in a year.=F2: The average monthly expenditure of a US consumer on food in grocery stores is 550 USD=PROGRAM:=Q1: What is the total annual expenditure of a US consumer on food in grocery stores?=A1: 6600 USD=Q1 -> A1 | F1, F2=P: Div (Q1, 100000000000)",
+                "llm_output": "\n0.066=CONTEXT:=F1: There are 12 months in a year.=F2: The average monthly expenditure of a US consumer on food in grocery stores is 550 USD=PROGRAM:=Q1: What is the total annual expenditure of a US consumer on food in grocery stores?=Q2: What is the Federal Budget Deficit?=Q3: What percentage of the Federal Budget Deficit do Americans spend on food in grocery stores in one year?=A1: 6600 USD=A2: 100000000000 USD=Q1 -> Mul (F1, F2)=Q2 -> A2 | Given in the question=Q3 -> Div (Q1, Q2)=P: Q3",
                 "prediction": 0.0,
                 "program": "",
                 "program_valid": false
@@ -1228,17 +1228,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.7412821139658172,
+            "parsable": 1,
             "metadata": {
                 "question": "How many musical notes are played on your favorite radio station in a given year?",
                 "units": "notes",
                 "answer": 766500.0,
                 "context": "- F1: There are 365 days in a year\n- F2: There are 7 different types of musical notes in any song\n- F3: 300 songs are played on an average daily by a music station",
-                "llm_output": "1.0e6=CONTEXT:=F1: There are 365 days in a year=F3: 300 songs are played on an average daily by a music station=PROGRAM:=Q1: How many days are there in a year?=Q2: How many songs are played on an average daily by a music station?=A1: 365=A2: 300=Q1 -> A1 | F1=Q2 -> A2 | F3=P: Mul (A1, A2)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n7665000.0=CONTEXT:=F1: There are 365 days in a year=F2: There are 7 different types of musical notes in any song=F3: 300 songs are played on an average daily by a music station=PROGRAM:=Q1: How many days are there in a year?=Q2: How many different types of musical notes are there in any song?=Q3: How many songs are played on an average daily by a music station?=A1: 365=A2: 7=A3: 300=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Q1, Mul (Q2, Q3))",
+                "prediction": 2100,
+                "program": "CONTEXT:=F1: There are 365 days in a year=F2: There are 7 different types of musical notes in any song=F3: 300 songs are played on an average daily by a music station=PROGRAM:=Q1: How many days are there in a year?=Q2: How many different types of musical notes are there in any song?=Q3: How many songs are played on an average daily by a music station?=A1: 365=A2: 7=A3: 300=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Q1, Mul (Q2, Q3))",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -1254,17 +1254,17 @@
             "metadata": {}
         },
         "regular-context": {
-            "accuracy": 0.0,
-            "parsable": 0,
+            "accuracy": 0.761797398688932,
+            "parsable": 1,
             "metadata": {
                 "question": "How many pages are there in all books that are read by children in our school in one year?",
                 "units": "pages",
                 "answer": 495360.0,
                 "context": "- F1: The average number of students in a school is 516.\n- F2: The number of books read by a child annually is 30.\n- F3: The average number of pages in a kid's book is 32.",
-                "llm_output": "496320.0=CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=F3: The average number of pages in a kid's book is 32.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: What is the number of books read by a child annually?=Q3: What is the average number of pages in a kid's book?=A1: 516=A2: 30=A3: 32=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Mul (A1, A2), A3)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n496320.0=CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=F3: The average number of pages in a kid's book is 32.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: How many books does a child read annually?=Q3: What is the average number of pages in a kid's book?=A1: 516=A2: 30=A3: 32=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> A3 | F3=P: Mul (Q1, Mul (Q2, Q3))",
+                "prediction": 960,
+                "program": "CONTEXT:=F1: The average number of students in a school is 516.=F2: The number of books read by a child annually is 30.=F3: The average number of pages in a kid's book is 32.=PROGRAM:=Q1: What is the average number of students in a school?=Q2: How many books does a child read annually?=Q3: What is the average number of pages in a kid's book?=A1: 516=A2: 30=A3: 32=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> A3 | F3=P: Mul (Q1, Mul (Q2, Q3))",
+                "program_valid": true
             }
         },
         "distractor-context": {
@@ -1281,16 +1281,16 @@
         },
         "regular-context": {
             "accuracy": 0.0,
-            "parsable": 0,
+            "parsable": 1,
             "metadata": {
                 "question": "What percent of organ donors die and actually meet the criteria to donate?",
                 "units": "dimensionless",
                 "answer": 0.3,
                 "context": "- F1: The numerical coefficient to convert fraction to percentage is 100.\n- F2: Only 70 organ donor's organs meet the criteria for organ transplantation.\n- F3: Around 70000 donors die each year.",
-                "llm_output": "0.001=CONTEXT:=F1: The numerical coefficient to convert fraction to percentage is 100.=F2: Only 70 organ donor's organs meet the criteria for organ transplantation.=F3: Around 70000 donors die each year.=PROGRAM:=Q1: How many organ donors meet the criteria for organ transplantation?=Q2: How many organ donors die each year?=A1: 70=A2: 70000=Q1 -> A1 | F2=Q2 -> A2 | F3=P: Mul (Div (A1, A2), F1)",
-                "prediction": 0.0,
-                "program": "",
-                "program_valid": false
+                "llm_output": "\n0.1=CONTEXT:=F1: The numerical coefficient to convert fraction to percentage is 100.=F2: Only 70 organ donor's organs meet the criteria for organ transplantation.=F3: Around 70000 donors die each year.=PROGRAM:=Q1: How many organ donors meet the criteria for organ transplantation?=Q2: How many donors die each year?=Q3: What is the numerical coefficient to convert fraction to percentage?=A1: 70=A2: 70000=A3: 100=Q2 -> A2 | F3=Q1 -> A1 | F2=Q3 -> A3 | F1=P: Mul (Div (Q1, Q2), Q3)",
+                "prediction": 4900000,
+                "program": "CONTEXT:=F1: The numerical coefficient to convert fraction to percentage is 100.=F2: Only 70 organ donor's organs meet the criteria for organ transplantation.=F3: Around 70000 donors die each year.=PROGRAM:=Q1: How many organ donors meet the criteria for organ transplantation?=Q2: How many donors die each year?=Q3: What is the numerical coefficient to convert fraction to percentage?=A1: 70=A2: 70000=A3: 100=Q2 -> A2 | F3=Q1 -> A1 | F2=Q3 -> A3 | F1=P: Mul (Div (Q1, Q2), Q3)",
+                "program_valid": true
             }
         },
         "distractor-context": {

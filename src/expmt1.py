@@ -1,4 +1,5 @@
 import argparse
+import time
 from typing import Optional
 from dotenv import load_dotenv
 import os
@@ -11,7 +12,7 @@ import torch
 # init hugging face
 from openai import OpenAI
 
-from prompts.expmt1_prompts import QUERY_PROMPT, CONTEXT_PROMPT, ASSISTANT_FIRST_RESP_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
+from prompts.expmt1_prompts import QUERY_PROMPT, FEW_SHOT_PROMPTS, SYSTEM_PROMPT_STRING
 
 from unidecode import unidecode
 
@@ -20,8 +21,8 @@ import json
 
 load_dotenv()
 
-DATASET_PATH = "./data/verified_data/dataset.json"
-OUTPUT_STORE_PATH = "./results/expmt1/output_store.json"
+DATASET_PATH = "./data/verified_data/dataset-test.json"
+OUTPUT_STORE_PATH = "./results/final_results/expmt1/output_store.json"
 
 client = OpenAI(
     # This is the default and can be omitted
@@ -41,14 +42,25 @@ class SamplePredictor:
         )
         return chat_completion.choices[0].message.content
 
-    def eval(self, question, units, preds, answer, context=None, num_tokens=None, verbose=True):
-        prediction = {
+    def print_metadata(self, metadata):
+        print(f"Question: {metadata['question']} (units: {metadata['units']}); \nContext: {metadata['context']}\nCorrect Answer: {metadata['answer']}")
+        print(f"Prediction is: {metadata['prediction']} \nSummarized Problem is: {metadata['summary']}\nProgram ({'valid' if metadata['program_valid'] else 'invalid'}):\n```python\n{metadata['program']}\n```")
+        if not metadata['program_valid']:
+            print(f"LLM Output: {metadata['llm_output']}")
+
+    def eval(self, question, units, preds, answer, context=None, verbose=True):
+        metadata = {
             "question": question,
             "units": units,
-            "correct_answer": answer,
-            "raw_outputs": preds,
+            "answer": answer,
             "context": "- " + "\n- ".join(context) if context is not None else "",
+            "llm_output": preds,
+            'prediction': 0.0,
+            'summary': '',
+            'program': '',
+            'program_valid': False,
         }
+        accuracy = 0.0
 
         try:
             summary = preds.split("SUMMARY:=")[-1].split("PROGRAM:=")[0].strip('\n')
@@ -61,29 +73,22 @@ class SamplePredictor:
             exec(program, globals(), loc)
             compiled_out = loc["A0"]
 
-            prediction = {
-                    "summary": summary,
-                    "program": program,
-                    "compiled_answer": compiled_out,
-                    **prediction,
-                }
+            metadata = {
+                **metadata,
+                "prediction": compiled_out,
+                "summary": summary,
+                "program": program,
+                "program_valid": True
+            }
 
-            compiled_acc = accuracy_metric(answer, compiled_out)
-            parsable = 1
+            accuracy = accuracy_metric(answer, compiled_out)
+
         except:
-            compiled_acc = 0
-            parsable = 0
             verbose = True
         if verbose:
-            print("Question: {}; \nContext: {}\nCorrect Answer: {}".format(prediction["question"], prediction["context"], prediction["correct_answer"]))
-            if num_tokens is not None:
-                print("Number of Tokens in Response: ", num_tokens)
+            self.print_metadata(metadata)
 
-            if "compiled_answer" in prediction:
-                print("Compiled Answer is: {} \nSummarized Problem is: {}\nProgram:\n```python\n{}\n```".format(prediction['compiled_answer'], prediction['summary'], prediction['program']))
-            else:
-                print("Unable to parse output; Outputting Raw Output:\n{}".format(prediction["raw_outputs"]))
-        return compiled_acc, parsable, prediction
+        return accuracy, int(metadata["program_valid"]), metadata
 
 
     def parse_output(self, raw_output):
@@ -99,36 +104,30 @@ class SamplePredictor:
         for few_shot_prompt in FEW_SHOT_PROMPTS:
             user_question = few_shot_prompt.split("User:")[1].split("Assistant:")[0].strip('\n')
             messages.append({"role": "user", "content": user_question})
-            assistant_response1 = "\n" + few_shot_prompt.split("Assistant:")[1].split("User:")[0].strip('\n')
-            messages.append({"role": "assistant", "content": assistant_response1})
-            user_context = few_shot_prompt.split("User:")[2].split("Assistant:")[0].strip('\n')
-            messages.append({"role": "user", "content": user_context})
-            assistant_response2 = "\n" + few_shot_prompt.split("Assistant:")[2].strip('\n')
-            messages.append({"role": "assistant", "content": assistant_response2})
-        messages.append({"role": "user", "content": QUERY_PROMPT.format(question=question, units=units)})
+            assistant_response = "\n" + few_shot_prompt.split("Assistant:")[1].split("User:")[0].strip('\n')
+            messages.append({"role": "assistant", "content": assistant_response})
+        messages.append({"role": "user", "content": QUERY_PROMPT.format(question=question, units=units, context="")})
 
         if verbose:
-            print(f"\n{'-' * 105}\n{'-' * 45} NO CONTEXT MESSAGE {'-' * 45}\n{'-' * 105}\n\n")
+            print(f"\n{'-' * 110}\n{'-' * 45} NO CONTEXT MESSAGE {'-' * 45}\n{'-' * 110}\n\n")
 
         preds = self.chat(messages)
 
         no_ctxt_raw_output = self.eval(question, units, preds, answer, verbose=verbose)
-        noctxt_pred = no_ctxt_raw_output[2]
         reg_ctxt_raw_output,  dstr_ctxt_raw_output = (0, 0, {}), (0, 0, {})
 
         if context is not None:
             if verbose:
-                print(f"\n{'-' * 106}\n{'-' * 45} PERFECT CONTEXT MESSAGE {'-' * 45}\n{'-' * 106}\n\n")
-            messages.append({"role": "assistant", "content": ASSISTANT_FIRST_RESP_PROMPT.format(summary=noctxt_pred.get("summary", ""), program=noctxt_pred.get("program", ""))})
-            messages.append({"role": "user", "content": CONTEXT_PROMPT.format(context="- " + "\n- ".join(context))})
+                print(f"\n{'-' * 115}\n{'-' * 45} PERFECT CONTEXT MESSAGE {'-' * 45}\n{'-' * 115}\n\n")
+            messages[-1]["content"] = QUERY_PROMPT.format(question=question, units=units, context="- " + "\n- ".join(context))
+
             preds = self.chat(messages)
             reg_ctxt_raw_output = self.eval(question, units, preds, answer, context=context, verbose=verbose)
 
         if distractor_context is not None:
             if verbose:
-                print(f"\n{'-' * 106}\n{'-' * 45} DISTRACTOR MESSAGE {'-' * 45}\n{'-' * 106}\n\n")
-            messages.append({"role": "assistant", "content": ASSISTANT_FIRST_RESP_PROMPT.format(summary=noctxt_pred.get("summary", ""), program=noctxt_pred.get("program", ""))})
-            messages.append({"role": "user", "content": CONTEXT_PROMPT.format(context="- " + "\n- ".join(distractor_context))})
+                print(f"\n{'-' * 118}\n{'-' * 45} DISTRACTOR CONTEXT MESSAGE {'-' * 45}\n{'-' * 118}\n\n")
+            messages[-1]["content"] = QUERY_PROMPT.format(question=question, units=units, context="- " + "\n- ".join(distractor_context))
             preds = self.chat(messages)
             dstr_ctxt_raw_output = self.eval(question, units, preds, answer, context=distractor_context, verbose=verbose)
 
@@ -139,19 +138,22 @@ class SamplePredictor:
         N = N if N is not None else len(dataset)
 
         output_store = []
+        noctxt_accuracy, regctxt_accuracy, dstrctxt_accuracy = 0.0, 0.0, 0.0
 
-        for i in tqdm(range(N)):
+        iterator = tqdm(range(N), desc="Running Experiment 3")
+        for i in iterator:
+            time.sleep(10)
             entry = dataset[i]
 
             question = entry["question"]
             units = entry["units"]
             answer = entry["answer"]
             context = entry["context"].split('=')[1:]
-            distract_context = entry["distract_context"].split('=')[1:]
+            distractor_context = entry["distractor_context"].split('=')[1:]
 
             if verbose:
                 print("About to go into ask")
-            noctxt, regctxt, dstrctxt = self.ask(question, units, answer, context, distract_context, verbose=verbose)
+            noctxt, regctxt, dstrctxt = self.ask(question, units, answer, context, distractor_context, verbose=verbose)
 
             output_store.append({
                 "no-context": noctxt,
@@ -162,6 +164,13 @@ class SamplePredictor:
             if output_store_path is not None:
                 with open(output_store_path, 'w') as f:
                     json.dump(output_store, f)
+
+            noctxt_accuracy += noctxt["accuracy"]
+            regctxt_accuracy += regctxt["accuracy"]
+            dstrctxt_accuracy += dstrctxt["accuracy"]
+
+            iterator.set_postfix({"NoCtxtAcc": noctxt_accuracy/(i+1), "PerfCtxtAcc": regctxt_accuracy/(i+1), "DstrCtxtAcc": dstrctxt_accuracy/(i+1)})
+
 
         accuracy = {
             "no-context": 0,

@@ -1,0 +1,1402 @@
+[
+    {
+        "no-context": {
+            "accuracy": 0.9995894360768599,
+            "parsable": 1,
+            "metadata": {
+                "question": "A man's wife was just turned into a pillar of salt equivalent to her in volume. How much salt would that produce?",
+                "units": "kg",
+                "answer": 134.0,
+                "context": "",
+                "llm_output": "\n62.0=CONTEXT:=F1: The average volume of a woman is 62 liters.=F2: The density of salt is 2.17 g/cm^3.=PROGRAM:=Q1: What is the average volume of a woman?=Q2: What is the density of salt?=A1: 62 liters=A2: 2.17 g/cm^3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 134.54000000000002,
+                "program": "CONTEXT:=F1: The average volume of a woman is 62 liters.=F2: The density of salt is 2.17 g/cm^3.=PROGRAM:=Q1: What is the average volume of a woman?=Q2: What is the density of salt?=A1: 62 liters=A2: 2.17 g/cm^3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.9213219045182621,
+                "accuracy": 0.9995894360768599
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.9806845616242499,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many students are there in North America?",
+                "units": "students",
+                "answer": 210000000.0,
+                "context": "",
+                "llm_output": "\n100000000.0=CONTEXT:=F1: The population of North America is around 579 million.=F2: Around 17.3% of the population are students.=PROGRAM:=Q1: What is the total population of North America?=Q2: What percent of the population are students?=A1: 579000000=A2: 0.173=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 100166999.99999999,
+                "program": "CONTEXT:=F1: The population of North America is around 579 million.=F2: Around 17.3% of the population are students.=PROGRAM:=Q1: What is the total population of North America?=Q2: What percent of the population are students?=A1: 579000000=A2: 0.173=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.9806410235468116,
+                "accuracy": 0.9806845616242499
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How much digital storage space would it require to store all of humanity's scientific and technological knowledge?",
+                "units": "MB",
+                "answer": 2152000.0,
+                "context": "",
+                "llm_output": "\n1.0e15=CONTEXT:==PROGRAM:=Q1: What is the total amount of digital storage space required to store all of humanity's scientific and technological knowledge?=A1: 1.0e15 MB=Q1 -> A1 | =P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How much water can humanity store in new dams in an effort to combat melting of the polar ice sheet?",
+                "units": "mi**3",
+                "answer": 30700.0,
+                "context": "",
+                "llm_output": "\n0.0=CONTEXT:==PROGRAM:=Q1: What is the total volume of water that can be stored in new dams?=A1: 0 mi**3=Q1 -> A1 | No context=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.7462441617026525,
+            "parsable": 1,
+            "metadata": {
+                "question": "If 100% of the energy of all lightning strikes around the world could be harnessed and used, what percentage of the world's power could be supplied by lightning strikes?",
+                "units": "dimensionless",
+                "answer": 8.1e-07,
+                "context": "",
+                "llm_output": "\n0.0001=CONTEXT:=F1: The total energy from all lightning strikes around the world is about 1.4 billion kilowatt hours per year.=F2: The world's power consumption is about 1.4 trillion kilowatt hours per year.=PROGRAM:=Q1: What is the total energy from all lightning strikes around the world?=Q2: What is the world's power consumption?=A1: 1.4e9 kWh=A2: 1.4e12 kWh=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 0.001,
+                "program": "CONTEXT:=F1: The total energy from all lightning strikes around the world is about 1.4 billion kilowatt hours per year.=F2: The world's power consumption is about 1.4 trillion kilowatt hours per year.=PROGRAM:=Q1: What is the total energy from all lightning strikes around the world?=Q2: What is the world's power consumption?=A1: 1.4e9 kWh=A2: 1.4e12 kWh=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.8283255489341339,
+                "accuracy": 0.7462441617026525
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.7595790322628093,
+            "parsable": 1,
+            "metadata": {
+                "question": "If a planet was 5 times the size of the Earth in terms of mass with 1.5 times the radius, what would the surface gravity be?",
+                "units": "m*s**-2",
+                "answer": 22.2,
+                "context": "",
+                "llm_output": "9.8=CONTEXT:=F1: The surface gravity of Earth is 9.8 m/s^2.=F2: The surface gravity of a planet is directly proportional to its mass and inversely proportional to the square of its radius.=PROGRAM:=Q1: What is the surface gravity of Earth?=Q2: What is the relation between surface gravity, mass and radius of a planet?=A1: 9.8 m/s^2=A2: 1=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Pow (5, 1), Pow (1.5, -2))",
+                "prediction": 5.0,
+                "program": "CONTEXT:=F1: The surface gravity of Earth is 9.8 m/s^2.=F2: The surface gravity of a planet is directly proportional to its mass and inversely proportional to the square of its radius.=PROGRAM:=Q1: What is the surface gravity of Earth?=Q2: What is the relation between surface gravity, mass and radius of a planet?=A1: 9.8 m/s^2=A2: 1=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Pow (5, 1), Pow (1.5, -2))",
+                "program_valid": true,
+                "direct_accuracy": 0.8681152322344474,
+                "accuracy": 0.7595790322628093
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "What is the average distance, m, between pigment particles in a paint film?",
+                "units": "cm",
+                "answer": 0.0001,
+                "context": "",
+                "llm_output": "\n0.01=CONTEXT:=F1: The average distance between pigment particles in a paint film is 1 micrometer.=PROGRAM:=Q1: What is the average distance between pigment particles in a paint film in micrometers?=A1: 1e-4 cm=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.75000000000625
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.7175907883084129,
+            "parsable": 1,
+            "metadata": {
+                "question": "How much land would be needed if each family had a house and a yard?",
+                "units": "yd**2",
+                "answer": 648000000000.0,
+                "context": "",
+                "llm_output": "\n9000.0=CONTEXT:=F1: The average size of a house is 2000 square feet.=F2: The average size of a yard is 8000 square feet.=F3: 1 square foot is approximately 0.111 square yards.=PROGRAM:=Q1: What is the average size of a house in square feet?=Q2: What is the average size of a yard in square feet?=Q3: What is the conversion factor from square feet to square yards?=A1: 2000 ft**2=A2: 8000 ft**2=A3: 0.111 yd**2/ft**2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Add (Q1, Q2), Q3)",
+                "prediction": 138095.5974598656,
+                "program": "CONTEXT:=F1: The average size of a house is 2000 square feet.=F2: The average size of a yard is 8000 square feet.=F3: 1 square foot is approximately 0.111 square yards.=PROGRAM:=Q1: What is the average size of a house in square feet?=Q2: What is the average size of a yard in square feet?=Q3: What is the conversion factor from square feet to square yards?=A1: 2000 ft**2=A2: 8000 ft**2=A3: 0.111 yd**2/ft**2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (Add (Q1, Q2), Q3)",
+                "program_valid": true,
+                "direct_accuracy": 0.667388451901652,
+                "accuracy": 0.7175907883084129
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How dense is the Milky Way galaxy in terms of stars per cubic light year?",
+                "units": "star/ly**3",
+                "answer": 0.000588,
+                "context": "",
+                "llm_output": "\n0.004=CONTEXT:=F1: The Milky Way galaxy has about 100 billion stars.=F2: The Milky Way galaxy is about 100,000 light years in diameter.=F3: The Milky Way galaxy is about 1,000 light years thick.=PROGRAM:=Q1: How many stars are there in the Milky Way galaxy?=Q2: What is the diameter of the Milky Way galaxy?=Q3: What is the thickness of the Milky Way galaxy?=Q4: What is the volume of the Milky Way galaxy?=A1: 1e11 stars=A2: 1e5 ly=A3: 1e3 ly=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Mul (Pow (Div (Q2, 2), 2), Mul (Q3, 3.1416))=P: Div (Q1, Q4)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.8711265986047998
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.9404271868747226,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many drops of water are needed to fill an Olympic swimming pool from a pipette?",
+                "units": "drops",
+                "answer": 1400000000000.0,
+                "context": "",
+                "llm_output": "\n2.5e8=CONTEXT:=F1: The volume of an Olympic swimming pool is 2.5e6 liters.=F2: One drop of water is approximately 0.05 ml.=PROGRAM:=Q1: What is the volume of an Olympic swimming pool in liters?=Q2: What is the volume of one drop of water in ml?=A1: 2.5e6 liters=A2: 0.05 ml=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 50000000000.00001,
+                "program": "CONTEXT:=F1: The volume of an Olympic swimming pool is 2.5e6 liters.=F2: One drop of water is approximately 0.05 ml.=PROGRAM:=Q1: What is the volume of an Olympic swimming pool in liters?=Q2: What is the volume of one drop of water in ml?=A1: 2.5e6 liters=A2: 0.05 ml=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.845704408188134,
+                "accuracy": 0.9404271868747226
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.04553342936413052,
+            "parsable": 1,
+            "metadata": {
+                "question": "How large would an object have to be to be able to be visible to the naked eye from the Earth to the Moon?",
+                "units": "km",
+                "answer": 21196.0,
+                "context": "",
+                "llm_output": "\n1.6=CONTEXT:=PROGRAM:=Q1: What is the smallest object that can be seen by the naked eye?=Q2: What is the distance from the Earth to the Moon?=A1: 0.1 mm=A2: 384400 km=Q1 -> A1 | No context=Q2 -> A2 | No context=P: Div (Q2, Q1)",
+                "prediction": 3844000000000.0,
+                "program": "CONTEXT:==PROGRAM:=Q1: What is the smallest object that can be seen by the naked eye?=Q2: What is the distance from the Earth to the Moon?=A1: 0.1 mm=A2: 384400 km=Q1 -> A1 | No context=Q2 -> A2 | No context=P: Div (Q2, Q1)",
+                "program_valid": true,
+                "direct_accuracy": 0.52359084637169,
+                "accuracy": 0.04553342936413052
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.8985564521407237,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many bacteria would be able to be packed into a ping pong ball?",
+                "units": "bacteria",
+                "answer": 16000000000000.0,
+                "context": "",
+                "llm_output": "\n1.0e9=CONTEXT:=F1: The volume of a ping pong ball is 33.51 cm^3.=F2: The volume of a bacterium is 1e-15 m^3.=PROGRAM:=Q1: What is the volume of a ping pong ball?=Q2: What is the volume of a bacterium?=A1: 33.51 cm^3=A2: 1e-15 m^3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 33510000000.0,
+                "program": "CONTEXT:=F1: The volume of a ping pong ball is 33.51 cm^3.=F2: The volume of a bacterium is 1e-15 m^3.=PROGRAM:=Q1: What is the volume of a ping pong ball?=Q2: What is the volume of a bacterium?=A1: 33.51 cm^3=A2: 1e-15 m^3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.8408027196001572,
+                "accuracy": 0.8985564521407237
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "Just how large would an object in geostationary orbit need to be in order to be visible from earth with the naked eye?",
+                "units": "m**3",
+                "answer": 1000.0,
+                "context": "",
+                "llm_output": "\n1.0e6=CONTEXT:=F1: The smallest object visible to the naked eye is approximately 1 km in diameter.=PROGRAM:=Q1: What is the smallest object visible to the naked eye?=A1: 1.0e3 m=Q1 -> A1 | F1=P: Pow (A1, 3)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.5000000000166667
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "What is the weight of a typical building?",
+                "units": "kg",
+                "answer": 4160.0,
+                "context": "",
+                "llm_output": "\n1.0e7=CONTEXT:=PROGRAM:=Q1: What is the average weight of a building?=A1: 1.0e7 kg=Q1 -> A1 | No context=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.532906952043933
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.26989700044820397,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many snowflakes would it take to completely cover a driveway?",
+                "units": "snowflakes",
+                "answer": 100000.0,
+                "context": "",
+                "llm_output": "\n1.0e6=CONTEXT:=F1: The average size of a snowflake is 0.01 m.=F2: The average size of a driveway is 10 m by 20 m.=PROGRAM:=Q1: What is the size of a snowflake?=Q2: What is the size of a driveway?=A1: 0.01 m=A2: 200 m^2=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q2, Pow (Q1, 2))",
+                "prediction": 0.005,
+                "program": "CONTEXT:=F1: The average size of a snowflake is 0.01 m.=F2: The average size of a driveway is 10 m by 20 m.=PROGRAM:=Q1: What is the size of a snowflake?=Q2: What is the size of a driveway?=A1: 0.01 m=A2: 200 m^2=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q2, Pow (Q1, 2))",
+                "program_valid": true,
+                "direct_accuracy": 0.900000000002,
+                "accuracy": 0.26989700044820397
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "If every living thing in the ocean disappeared, how much would the water level lower?",
+                "units": "km",
+                "answer": 0.013,
+                "context": "",
+                "llm_output": "\n0.0=CONTEXT:==PROGRAM:=Q1: What is the volume of all living things in the ocean?=Q2: What is the total volume of the ocean?=A1: 0 km**3=A2: 0 km**3=Q1 -> A1 | No context=Q2 -> A2 | No context=P: Sub (Q2, Q1)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "What is the total area of all currently existing spiderwebs in the world?",
+                "units": "m**2",
+                "answer": 2.11e+16,
+                "context": "",
+                "llm_output": "\n1.0e+12=CONTEXT:==PROGRAM:=P: 1.0e+12 m**2",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.5862268899625853,
+            "parsable": 1,
+            "metadata": {
+                "question": "Estimate the mass, kg, of the earth's atmosphere.",
+                "units": "kg",
+                "answer": 61200000000.0,
+                "context": "",
+                "llm_output": "5.15e18=CONTEXT:=F1: The pressure at sea level is 101325 Pa.=F2: The surface area of the Earth is 5.1e14 m^2.=F3: Pressure is force per unit area, and force is mass times acceleration. The acceleration due to gravity is 9.8 m/s^2.=PROGRAM:=Q1: What is the pressure at sea level?=Q2: What is the surface area of the Earth?=Q3: What is the acceleration due to gravity?=A1: 101325 Pa=A2: 5.1e14 m^2=A3: 9.8 m/s^2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Div (Mul (Q1, Q2), Q3)",
+                "prediction": 5.167575e+19,
+                "program": "CONTEXT:=F1: The pressure at sea level is 101325 Pa.=F2: The surface area of the Earth is 5.1e14 m^2.=F3: Pressure is force per unit area, and force is mass times acceleration. The acceleration due to gravity is 9.8 m/s^2.=PROGRAM:=Q1: What is the pressure at sea level?=Q2: What is the surface area of the Earth?=Q3: What is the acceleration due to gravity?=A1: 101325 Pa=A2: 5.1e14 m^2=A3: 9.8 m/s^2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Div (Mul (Q1, Q2), Q3)",
+                "program_valid": true,
+                "direct_accuracy": 0.6326486308680594,
+                "accuracy": 0.5862268899625853
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many leaves are there in the world?",
+                "units": "leaves",
+                "answer": 1.5e+17,
+                "context": "",
+                "llm_output": "\n3.0e+15=CONTEXT:=F1: There are approximately 3 trillion trees in the world.=F2: Each tree has approximately 1000 leaves.=PROGRAM:=Q1: How many trees are there in the world?=Q2: How many leaves does each tree have?=A1: 3.0e+12 trees=A2: 1000 leaves=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9505425891519298
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.9467050840878347,
+            "parsable": 1,
+            "metadata": {
+                "question": "What is the CO2 emissions from the creation of GPT-3, the deep net of unprecedented size that can write Javascript and finish your GoT fan fiction?",
+                "units": "kg",
+                "answer": 85000.0,
+                "context": "",
+                "llm_output": "\n284000.0=CONTEXT:=F1: Training GPT-3 emits as much CO2 as the lifetime emissions of 5 cars.=F2: The average lifetime emissions of a car is 57,000 kg.=PROGRAM:=Q1: How many cars' lifetime emissions is equivalent to the CO2 emissions from creating GPT-3?=Q2: What is the average lifetime emissions of a car?=A1: 5=A2: 57000 kg=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 285000,
+                "program": "CONTEXT:=F1: Training GPT-3 emits as much CO2 as the lifetime emissions of 5 cars.=F2: The average lifetime emissions of a car is 57,000 kg.=PROGRAM:=Q1: How many cars' lifetime emissions is equivalent to the CO2 emissions from creating GPT-3?=Q2: What is the average lifetime emissions of a car?=A1: 5=A2: 57000 kg=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.9468599218064833,
+                "accuracy": 0.9467050840878347
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many songs contain the lyrics 'baby'?",
+                "units": "songs",
+                "answer": 255000.0,
+                "context": "",
+                "llm_output": "\n100000.0=CONTEXT:=F1: Approximately 1% of all songs contain the lyrics 'baby'.=F2: There are approximately 10 million songs in the world.=PROGRAM:=Q1: What percentage of songs contain the lyrics 'baby'?=Q2: How many songs are there in the world?=A1: 0.01=A2: 1e7 songs=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.962402926191348
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.6296462049113674,
+            "parsable": 1,
+            "metadata": {
+                "question": "If a human body were to increase in volume without increasing in mass how large would they have to grow before they were lighter than air?",
+                "units": "cm**3",
+                "answer": 6464315.0,
+                "context": "",
+                "llm_output": "\n7.5e7=CONTEXT:=F1: The average mass of a human is 70 kg.=F2: The density of air is 1.2 kg/m^3.=PROGRAM:=Q1: What is the average mass of a human?=Q2: What is the density of air?=A1: 70 kg=A2: 1.2 kg/m^3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 58.333333333333336,
+                "program": "CONTEXT:=F1: The average mass of a human is 70 kg.=F2: The density of air is 1.2 kg/m^3.=PROGRAM:=Q1: What is the average mass of a human?=Q2: What is the density of air?=A1: 70 kg=A2: 1.2 kg/m^3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.9218460293901635,
+                "accuracy": 0.6296462049113674
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many tenured professors are there in the world?",
+                "units": "professors",
+                "answer": 500000.0,
+                "context": "",
+                "llm_output": "\n1.0e6=CONTEXT:==PROGRAM:==P: 1.0e6",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.9345979063445429,
+            "parsable": 1,
+            "metadata": {
+                "question": "How big would an iPhone 6 be if implemented using the technology of ENIAC, the first digital computer?",
+                "units": "cm**3",
+                "answer": 90978261.0,
+                "context": "",
+                "llm_output": "\n1.0e9=CONTEXT:=F1: The ENIAC computer was about 1 million times larger than an iPhone 6.=PROGRAM:=Q1: How much larger was the ENIAC computer compared to an iPhone 6?=A1: 1.0e6=Q1 -> A1 | F1=P: Mul (Q1, 1.0e3)",
+                "prediction": 1000000000.0,
+                "program": "CONTEXT:=F1: The ENIAC computer was about 1 million times larger than an iPhone 6.=PROGRAM:=Q1: How much larger was the ENIAC computer compared to an iPhone 6?=A1: 1.0e6=Q1 -> A1 | F1=P: Mul (Q1, 1.0e3)",
+                "program_valid": true,
+                "direct_accuracy": 0.9345979063445429,
+                "accuracy": 0.9345979063445429
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How much food has an average 30 year old American eaten?",
+                "units": "lb",
+                "answer": 59880.0,
+                "context": "",
+                "llm_output": "\n60000.0=CONTEXT:=F1: An average American eats about 2000 pounds of food a year.=F2: An average American starts eating solid food at about 1 year old.=PROGRAM:=Q1: How much food does an average American eat in a year?=Q2: At what age does an average American start eating solid food?=Q3: How many years has an average 30 year old American been eating solid food?=A1: 2000 lb=A2: 1 year=A3: 30 years - A2=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F2=P: Mul (A1, A3)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.999909000687993
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.8431928224233014,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many pizza boxes would we need to cover the classroom floor?",
+                "units": "boxes",
+                "answer": 820.0,
+                "context": "",
+                "llm_output": "\n100.0=CONTEXT:=F1: The area of a pizza box is 0.09 m^2.=F2: The area of the classroom is 9 m^2.=PROGRAM:=Q1: What is the area of a pizza box?=Q2: What is the area of the classroom?=A1: 0.09 m^2=A2: 9 m^2=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q2, Q1)",
+                "prediction": 100.0,
+                "program": "CONTEXT:=F1: The area of a pizza box is 0.09 m^2.=F2: The area of the classroom is 9 m^2.=PROGRAM:=Q1: What is the area of a pizza box?=Q2: What is the area of the classroom?=A1: 0.09 m^2=A2: 9 m^2=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q2, Q1)",
+                "program_valid": true,
+                "direct_accuracy": 0.8431928224233014,
+                "accuracy": 0.8431928224233014
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "According to some recent highly accurate measurements made from satellites, the continent of North America is drifting at a rate of about 1 cm per year. Assuming a continent is about 50 km thick, estimate the kinetic energy the continental US has as a result of this motion.",
+                "units": "kg*km**2*year**-2",
+                "answer": 340000000000.0,
+                "context": "",
+                "llm_output": "\n1.0e15=CONTEXT:=F1: The mass of the continental US is approximately 2.3e22 kg.=F2: The velocity of the continental US is 1 cm/year.=F3: The kinetic energy of an object is given by the formula 1/2*m*v^2.=PROGRAM:=Q1: What is the mass of the continental US?=Q2: What is the velocity of the continental US?=Q3: What is the formula for kinetic energy?=A1: 2.3e22 kg=A2: 1e-5 km/year=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Mul (0.5, Mul (A1, Pow (A2, 2)))",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.849606407474692
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "What temperature would air have to be to give you a third-degree burn over the periods of 1 minute?",
+                "units": "degree F",
+                "answer": 162.0,
+                "context": "",
+                "llm_output": "\n150.0=CONTEXT:=F1: A third-degree burn can occur at a temperature of 150 degrees Fahrenheit in 1 minute.=PROGRAM:=Q1: What is the temperature at which a third-degree burn can occur in 1 minute?=A1: 150 degree F=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9924364045355095
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many fewer people would have solar panels if there were no subsidies for installing it?",
+                "units": "people",
+                "answer": 1000000.0,
+                "context": "",
+                "llm_output": "\n1.0e6=CONTEXT:=F1: Around 1 million people have installed solar panels due to subsidies.=PROGRAM:=Q1: How many people have installed solar panels due to subsidies?=A1: 1.0e6 people=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 1.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many gallons of gasoline does a car use in its lifetime?",
+                "units": "gal",
+                "answer": 7872.0,
+                "context": "",
+                "llm_output": "\n15000.0=CONTEXT:=F1: The average car is driven 13500 miles per year.=F2: The average lifespan of a car is 11.5 years.=F3: The average fuel efficiency of a car is 25 miles per gallon.=PROGRAM:=Q1: How many miles does a car drive in a year?=Q2: What is the lifespan of a car?=Q3: What is the fuel efficiency of a car?=Q4: How many miles does a car drive in its lifetime?=Q5: How many gallons of gasoline does a car use in its lifetime?=A1: 13500 miles=A2: 11.5 years=A3: 25 miles/gallon=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> Mul (Q1, Q2)=Q5 -> Div (Q4, Q3)=P: Q5",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9640657008912847
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many ants are there?",
+                "units": "ants",
+                "answer": 1200000000000000.0,
+                "context": "",
+                "llm_output": "\n1e15=CONTEXT:=F1: There are approximately 1 million ants for every human on Earth.=F2: The current human population is around 7.8 billion.=PROGRAM:=Q1: How many ants are there for every human?=Q2: What is the current human population?=A1: 1e6 ants=A2: 7.8e9 humans=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9973744845706443
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.9773530631722398,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many books are read by children in our school in one year?",
+                "units": "books",
+                "answer": 15480.0,
+                "context": "",
+                "llm_output": "\n10000.0=CONTEXT:=F1: There are 500 students in our school.=F2: Each student reads 20 books in a year.=PROGRAM:=Q1: How many students are there in our school?=Q2: How many books does each student read in a year?=A1: 500=A2: 20=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 10000,
+                "program": "CONTEXT:=F1: There are 500 students in our school.=F2: Each student reads 20 books in a year.=PROGRAM:=Q1: How many students are there in our school?=Q2: How many books does each student read in a year?=A1: 500=A2: 20=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.9773530631722398,
+                "accuracy": 0.9773530631722398
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.7427354769483765,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many years would it take if it were possible to drive to the moon?",
+                "units": "years",
+                "answer": 8.77,
+                "context": "",
+                "llm_output": "\n0.238=CONTEXT:=F1: The average distance from the Earth to the Moon is 238,855 miles.=F2: The average speed of a car is 60 miles per hour.=F3: There are 8760 hours in a year.=PROGRAM:=Q1: What is the average distance from the Earth to the Moon?=Q2: What is the average speed of a car?=Q3: How many hours are there in a year?=A1: 238855 miles=A2: 60 miles/hour=A3: 8760 hours/year=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Div (Q1, Mul (Q2, Q3))",
+                "prediction": 26.804041067761805,
+                "program": "CONTEXT:=F1: The average distance from the Earth to the Moon is 238,855 miles.=F2: The average speed of a car is 60 miles per hour.=F3: There are 8760 hours in a year.=PROGRAM:=Q1: What is the average distance from the Earth to the Moon?=Q2: What is the average speed of a car?=Q3: How many hours are there in a year?=A1: 238855 miles=A2: 60 miles/hour=A3: 8760 hours/year=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Div (Q1, Mul (Q2, Q3))",
+                "program_valid": true,
+                "direct_accuracy": 0.16944681251024374,
+                "accuracy": 0.7427354769483765
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "Out of all songs ever recorded, what percentage of songs are in the time signature 4/4?",
+                "units": "dimensionless",
+                "answer": 34.0,
+                "context": "",
+                "llm_output": "\n0.7=CONTEXT:==PROGRAM:=Q1: What is the percentage of songs in the time signature 4/4?=A1: 0.7=Q1 -> A1 | =P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "Roughly how much would it cost per person to provide free food to everyone per day?",
+                "units": "USD",
+                "answer": 36.0,
+                "context": "",
+                "llm_output": "\n2.0=CONTEXT:=F1: The cost of a meal is around $2.=F2: An average person eats 3 meals a day.=PROGRAM:=Q1: What is the cost of a meal?=Q2: How many meals does an average person eat in a day?=A1: 2 USD=A2: 3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.5967132018345486
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 1,
+            "metadata": {
+                "question": "Under ideal conditions, the bacterium eNSO can reproduce in 10 minutes. eNSO is rodlike with a diameter of 1 micro meters and a length of 5 micro meters. If you start a culture of one eNSO bacterium and they only have onions as its food source, how many minutes elapse before the culture has consumed an amount equal to the onion mass consumed in the US in a year?",
+                "units": "min",
+                "answer": 440,
+                "context": "",
+                "llm_output": "\n1.0e+12=CONTEXT:=F1: The mass of an onion consumed by eNSO in one reproduction cycle is 1e-12 kg.=F2: The mass of onions consumed in the US in a year is 1e+6 kg.=PROGRAM:=Q1: What is the mass of an onion consumed by eNSO in one reproduction cycle?=Q2: What is the mass of onions consumed in the US in a year?=Q3: How many reproduction cycles are needed to consume the mass of onions consumed in the US in a year?=A1: 1e-12 kg=A2: 1e+6 kg=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> Div (Q2, Q1)=P: Mul (Q3, 10)",
+                "prediction": 1e+19,
+                "program": "CONTEXT:=F1: The mass of an onion consumed by eNSO in one reproduction cycle is 1e-12 kg.=F2: The mass of onions consumed in the US in a year is 1e+6 kg.=PROGRAM:=Q1: What is the mass of an onion consumed by eNSO in one reproduction cycle?=Q2: What is the mass of onions consumed in the US in a year?=Q3: How many reproduction cycles are needed to consume the mass of onions consumed in the US in a year?=A1: 1e-12 kg=A2: 1e+6 kg=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> Div (Q2, Q1)=P: Mul (Q3, 10)",
+                "program_valid": true,
+                "direct_accuracy": 0.0,
+                "accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many pizzas were eaten last year in the U.S.?",
+                "units": "pizzas",
+                "answer": 2089200000.0,
+                "context": "",
+                "llm_output": "\n3.0e9=CONTEXT:=F1: The average American eats about 46 slices of pizza a year.=F2: There are about 330 million people in the U.S.=F3: There are 8 slices in a pizza.=PROGRAM:=Q1: How many slices of pizza does an average American eat in a year?=Q2: How many people are there in the U.S.?=Q3: How many slices are there in a pizza?=A1: 46 slices=A2: 3.3e8 people=A3: 8 slices=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=P: Div (Mul (Q1, Q2), Q3)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9915696580216048
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.829791841302508,
+            "parsable": 1,
+            "metadata": {
+                "question": "How many cars pass by a particular 1 mi stretch on busy highway in a minute?",
+                "units": "cars",
+                "answer": 1077.0,
+                "context": "",
+                "llm_output": "\n100.0=CONTEXT:=F1: On average, a car passes every 0.6 seconds on a busy highway.=PROGRAM:=Q1: What is the average time between each car passing?=A1: 0.6 seconds=Q1 -> A1 | F1=P: Div (60, Q1)",
+                "prediction": 100.0,
+                "program": "CONTEXT:=F1: On average, a car passes every 0.6 seconds on a busy highway.=PROGRAM:=Q1: What is the average time between each car passing?=A1: 0.6 seconds=Q1 -> A1 | F1=P: Div (60, Q1)",
+                "program_valid": true,
+                "direct_accuracy": 0.829791841302508,
+                "accuracy": 0.829791841302508
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many people would COVID-19 kill if it were 1918?",
+                "units": "people",
+                "answer": 15800000.0,
+                "context": "",
+                "llm_output": "\n50000000.0=CONTEXT:=F1: The 1918 flu pandemic killed around 50 million people.=F2: The 1918 flu pandemic and COVID-19 have similar fatality rates.=PROGRAM:=Q1: How many people did the 1918 flu pandemic kill?=Q2: Do the 1918 flu pandemic and COVID-19 have similar fatality rates?=A1: 50000000 people=A2: Yes=Q2 -> A2 | F2=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9652495659029706
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter hole bored through. Estimate the mass, g, of one cylinder.",
+                "units": "g",
+                "answer": 0.036,
+                "context": "",
+                "llm_output": "\n0.5=CONTEXT:=F1: The density of oats is approximately 0.65 g/cm^3.=PROGRAM:=Q1: What is the volume of the outer cylinder?=Q2: What is the volume of the inner cylinder?=Q3: What is the net volume of the oat cylinder?=Q4: What is the density of oats?=A1: 0.314 cm^3=A2: 0.05 cm^3=A3: 0.264 cm^3=A4: 0.65 g/cm^3=Q1 -> A1 | Calculation: Volume of a cylinder = pi * r^2 * h, where r = diameter/2 = 0.5 cm, h = 0.4 cm=Q2 -> A2 | Calculation: Volume of a cylinder = pi * r^2 * h, where r = diameter/2 = 0.2 cm, h = 0.4 cm=Q3 -> A3 | Calculation: Net volume = Volume of outer cylinder - Volume of inner cylinder=Q4 -> A4 | F1=P: Mul (Q3, Q4)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.604256603583202
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How much nuclear material is needed for a tiny reactor to power roughly 10 average American homes?",
+                "units": "kg",
+                "answer": 0.1,
+                "context": "",
+                "llm_output": "\n0.5=CONTEXT:=F1: A tiny reactor can power 10 homes with 0.5 kg of nuclear material.=PROGRAM:=Q1: How much nuclear material is needed for a tiny reactor to power 10 homes?=A1: 0.5 kg=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.6505149978669391
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How far could you theoretically travel back in time before you could no longer find a genetically compatible human to breed with because of differences caused by evolution?",
+                "units": "years",
+                "answer": 8000.0,
+                "context": "",
+                "llm_output": "\n50000.0=CONTEXT:=F1: The last common ancestor of all modern humans lived around 50000 years ago.=PROGRAM:=Q1: When did the last common ancestor of all modern humans live?=A1: 50000 years=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.898044879829038
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.7094754106193351,
+            "parsable": 1,
+            "metadata": {
+                "question": "how fast would you have to be moving to make it from one side of the Earth to the other in 0.3 seconds?",
+                "units": "km*s**-1",
+                "answer": 66791.0,
+                "context": "",
+                "llm_output": "\n133333.33=CONTEXT:=F1: The diameter of the Earth is approximately 12742 km.=F2: The time taken is 0.3 seconds.=PROGRAM:=Q1: What is the diameter of the Earth?=Q2: What is the time taken to travel from one side of the Earth to the other?=A1: 12742 km=A2: 0.3 s=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "prediction": 42473333.333333336,
+                "program": "CONTEXT:=F1: The diameter of the Earth is approximately 12742 km.=F2: The time taken is 0.3 seconds.=PROGRAM:=Q1: What is the diameter of the Earth?=Q2: What is the time taken to travel from one side of the Earth to the other?=A1: 12742 km=A2: 0.3 s=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+                "program_valid": true,
+                "direct_accuracy": 0.9688872195936392,
+                "accuracy": 0.7094754106193351
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many minutes does the average student play video games per day?",
+                "units": "min",
+                "answer": 240.0,
+                "context": "",
+                "llm_output": "\n83.0=CONTEXT:==PROGRAM:=Q1: What is the average time a student plays video games per day?=A1: 83 min=Q1 -> A1 | =P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How much oil is there left in the world?",
+                "units": "barrels",
+                "answer": 98800000000000.0,
+                "context": "",
+                "llm_output": "1.7e12=CONTEXT:=F1: The world has around 1.7 trillion barrels of oil left.=PROGRAM:=Q1: How much oil is left in the world?=A1: 1.7e12 barrels=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9369653924615289
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How much oil, gas and coal have humans consumed up till now?",
+                "units": "BTUs",
+                "answer": 6.8e+19,
+                "context": "",
+                "llm_output": "\n1.0e+18=CONTEXT:=F1: Humans have consumed about 135 billion barrels of oil.=F2: Each barrel of oil contains about 5.8 million BTUs.=F3: Humans have consumed about 132 trillion cubic feet of natural gas.=F4: Each cubic foot of natural gas contains about 1031 BTUs.=F5: Humans have consumed about 15 billion short tons of coal.=F6: Each short ton of coal contains about 20 million BTUs.=PROGRAM:=Q1: How many barrels of oil have humans consumed?=Q2: How many BTUs does each barrel of oil contain?=Q3: How many cubic feet of natural gas have humans consumed?=Q4: How many BTUs does each cubic foot of natural gas contain?=Q5: How many short tons of coal have humans consumed?=Q6: How many BTUs does each short ton of coal contain?=A1: 1.35e+11 barrels=A2: 5.8e+6 BTUs=A3: 1.32e+14 cubic feet=A4: 1031 BTUs=A5: 1.5e+10 short tons=A6: 2.0e+7 BTUs=Q1 -> A1 | F1=Q2 -> A2 | F2=Q3 -> A3 | F3=Q4 -> A4 | F4=Q5 -> A5 | F5=Q6 -> A6 | F6=P: Add (Mul (Q1, Q2), Mul (Q3, Q4), Mul (Q5, Q6))",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9538003759190813
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "The Federal Budget Deficit is approximately $100 Billion this year. How much do Americans spend on food in grocery stores in one year?",
+                "units": "USD",
+                "answer": 6600.0,
+                "context": "",
+                "llm_output": "\n1.0e11=CONTEXT:==PROGRAM:=P: 1.0e11 USD",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.0
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many musical notes are played on your favorite radio station in a given year?",
+                "units": "notes",
+                "answer": 766500.0,
+                "context": "",
+                "llm_output": "\n1.0e7=CONTEXT:=F1: A song typically has around 500 notes.=F2: A radio station typically plays around 20,000 songs in a year.=PROGRAM:=Q1: How many notes does a typical song have?=Q2: How many songs does a radio station typically play in a year?=A1: 500 notes=A2: 20000=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.90521832476389
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "How many pages are there in all books that are read by children in our school in one year?",
+                "units": "pages",
+                "answer": 495360.0,
+                "context": "",
+                "llm_output": "\n1.0e6=CONTEXT:=F1: There are 500 students in our school.=F2: Each student reads an average of 2000 pages per year.=PROGRAM:=Q1: How many students are there in our school?=Q2: How many pages does each student read per year?=A1: 500=A2: 2000 pages=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.9732148111599979
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    },
+    {
+        "no-context": {
+            "accuracy": 0.0,
+            "parsable": 0,
+            "metadata": {
+                "question": "What percent of organ donors die and actually meet the criteria to donate?",
+                "units": "dimensionless",
+                "answer": 0.1,
+                "context": "",
+                "llm_output": "\n0.03=CONTEXT:=F1: Only 3% of people who die are eligible to donate organs.=PROGRAM:=Q1: What percent of people who die are eligible to donate organs?=A1: 0.03=Q1 -> A1 | F1=P: A1",
+                "prediction": 0.0,
+                "program": "",
+                "program_valid": false,
+                "accuracy": 0.0,
+                "direct_accuracy": 0.738560627385975
+            }
+        },
+        "regular-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        },
+        "distractor-context": {
+            "accuracy": 0,
+            "parsable": 0,
+            "metadata": {}
+        }
+    }
+]
