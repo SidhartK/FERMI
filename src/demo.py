@@ -22,14 +22,14 @@ load_dotenv()
 
 # DATASET_PATH = "./data/verified_data/dataset.json"
 # OUTPUT_STORE_PATH = "./results/expmt2/output_store.json"
-
+MODEL_NAME = "gpt-3.5-turbo"
 client = OpenAI(
     # This is the default and can be omitted
     api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
 class SamplePredictor:
-    def __init__(self, model_name="gpt-4", temperature=0):
+    def __init__(self, model_name=MODEL_NAME, temperature=0):
         self.model_name = model_name
         self.temperature = temperature
 
